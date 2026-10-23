@@ -68,5 +68,67 @@ def out_of_sample_abnormal(
     return (test[stock] - test[factors] @ betas).cumsum().rename(stock)
 
 
+def _event_frame(
+    stock: pd.Series, market: pd.Series, event_day: str, estimation: tuple[int, int]
+) -> tuple[pd.DataFrame, int, pd.Series, float]:
+    """Align log prices, locate the event and fit the market model on the estimation window.
+
+    Takes log PRICES: they are aligned on common trading days before differencing, so stock and
+    market returns always cover the same period. The event is placed on the first common trading
+    day on/after `event_day`. Returns the aligned returns, the event's row position, the
+    market-model parameters and the residual standard deviation.
+    """
+    data = pd.concat({"stock": stock, "market": market}, axis=1).dropna().diff().dropna()
+    pos = int(data.index.searchsorted(pd.Timestamp(event_day)))
+    est = data.iloc[pos + estimation[0] : pos + estimation[1] + 1]
+    fit = sm.OLS(est["stock"], sm.add_constant(est["market"])).fit()
+    return data, pos, fit.params, float(np.sqrt(fit.mse_resid))
+
+
+def event_car(
+    stock: pd.Series,
+    market: pd.Series,
+    event_day: str,
+    window: tuple[int, int] = (-1, 1),
+    estimation: tuple[int, int] = (-250, -21),
+) -> pd.Series:
+    """Cumulative abnormal return (market model) over `window` trading days around the event.
+
+    `stock` and `market` are daily LOG PRICES (see `_event_frame`).
+    t-statistic assumes independent abnormal returns: CAR / (residual sd x sqrt(window length)).
+    """
+    data, pos, params, sigma = _event_frame(stock, market, event_day, estimation)
+    ev = data.iloc[pos + window[0] : pos + window[1] + 1]
+    abnormal = ev["stock"] - (params["const"] + params["market"] * ev["market"])
+    car = float(abnormal.sum())
+    return pd.Series(
+        {
+            "event_trading_day": data.index[pos].date(),
+            "car": car,
+            "t": car / (sigma * np.sqrt(len(ev))),
+            "days": len(ev),
+        }
+    )
+
+
+def event_path(
+    stock: pd.Series,
+    market: pd.Series,
+    event_day: str,
+    span: tuple[int, int] = (-10, 20),
+    estimation: tuple[int, int] = (-250, -21),
+) -> pd.Series:
+    """Cumulative abnormal return indexed by trading day relative to the event (for charts).
+
+    `stock` and `market` are daily LOG PRICES. Cumulated from the start of `span`, then re-based so the day before the event is zero.
+    """
+    data, pos, params, _ = _event_frame(stock, market, event_day, estimation)
+    ev = data.iloc[pos + span[0] : pos + span[1] + 1]
+    abnormal = ev["stock"] - (params["const"] + params["market"] * ev["market"])
+    path = abnormal.cumsum()
+    path.index = range(span[0], span[0] + len(path))
+    return path - path.loc[-1]
+
+
 def annualised_vol(weekly_log_returns: pd.Series) -> float:
     return float(weekly_log_returns.std() * np.sqrt(52))

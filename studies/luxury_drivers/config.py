@@ -27,5 +27,10 @@ FACTORS = {
     "MCHI": "iShares MSCI China ETF (robustness)",
 }
 
+# Event study (daily): each stock's benchmark index. Prada is compared with the Hang Seng in
+# local currency because its trading hours do not overlap with Europe's.
+EVENT_MARKET = {"1913.HK": "^HSI"}
+EVENT_MARKET_DEFAULT = "^STOXX"
+
 # ECB reference rates: units of foreign currency per 1 EUR.
 ECB_CURRENCIES = ["USD", "CHF", "GBP", "HKD", "CNY"]

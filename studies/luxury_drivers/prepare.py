@@ -49,6 +49,24 @@ def weekly_log_returns(wide: pd.DataFrame) -> pd.DataFrame:
     return np.log(weekly).diff().iloc[1:]
 
 
+def build_daily_log_prices() -> pd.DataFrame:
+    """Daily log prices for the event study (returns are computed later, per stock/index pair).
+
+    European listings in EUR; Prada in HKD (it is benchmarked against the Hang Seng in local
+    currency). Returns must be taken only after aligning a stock with its index on common
+    trading days; otherwise a day missing from one series makes the next return span two days.
+    """
+    prices, fx = load_raw()
+    is_stock = prices["ticker"].isin(STOCKS)
+    stocks = convert_to_eur(
+        to_wide(prices[is_stock]),
+        fx,
+        {t: ccy for t, (_, ccy) in STOCKS.items() if t != "1913.HK"},
+    )
+    indices = to_wide(prices[~is_stock], column="close")
+    return np.log(pd.concat([stocks, indices], axis=1))
+
+
 def build_weekly_dataset(start: str) -> pd.DataFrame:
     """Weekly EUR log returns for the stocks plus the three factor series.
 

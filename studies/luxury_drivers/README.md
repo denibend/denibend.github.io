@@ -22,7 +22,9 @@ Status: **analysis in progress, not published.** Findings below are preliminary.
 
 Validation (2026-10-23): no missing weeks in 2014-01 → 2026-10, no stale prices, no corporate actions
 beyond ordinary dividends (Kering's 2018 Puma distribution is already back-adjusted by Yahoo).
-Extreme daily moves reviewed; all match known events except Kering −16.6% on 2026-10-23 (to verify).
+Extreme daily moves reviewed; all match known events (Kering −16.6% on 2026-10-23 = Q3 2026 revenue,
+Gucci −6% comparable). Yahoo's STOXX 600 series lacks 64 days since 2014 on which Paris/London traded
+(e.g. Ascension); the event study therefore aligns stock and index *prices* before computing returns.
 
 ## Method
 - Friday-to-Friday log returns in EUR (weekly sampling limits asynchronous-close bias between
@@ -44,6 +46,18 @@ Extreme daily moves reviewed; all match known events except Kering −16.6% on 2
 - **H3:** since 2023 every stock except Richemont underperformed its factor-implied return:
   Kering −133, Burberry −107, LVMH −93, Moncler −46, Hermès −43, Prada −40, Cucinelli −13,
   Richemont +3 (cumulative log points).
+
+### Creative-director event study (preliminary)
+15 announcements 2015–2025 in [events.csv](events.csv), each with source and confounders. Daily market
+model (estimation window −250…−21 trading days; STOXX 600 in EUR, Prada vs Hang Seng in HKD).
+- Strong reactions only where the brand dominates group profit: **Demna → Gucci −13.0% on the day**
+  (t −5.9), **Tisci → Burberry +5.2%** (t 3.5), Tisci→Lee at Burberry +3.8% (t 2.4),
+  Michele → Gucci +2.8% (t 2.3).
+- LVMH events (Abloh, Pharrell, Chiuri, Anderson) show no significant reaction, consistent with
+  dilution across ~75 maisons.
+- Departures move stocks less than appointments (often leaked or anticipated).
+- Multiple testing: 15 events × several windows; only Demna and Tisci (|t| > 3.3) survive a
+  Bonferroni-style threshold. Prada/Raf Simons is confounded by the Feb 2020 COVID sell-off.
 
 ## Reproduce
 ```bash
