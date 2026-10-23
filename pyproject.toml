@@ -1,0 +1,32 @@
+[project]
+name = "portfolio"
+version = "0.1.0"
+description = "Market research & interactive analytics portfolio by Denisa Bendaj"
+requires-python = ">=3.13"
+dependencies = [
+    "jinja2",
+    "numpy",
+    "pandas",
+    "plotly",
+    "requests>=2.34.2",
+    "scipy",
+    "statsmodels",
+    "yfinance>=1.7.0",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel",
+    "pytest",
+    "ruff",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
