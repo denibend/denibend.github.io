@@ -3,18 +3,22 @@
 ## Completed
 - 2026-10-23 · Phase 0: charter agreed; tooling chosen (uv, Python 3.13, Plotly static HTML on GitHub
   Pages from `docs/`); local project and environment created and verified.
+- 2026-10-23 · Git configured (noreply email), local repo initialised; GitHub CLI authenticated as `denibend`.
+- 2026-10-23 · Study 01: data pipeline + validation, factor model, out-of-sample abnormal returns,
+  creative-director event study (15 sourced events); 10 tests passing.
 
 ## Current objectives
-- Phase 0 finish: Git initialised locally; GitHub auth (`gh auth login`); create public repo
-  `denibend/denibend.github.io` and enable Pages, **after approval**.
+- Phase 0 finish: create public repo `denibend/denibend.github.io` and enable Pages, **after approval**.
 - Phase 1, Study 01: **What drives European luxury stocks? FX, China and the market.**
   - Universe (agreed): LVMH, Hermès, Kering, Richemont, Moncler, Burberry, Prada, Brunello Cucinelli.
   - Period (agreed): Jan 2014 – latest.
   - Core (agreed): weekly-return factor regressions (STOXX 600, EUR/USD from ECB, Hang Seng), rolling
     betas, common vs idiosyncratic variance, post-2023 divergence.
-  - Proposed modules (awaiting confirmation): creative-director event study (abnormal returns
-    vs the factor model; dates from primary sources, reviewed by Denisa); descriptive tier split
-    (top-tier vs aspirational; classification by Denisa).
+  - Event study: done (preliminary); Denisa to review events.csv; Saint Laurent/Vaccarello exit
+    (reportedly Oct 2026) unverified.
+  - To do: luxury-peer factor (sector vs brand-specific), tier split (Hermès+Cucinelli top tier;
+    Richemont hard luxury; LVMH diversified; Kering, Burberry, Prada, Moncler aspirational),
+    charts, dashboard, report.
   - Licensing: Yahoo Finance prices used for analysis only; publish derived results.
 
 ## Luxury research series (from Denisa's input, 2026-10-23)
@@ -33,7 +37,6 @@
 - Europe's Political Fragmentation 1985–2025 (ParlGov, PopuList; effective number of parties).
 
 ## Outstanding decisions
-- Study 01: confirm the creative-director and tier modules; brand tier classification.
 - Report and dashboard: one page with two sections, or two linked pages.
 
 ## Technical debt / notes
