@@ -16,10 +16,11 @@
     betas, common vs idiosyncratic variance, post-2023 divergence.
   - Event study: done (preliminary). 16 creative + 4 Kering management events (incl. Vaccarello's
     Saint Laurent exit, 9 Oct 2026, verified); reviewed by Denisa 2026-10-24.
-  - Done: luxury-peer factor (sector vs brand split), tier split, draft dashboard
-    (docs/studies/luxury-drivers/index.html), checked visually on desktop and at ~520px width.
-  - To do: Denisa reviews dashboard + interpretation; written research report (Deliverable A);
-    portfolio landing page; licensing decision for publishing Yahoo-derived series; dark mode.
+  - Done: luxury-peer factor (sector vs brand split), tier split, draft report
+    (docs/studies/luxury-drivers/index.html) and dashboard (…/dashboard.html), minimal landing page
+    (docs/index.html); checked visually on desktop and at ~520px width.
+  - To do: Denisa reviews report + interpretation; licensing decision for publishing Yahoo-derived series; dark mode; check remaining
+    flagged extreme moves against news (list in study README).
   - Licensing: Yahoo Finance prices used for analysis only; publish derived results.
 
 ## Luxury research series (from Denisa's input, 2026-10-23)

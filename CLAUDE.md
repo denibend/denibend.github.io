@@ -22,7 +22,13 @@ explain afterwards. Standing approval (2026-10-24): routine pushes to `main` whi
   GitHub Pages (branch `main`, folder `/docs`). No server, no CI yet.
 - One folder per study in `studies/<slug>/`:
   `fetch.py` (acquisition) → `analysis.py` (pure calculations, tested) → `charts.py` (figures)
-  → `build.py` (writes `docs/studies/<slug>/`). Each study has its own README.md.
+  → `build.py` (writes `docs/studies/<slug>/index.html` = report, `dashboard.html` = dashboard).
+  Each study has its own README.md. Templates live in `studies/<slug>/templates/`.
+- `docs/assets/site.css` is the shared, hand-maintained stylesheet; `docs/index.html` is the hand-written
+  landing page. Everything else under `docs/studies/` is generated, so edit templates, not output.
+- Preview locally with `uv run python -m http.server 8765 --directory docs` (relative links need a server).
+- Review rendered pages (headless Chrome screenshot) and check every number in the text against the
+  computed results; inject numbers from build.py rather than typing them into templates.
 - No shared library until a second study genuinely reuses code; then create `src/`/`common/` and refactor.
 
 ## Conventions

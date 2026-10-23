@@ -22,8 +22,10 @@ Status: **analysis in progress, not published.** Findings below are preliminary.
 
 Validation (2026-10-23): no missing weeks in 2014-01 → 2026-10, no stale prices, no corporate actions
 beyond ordinary dividends (Kering's 2018 Puma distribution is already back-adjusted by Yahoo).
-Extreme daily moves reviewed; all match known events (Kering −16.6% on 2026-10-23 = Q3 2026 revenue,
-Gucci −6% comparable). Yahoo's STOXX 600 series lacks 64 days since 2014 on which Paris/London traded
+Extreme daily moves (>15%) flagged. Confirmed against news: Kering −16.6% on 2026-10-23 (Q3 2026 revenue,
+Gucci −6% comparable), Kering −10.7% on 2025-03-14 (Demna), Richemont 2015-01-15 (SNB franc shock).
+Still to check: Kering +16.9% 2026-07-29, Cucinelli −17.3% 2025-09-25, Burberry 2024-07-15/2024-11-14/
+2025-05-14, Richemont +16.4% 2025-01-16. Yahoo's STOXX 600 series lacks 64 days since 2014 on which Paris/London traded
 (e.g. Ascension); the event study therefore aligns stock and index *prices* before computing returns.
 
 ## Method
@@ -41,8 +43,8 @@ Gucci −6% comparable). Yahoo's STOXX 600 series lacks 64 days since 2014 on wh
 - **H2 not supported at weekly frequency:** euro strength coincides with *higher* luxury returns
   (positive EUR/USD beta, significant for several names; Prada/Burberry's negative EUR betas are a
   conversion artefact and turn positive in local currency).
-- **H1 partly supported:** significant China beta for Kering, Richemont, Burberry, Prada (robust to
-  the MSCI China ETF); strongest in 2020–22, faded in 2023–26 except Prada (HK-listed).
+- **H1 partly supported:** significant China beta for Kering, Richemont, Burberry, Prada and (marginally,
+  t≈2.0) Hermès; 7 of 8 with the MSCI China ETF; strongest in 2020–22, faded in 2023–26 except Prada (HK-listed).
 - **H3:** since 2023 every stock except Richemont underperformed its factor-implied return:
   Kering −133, Burberry −107, LVMH −93, Moncler −46, Hermès −43, Prada −40, Cucinelli −13,
   Richemont +3 (cumulative log points).

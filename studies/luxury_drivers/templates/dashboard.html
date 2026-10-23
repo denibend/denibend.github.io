@@ -6,47 +6,15 @@
 <title>What Drives European Luxury Stocks? · Denisa Bendaj</title>
 <meta name="description" content="Market, currency and China exposure, creative-director changes and the post-2023 divergence of eight European luxury stocks, 2014–2026.">
 <script src="https://cdn.plot.ly/plotly-{{ plotly_version }}.min.js" charset="utf-8"></script>
-<style>
-  :root {
-    color-scheme: light;
-    --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
-    --grid: #e1e0d9; --border: rgba(11,11,11,0.10); --accent: #2a78d6; --warn-bg: #fff6e0;
-    --font: system-ui, -apple-system, "Segoe UI", sans-serif;
-  }
-  * { box-sizing: border-box; }
-  body { margin: 0; background: var(--page); color: var(--ink); font: 16px/1.6 var(--font); }
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 32px 16px 64px; }
-  header .kicker { color: var(--muted); font-size: 13px; letter-spacing: .04em; text-transform: uppercase; }
-  h1 { font-size: clamp(28px, 4vw, 40px); line-height: 1.15; margin: 8px 0 8px; }
-  .lede { color: var(--ink-2); font-size: 18px; max-width: 760px; margin: 0; }
-  .meta { color: var(--muted); font-size: 13px; margin-top: 12px; }
-  .draft { background: var(--warn-bg); border: 1px solid #f0d58a; border-radius: 8px; padding: 10px 14px;
-           font-size: 14px; margin: 20px 0 0; }
-  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 28px 0 8px; }
-  .tile { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
-  .tile .label { color: var(--ink-2); font-size: 13px; }
-  .tile .value { font-size: 30px; font-weight: 600; line-height: 1.2; margin: 6px 0 2px; }
-  .tile .note { color: var(--muted); font-size: 13px; }
-  section { margin-top: 48px; }
-  h2 { font-size: 24px; line-height: 1.25; margin: 0 0 8px; }
-  h3 { font-size: 16px; margin: 24px 0 4px; }
-  p, li { max-width: 780px; }
-  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 12px 4px; margin: 16px 0; }
-  .card .hint { color: var(--muted); font-size: 13px; margin: 0 4px 4px; }
-  details { margin: 8px 0 0; }
-  summary { cursor: pointer; color: var(--accent); font-size: 14px; }
-  .table-wrap { overflow-x: auto; margin-top: 8px; }
-  table.data { border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; }
-  table.data th, table.data td { padding: 6px 10px; border-bottom: 1px solid var(--grid); text-align: right; white-space: nowrap; }
-  table.data th:first-child, table.data td:first-child { text-align: left; }
-  table.data thead th { color: var(--ink-2); font-weight: 600; }
-  .callout { border-left: 3px solid var(--accent); padding: 2px 0 2px 14px; color: var(--ink-2); }
-  footer { margin-top: 64px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--grid); padding-top: 16px; }
-  a { color: var(--accent); }
-</style>
+<link rel="stylesheet" href="../../assets/site.css">
 </head>
 <body>
 <div class="wrap">
+<nav class="site-nav">
+  <a class="home" href="../../">Denisa Bendaj · Research</a>
+  <a href="./">Report</a>
+  <a href="dashboard.html" aria-current="page">Dashboard</a>
+</nav>
 
 <header>
   <div class="kicker">Study 01 · Luxury research series</div>
@@ -116,8 +84,8 @@
       positive for most names, the opposite of the translation-effect hypothesis. A weak dollar tends to
       coincide with global risk appetite; the accounting hit from translation shows up in reported earnings,
       over quarters.</li>
-    <li><strong>China matters beyond the market</strong> for Kering, Richemont, Burberry and Prada, and the result
-      holds with the MSCI China ETF as an alternative proxy.</li>
+    <li><strong>China matters beyond the market</strong> for {{ china_sig[:-1]|join(", ") }} and {{ china_sig[-1] }} (Hermès only marginally). With the
+      MSCI China ETF as the proxy, {{ china_alt_sig }} of 8 are significant.</li>
   </ul>
 </section>
 
@@ -190,7 +158,7 @@
     <li><strong>FX:</strong> ECB euro reference rates (USD, CHF, GBP, HKD); all stocks converted to EUR.</li>
     <li><strong>Returns:</strong> Friday-to-Friday log returns, which limit distortions from markets closing at different times;
       daily returns for the event study, aligned on common trading days.</li>
-    <li><strong>Validation:</strong> no missing weeks; no stale prices; extreme moves checked against news; Yahoo's
+    <li><strong>Validation:</strong> no missing weeks; no stale prices; extreme moves flagged for review (partly checked against news); Yahoo's
       STOXX 600 lacks 64 trading days since 2014, handled by aligning prices before computing returns.</li>
     <li><strong>Events:</strong> each date verified against press coverage, with timing and confounders recorded.</li>
   </ul>

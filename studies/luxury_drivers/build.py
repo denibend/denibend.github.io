@@ -128,6 +128,23 @@ def main() -> None:
         "beta_early": by_period[("2014–2019", "beta_market")].median(),
         "beta_late": by_period[("2023–2026", "beta_market")].median(),
         "sector_median": gap["sector"].median() * 100,
+        "china_sig": list(full.index[full["p_china"] < 0.05]),
+        "china_alt_sig": int(
+            (
+                analysis.factor_table(weekly, stocks, ["market", "eurusd", "china_alt"])[
+                    "p_china_alt"
+                ]
+                < 0.05
+            ).sum()
+        ),
+        "tier_cum": {t: tiers.loc[a:b, t].sum() * 100 for t in TIERS for a, b in PERIODS[2:]},
+        "sector_min": gap["sector"].min() * 100,
+        "sector_max": gap["sector"].max() * 100,
+        # Event results by person, for quoting in the text (car0 in %).
+        "ev": {
+            e.person.replace("->", "→"): {"car0": e.car0 * 100, "t0": e.t0}
+            for e in events.itertuples()
+        },
         "worst_brand": gap["brand"].idxmin(),
         "worst_brand_gap": gap["brand"].min() * 100,
         "best_brand": gap["brand"].idxmax(),
@@ -163,10 +180,12 @@ def main() -> None:
     )
     # Format numbers with a true minus sign (U+2212), as in print typography.
     env.filters["num"] = lambda value, spec="%.0f": (spec % value).replace("-", "\u2212")
-    html = env.get_template("dashboard.html").render(**context)
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    (OUT_DIR / "index.html").write_text(html)
-    print(f"Wrote {OUT_DIR / 'index.html'} ({len(html) / 1e6:.1f} MB)")
+    # The report is the study's landing page; the dashboard is linked from it.
+    for template, filename in [("report.html", "index.html"), ("dashboard.html", "dashboard.html")]:
+        html = env.get_template(template).render(**context)
+        (OUT_DIR / filename).write_text(html)
+        print(f"Wrote {OUT_DIR / filename} ({len(html) / 1e6:.1f} MB)")
 
 
 if __name__ == "__main__":

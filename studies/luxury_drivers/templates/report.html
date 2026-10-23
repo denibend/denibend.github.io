@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Drives European Luxury Stocks? · Denisa Bendaj</title>
+<meta name="description" content="How much of European luxury stock performance is explained by the market, the euro, China, and creative-director and CEO changes, 2014–2026.">
+<script src="https://cdn.plot.ly/plotly-{{ plotly_version }}.min.js" charset="utf-8"></script>
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+<div class="wrap report">
+<nav class="site-nav">
+  <a class="home" href="../../">Denisa Bendaj · Research</a>
+  <a href="./" aria-current="page">Report</a>
+  <a href="dashboard.html">Dashboard</a>
+</nav>
+
+<header>
+  <div class="kicker">Study 01 · Luxury research series</div>
+  <h1>What drives European luxury stocks?</h1>
+  <p class="lede">Market, currency and China exposure, creative-director and CEO changes, and the post-2023
+  divergence of eight European luxury groups, 2014–2026.</p>
+  <div class="meta">Denisa Bendaj · Draft of {{ built }} · Data to {{ data_end }}</div>
+  <div class="draft"><strong>Draft for review — not published.</strong> Findings are preliminary and may change
+  after review.</div>
+</header>
+
+<section>
+  <h2>Executive summary</h2>
+  <div class="summary">
+  <ul>
+    <li><strong>The market dominates, but most weekly movement is company-specific.</strong> The European market,
+      EUR/USD and Chinese equities together explain {{ (r2_min * 100)|num }}–{{ (r2_max * 100)|num }}% of weekly
+      returns. Luxury has also become more market-sensitive: the median market beta rose from
+      {{ beta_early|num("%.2f") }} (2014–19) to {{ beta_late|num("%.2f") }} (2023–26).</li>
+    <li><strong>A stronger euro did not hurt luxury stocks week to week; the sign is the opposite.</strong> The
+      translation effect, if it exists, is not visible in weekly prices.</li>
+    <li><strong>China matters, but less than it did.</strong> Exposure to Chinese equities is significant for
+      {{ china_sig|length }} of 8 stocks over the full sample ({{ china_alt_sig }} of 8 with the MSCI China ETF).
+       It peaked in 2020–22 and has largely faded since.</li>
+    <li><strong>Since 2023 the slowdown has been both a sector shock and a brand story.</strong> Every stock shares a
+      drag of roughly {{ sector_max|num }} to {{ sector_min|num }} log points versus factor-implied returns. On top
+      of that, brand-specific gaps range from {{ worst_brand }} ({{ worst_brand_gap|num }}) to {{ best_brand }}
+      (+{{ best_brand_gap|num }}).</li>
+    <li><strong>Creative-director changes move stocks only where the brand is the profit engine.</strong> Demna's
+      appointment at Gucci cost Kering {{ ev.Demna.car0|num("%.1f") }}% on the day; Tisci's arrival at Burberry
+      added {{ ev["Riccardo Tisci"].car0|num("%.1f") }}%. LVMH designer changes barely registered. At Kering, CEO
+      changes moved the stock more than most creative changes, but the sample is small.</li>
+  </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Research question and hypotheses</h2>
+  <p>How much of European luxury stock performance is explained by common market forces (the equity market,
+  the euro and China), and how much by company-specific events such as creative and management changes?</p>
+  <div class="table-wrap">
+  <table class="data prose">
+    <thead><tr><th>Hypothesis</th><th style="text-align:left">Verdict</th></tr></thead>
+    <tbody>
+      <tr><td>H1 · China exposure matters beyond the market</td><td style="text-align:left">Partly supported ({{ china_sig|length }} of 8; faded after 2022)</td></tr>
+      <tr><td>H2 · A stronger euro hurts returns</td><td style="text-align:left">Not supported (opposite sign at weekly frequency)</td></tr>
+      <tr><td>H3 · The post-2023 divergence is mainly company-specific</td><td style="text-align:left">Partly supported (sector-wide drag plus large brand gaps)</td></tr>
+      <tr><td>H4 · Creative-director changes move the stock</td><td style="text-align:left">Supported only where the brand dominates group profit</td></tr>
+      <tr><td>H5 · Top-tier and aspirational brands diverge</td><td style="text-align:left">Supported descriptively; the gap opened in 2020–22</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section>
+  <h2>Background</h2>
+  <p>European luxury groups are among the largest listed companies in Europe. After a decade of strong returns,
+  the sector slowed from 2023 and its stocks diverged widely. Market commentary usually explains these moves
+  with the Chinese consumer, currency swings, or creative turnover. In 2024–26 Gucci, Bottega Veneta,
+  Balenciaga, Dior and Saint Laurent all changed creative leadership. This study tests how much of the stock
+  behaviour those explanations actually account for.</p>
+</section>
+
+<section>
+  <h2>Data</h2>
+  <div class="table-wrap">
+  <table class="data prose">
+    <thead><tr><th>Series</th><th style="text-align:left">Source</th><th style="text-align:left">Treatment</th></tr></thead>
+    <tbody>
+      <tr><td>8 stocks: LVMH, Hermès, Kering, Richemont, Moncler, Burberry, Prada, Brunello Cucinelli</td><td style="text-align:left">Yahoo Finance (yfinance)</td><td style="text-align:left">Adjusted close (dividends reinvested), converted to EUR</td></tr>
+      <tr><td>STOXX Europe 600, Hang Seng, iShares MSCI China ETF</td><td style="text-align:left">Yahoo Finance</td><td style="text-align:left">Price indices, local currency</td></tr>
+      <tr><td>EUR reference rates (USD, CHF, GBP, HKD)</td><td style="text-align:left">European Central Bank</td><td style="text-align:left">Daily; forward-filled over ECB holidays</td></tr>
+      <tr><td>{{ n_events }} announcements, 2015–2026</td><td style="text-align:left">Company releases and press, one source per event</td><td style="text-align:left">Date, timing and confounders recorded</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Sample: January 2014 to {{ data_end }} ({{ n_weeks }} weeks); data retrieved {{ retrieved }}. Checks found no
+  missing weeks or stale prices. Daily moves larger than 15% were flagged for review; those checked against news
+  coincide with results days or known shocks (e.g. the January 2015 Swiss franc shock), and the rest are still
+  to be checked. Yahoo's STOXX 600
+  series lacks 64 trading days since 2014; the event study handles this by aligning prices before computing
+  returns. Raw provider data is not redistributed.</p>
+</section>
+
+<section>
+  <h2>Methodology</h2>
+  <ul>
+    <li><strong>Factor model:</strong> weekly (Friday-to-Friday) log returns in euros, regressed on the STOXX 600,
+      the change in EUR/USD and the Hang Seng, with Newey–West standard errors. Weekly sampling limits the bias
+      from markets that close at different times.</li>
+    <li><strong>Stability:</strong> sub-periods (2014–19, 2020–22, 2023–26) and 104-week rolling windows.</li>
+    <li><strong>Post-2023 divergence:</strong> sensitivities estimated on 2014–22 only; afterwards, the gap between
+      actual and factor-implied returns. The pre-2023 excess return (alpha) is deliberately not extrapolated,
+      because assuming luxury's 2014–22 outperformance continued would make any slowdown look like a collapse.
+      A leave-one-out peer factor (the other seven stocks) splits the gap into sector-wide and brand-specific parts.</li>
+    <li><strong>Event study:</strong> daily market model estimated over the trading year before each announcement
+      (days −250 to −21). Abnormal returns on the announcement day and over days −1…+1.</li>
+    <li><strong>Robustness:</strong> MSCI China ETF as an alternative China proxy; local-currency returns for
+      non-euro listings.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Results</h2>
+
+  <h3>1 · A decade of luxury, then a split</h3>
+  <div class="card">{{ charts.tiers|safe }}
+    <details><summary>Table view: cumulative log return by period (%)</summary>
+      <div class="table-wrap">{{ tables.tiers|safe }}</div></details></div>
+  <p>Every tier ended 2014–22 higher, led by the diversified group (LVMH); hard luxury lagged until 2020. Since
+  2023 hard luxury (Richemont) has kept rising ({{ tier_cum["Hard luxury"]|num }}%) and the top tier is modestly up
+  ({{ tier_cum["Top tier"]|num }}%), while the aspirational ({{ tier_cum["Aspirational / fashion-led"]|num }}%) and
+  diversified ({{ tier_cum["Diversified group"]|num }}%) groups have fallen. The gap between top-tier and
+  aspirational brands opened earlier than the slowdown, in 2020–22.</p>
+
+  <h3>2 · What moves the stocks week to week</h3>
+  <div class="card">{{ charts.betas|safe }}
+    <details><summary>Table view: full-sample regression results</summary>
+      <div class="table-wrap">{{ tables.factors|safe }}</div></details></div>
+  <p>Every stock is significantly exposed to the European market. The EUR/USD sensitivity is positive wherever it
+  is significant. China exposure is significant for {{ china_sig[:-1]|join(", ") }} and {{ china_sig[-1] }} (Hermès only marginally, t ≈ 2.0); Prada, listed in
+  Hong Kong, is the most exposed.</p>
+
+  <h3>3 · Since 2023: sector shock and brand divergence</h3>
+  <div class="card">{{ charts.gap|safe }}
+    <details><summary>Table view: cumulative log points since January 2023</summary>
+      <div class="table-wrap">{{ tables.gap|safe }}</div></details></div>
+
+  <h3>4 · How investors react to creative and management changes</h3>
+  <div class="card">{{ charts.events|safe }}
+    <details><summary>Table view: all events with confounders</summary>
+      <div class="table-wrap">{{ tables.events|safe }}</div></details></div>
+  <p>Four announcements stand out: Demna to Gucci ({{ ev.Demna.car0|num("%.1f") }}%, t {{ ev.Demna.t0|num("%.1f") }}),
+  Tisci to Burberry (+{{ ev["Riccardo Tisci"].car0|num("%.1f") }}%), Bizzarri leaving Gucci
+  (+{{ ev["Marco Bizzarri → Jean-François Palus"].car0|num("%.1f") }}%) and Luca de Meo named Kering CEO
+  (+{{ ev["Luca de Meo"].car0|num("%.1f") }}%). None of the four LVMH designer changes was significant.</p>
+</section>
+
+<section>
+  <h2>Interpretation</h2>
+  <p><strong>Common factors set the tide, not the outcome.</strong> The market explains most of the shared movement,
+  and macro factors are second-order. Most of what separates winners from losers is company-specific.</p>
+  <p><strong>The euro result runs against intuition.</strong> A plausible reading is that a weaker dollar coincides with
+  global risk appetite and stronger purchasing power for dollar-linked buyers. The currency translation hit arrives
+  through reported earnings over quarters, which weekly prices do not isolate. Testing this properly requires
+  earnings-revision data.</p>
+  <p><strong>China has become a fundamentals story.</strong> The fading link to Chinese equities after 2022 is consistent
+  with Chinese demand now reaching luxury stocks through results and guidance rather than through day-to-day market
+  sentiment. Another possibility is that the Hang Seng has become a weaker proxy for the wealth of Chinese luxury
+  buyers.</p>
+  <p><strong>The slowdown hit everyone, and positioning decided how hard.</strong> Hard luxury and top-tier names held
+  up better than aspirational fashion brands. This is consistent with the view that aspirational buyers retreated
+  first, but it is not proof of it. LVMH's large brand-specific gap is notable for a diversified group and may
+  reflect divisions outside fashion; segment data would be needed to tell.</p>
+  <p><strong>Investors price creative change only where it is material.</strong> When one brand drives group profit, a
+  designer appointment is treated as strategy: the Demna reaction reflects scepticism at announcement, not a verdict
+  on the collections. The larger reactions to Kering's CEO changes fit a company in turnaround, where investors may
+  reward leadership change itself.</p>
+  <p><em>What would weaken these conclusions:</em> results driven by the choice of window or benchmark. Robustness
+  checks so far (alternative China proxy, local currencies, sub-periods) do not change the picture. A market index
+  that excludes luxury has not yet been tested.</p>
+</section>
+
+<section>
+  <h2>Limitations</h2>
+  <ul>
+    <li>Associations, not causal effects. Weekly co-movement does not measure fundamental exposure.</li>
+    <li>The STOXX 600 contains several of the stocks studied, which inflates their measured market sensitivity.</li>
+    <li>Brand-specific gaps are relative to peers (one peer's collapse lifts the others), and the 2014–22 benchmark
+      assumes stable sensitivities.</li>
+    <li>Event study: {{ n_events }} events, possible leaks before announcements, and same-day news (COVID on 24 Feb
+      2020; the Hang Seng crash on 8 Oct 2024). With many tests, only the largest reactions are robust.</li>
+    <li>Yahoo Finance is not an audited source; extreme moves were flagged and only partly checked against news so far.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Next steps</h2>
+  <ul>
+    <li>Re-estimate with a European market index that excludes luxury.</li>
+    <li>Event study on results days, to test whether China now reaches the stocks through earnings.</li>
+    <li>Segment and regional revenue from company filings, to explain the brand-specific gaps (LVMH in particular).</li>
+    <li>Study 02, <em>The luxury wallet</em>: wealth vs income, goods vs experiences, and the aspirational consumer.</li>
+  </ul>
+  <p><a class="button" href="dashboard.html">Explore the interactive dashboard →</a></p>
+</section>
+
+<footer>
+  Research by Denisa Bendaj · <a href="https://www.linkedin.com/in/dbendaj/">LinkedIn</a> ·
+  Source code: github.com/denibend/denibend.github.io · For information only; not investment advice.
+</footer>
+
+</div>
+</body>
+</html>
