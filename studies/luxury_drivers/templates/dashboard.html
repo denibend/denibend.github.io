@@ -158,7 +158,7 @@
     <li><strong>FX:</strong> ECB euro reference rates (USD, CHF, GBP, HKD); all stocks converted to EUR.</li>
     <li><strong>Returns:</strong> Friday-to-Friday log returns, which limit distortions from markets closing at different times;
       daily returns for the event study, aligned on common trading days.</li>
-    <li><strong>Validation:</strong> no missing weeks; no stale prices; extreme moves flagged for review (partly checked against news); Yahoo's
+    <li><strong>Validation:</strong> no missing weeks; no stale prices; all ten daily moves above 15% checked against news; Yahoo's
       STOXX 600 lacks 64 trading days since 2014, handled by aligning prices before computing returns.</li>
     <li><strong>Events:</strong> each date verified against press coverage, with timing and confounders recorded.</li>
   </ul>

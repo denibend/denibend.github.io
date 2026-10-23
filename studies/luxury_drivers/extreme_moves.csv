@@ -1,0 +1,11 @@
+date,ticker,daily_return_pct,explanation,source
+2015-01-15,CFR.SW,-15.5,Swiss National Bank abandons the EUR/CHF floor; franc jumps (move is in CHF; roughly flat in EUR),Swiss National Bank announcement of 15 Jan 2015 (widely reported)
+2020-03-24,BRBY.L,15.2,Market-wide rebound after the COVID crash (STOXX 600 +8.4% the same day),Own data: STOXX 600 daily return
+2022-03-16,MCHI,20.9,Chinese equities rally after Beijing pledges market support (Hang Seng +9.1%; US-listed ETF trades after Hong Kong closes),Own data: Hang Seng daily return
+2024-07-15,BRBY.L,-16.1,"Profit warning, CEO Akeroyd replaced by Joshua Schulman, dividend suspended",https://www.euronews.com/business/2024/07/15/burberry-boss-ousted-after-profit-warning-issued-amid-luxury-slowdown
+2024-11-14,BRBY.L,18.7,Interim results and 'Burberry Forward' turnaround plan,https://www.cnbc.com/2024/11/14/burberry-shares-hit-intraday-high-as-overhaul-strategy-marks-turning-point.html
+2025-01-16,CFR.SW,16.4,"Record fiscal Q3 sales (+10%), jewellery +14% vs ~4% expected",https://www.cnbc.com/2025/01/16/cartier-owner-richemont-q3-sales-rise-10percent-china-weakness-remains.html
+2025-05-14,BRBY.L,17.0,Full-year results beat expectations; ~1700 job cuts announced,https://www.investing.com/news/stock-market-news/burberry-fullyear-profit-beats-expectations-4043796
+2025-09-25,BC.MI,-17.3,Short-seller report (Morpheus Research) alleging ongoing Russia operations; company rejected the claims,https://www.bloomberg.com/news/articles/2025-09-25/cucinelli-falls-as-short-seller-morpheus-makes-russia-claims
+2026-07-29,KER.PA,16.9,"H1 2026 results (published evening of 28 Jul): first comparable revenue growth in 12 quarters, Q2 above consensus",https://uk.finance.yahoo.com/news/kering-shares-jump-gucci-stabilises-092136484.html
+2026-10-23,KER.PA,-16.6,"Q3 2026 revenue -1% comparable, Gucci -6%; weak mainland China traffic",https://www.investing.com/news/stock-market-news/why-is-kering-stock-plunging-today-93CH-4968177

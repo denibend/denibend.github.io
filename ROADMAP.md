@@ -19,8 +19,7 @@
   - Done: luxury-peer factor (sector vs brand split), tier split, draft report
     (docs/studies/luxury-drivers/index.html) and dashboard (…/dashboard.html), minimal landing page
     (docs/index.html); checked visually on desktop and at ~520px width.
-  - To do: Denisa reviews report + interpretation; licensing decision for publishing Yahoo-derived series; dark mode; check remaining
-    flagged extreme moves against news (list in study README).
+  - To do: Denisa reviews report + interpretation; licensing decision for publishing Yahoo-derived series; dark mode.
   - Licensing: Yahoo Finance prices used for analysis only; publish derived results.
 
 ## Luxury research series (from Denisa's input, 2026-10-23)

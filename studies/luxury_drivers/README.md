@@ -22,10 +22,9 @@ Status: **analysis in progress, not published.** Findings below are preliminary.
 
 Validation (2026-10-23): no missing weeks in 2014-01 → 2026-10, no stale prices, no corporate actions
 beyond ordinary dividends (Kering's 2018 Puma distribution is already back-adjusted by Yahoo).
-Extreme daily moves (>15%) flagged. Confirmed against news: Kering −16.6% on 2026-10-23 (Q3 2026 revenue,
-Gucci −6% comparable), Kering −10.7% on 2025-03-14 (Demna), Richemont 2015-01-15 (SNB franc shock).
-Still to check: Kering +16.9% 2026-07-29, Cucinelli −17.3% 2025-09-25, Burberry 2024-07-15/2024-11-14/
-2025-05-14, Richemont +16.4% 2025-01-16. Yahoo's STOXX 600 series lacks 64 days since 2014 on which Paris/London traded
+All 10 daily moves larger than 15% were checked against news and explained (results days, turnaround plans,
+a short-seller report, the 2015 franc shock, market-wide rebounds). Log with sources:
+[extreme_moves.csv](extreme_moves.csv). Yahoo's STOXX 600 series lacks 64 days since 2014 on which Paris/London traded
 (e.g. Ascension); the event study therefore aligns stock and index *prices* before computing returns.
 
 ## Method

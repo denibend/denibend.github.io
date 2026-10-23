@@ -92,9 +92,8 @@
   </table>
   </div>
   <p>Sample: January 2014 to {{ data_end }} ({{ n_weeks }} weeks); data retrieved {{ retrieved }}. Checks found no
-  missing weeks or stale prices. Daily moves larger than 15% were flagged for review; those checked against news
-  coincide with results days or known shocks (e.g. the January 2015 Swiss franc shock), and the rest are still
-  to be checked. Yahoo's STOXX 600
+  missing weeks or stale prices. All ten daily moves larger than 15% were checked against news. Each coincides with a
+  results day, a corporate announcement, a short-seller report or a market-wide shock. Yahoo's STOXX 600
   series lacks 64 trading days since 2014; the event study handles this by aligning prices before computing
   returns. Raw provider data is not redistributed.</p>
 </section>
@@ -187,7 +186,7 @@
       assumes stable sensitivities.</li>
     <li>Event study: {{ n_events }} events, possible leaks before announcements, and same-day news (COVID on 24 Feb
       2020; the Hang Seng crash on 8 Oct 2024). With many tests, only the largest reactions are robust.</li>
-    <li>Yahoo Finance is not an audited source; extreme moves were flagged and only partly checked against news so far.</li>
+    <li>Yahoo Finance is not an audited source; every daily move larger than 15% was checked against news.</li>
   </ul>
 </section>
 
