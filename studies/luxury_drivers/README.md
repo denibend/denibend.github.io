@@ -48,7 +48,8 @@ Gucci −6% comparable). Yahoo's STOXX 600 series lacks 64 days since 2014 on wh
   Richemont +3 (cumulative log points).
 
 ### Creative-director event study (preliminary)
-15 announcements 2015–2025 in [events.csv](events.csv), each with source and confounders. Daily market
+16 creative announcements 2015–2026 plus 4 Kering/Gucci management changes as a comparison group, in
+[events.csv](events.csv), each with source, timing note and confounders. Daily market
 model (estimation window −250…−21 trading days; STOXX 600 in EUR, Prada vs Hang Seng in HKD).
 - Strong reactions only where the brand dominates group profit: **Demna → Gucci −13.0% on the day**
   (t −5.9), **Tisci → Burberry +5.2%** (t 3.5), Tisci→Lee at Burberry +3.8% (t 2.4),
@@ -58,6 +59,11 @@ model (estimation window −250…−21 trading days; STOXX 600 in EUR, Prada vs
 - Departures move stocks less than appointments (often leaked or anticipated).
 - Multiple testing: 15 events × several windows; only Demna and Tisci (|t| > 3.3) survive a
   Bonferroni-style threshold. Prada/Raf Simons is confounded by the Feb 2020 COVID sell-off.
+- Saint Laurent / Vaccarello exit (9 Oct 2026): +1.1%, not significant.
+- **Management changes moved Kering more than most creative changes:** Bizzarri's exit from Gucci
+  +6.8% (t 5.3), Luca de Meo named Kering CEO +10.9% (t 4.6). Mean |day-0 CAR| 5.6% (n=4) vs 2.5%
+  for creative events (n=16). Tiny sample and a company in turnaround, where investors may reward
+  any change; Cantino's appointment (8 Oct 2024) coincides with a ~10% Hang Seng crash.
 
 ## Reproduce
 ```bash
