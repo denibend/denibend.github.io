@@ -2,7 +2,7 @@
 
 *Market, currency and China exposure, creative-director changes, and the post-2023 divergence (2014–2026).*
 
-Status: **analysis in progress, not published.** Findings below are preliminary.
+Status: **published 2026-10-23**: [report](https://denibend.github.io/studies/luxury-drivers/) · [dashboard](https://denibend.github.io/studies/luxury-drivers/dashboard.html).
 
 ## Research questions
 1. How much of each stock's return is explained by common factors (European market, EUR/USD, China)
@@ -36,7 +36,7 @@ a short-seller report, the 2015 franc shock, market-wide rebounds). Log with sou
   returns (pre-period alpha deliberately not extrapolated).
 - Robustness: MSCI China ETF instead of Hang Seng; local-currency returns for non-EUR listings.
 
-## Preliminary findings (to be reviewed)
+## Findings
 - Factors explain 17–46% of weekly variance (R²); most variation is company/sector-specific.
 - Market betas rose from ~0.5–1.1 (2014–19) to ~1.2–1.7 (2023–26), Prada excepted.
 - **H2 not supported at weekly frequency:** euro strength coincides with *higher* luxury returns
@@ -48,7 +48,7 @@ a short-seller report, the 2015 franc shock, market-wide rebounds). Log with sou
   Kering −133, Burberry −107, LVMH −93, Moncler −46, Hermès −43, Prada −40, Cucinelli −13,
   Richemont +3 (cumulative log points).
 
-### Creative-director event study (preliminary)
+### Creative-director event study
 16 creative announcements 2015–2026 plus 4 Kering/Gucci management changes as a comparison group, in
 [events.csv](events.csv), each with source, timing note and confounders. Daily market
 model (estimation window −250…−21 trading days; STOXX 600 in EUR, Prada vs Hang Seng in HKD).
@@ -66,7 +66,7 @@ model (estimation window −250…−21 trading days; STOXX 600 in EUR, Prada vs
   for creative events (n=16). Tiny sample and a company in turnaround, where investors may reward
   any change; Cantino's appointment (8 Oct 2024) coincides with a ~10% Hang Seng crash.
 
-### Sector vs brand split and tiers (preliminary)
+### Sector vs brand split and tiers
 - Adding a leave-one-out luxury-peer factor splits the post-2023 gap: every name carries a sector-wide
   drag of roughly −28 to −50 log points. The brand-specific remainder ranges from Kering −100,
   Burberry −78 and LVMH −63 to Cucinelli +28 and Richemont +43. This is relative to peers: one peer's

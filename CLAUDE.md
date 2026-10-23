@@ -13,8 +13,8 @@ Git, so explain code through SQL/Power BI analogies and don't teach analytics ba
 Making the repo public or changing Pages settings, publishing conclusions,
 deleting/overwriting important files, paid tools, major architectural changes,
 sending private data externally, force-push/history rewrites. Everything else in scope: just do it and
-explain afterwards. Standing approval (2026-10-24): routine pushes to `main` while the repo is
-**private**. Once it is public, ask again.
+explain afterwards. The repo is **public** since 2026-10-23 and every push to `main`
+updates the live site, so ask before each push (the earlier standing approval covered the private phase only).
 
 ## Architecture
 - Python 3.13 managed by `uv` (`pyproject.toml` + `uv.lock`). Run everything via `uv run ...`.

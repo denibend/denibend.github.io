@@ -7,6 +7,7 @@ RAW_DIR = STUDY_DIR / "data" / "raw"
 
 START = "2013-01-01"  # fetch a year early so the first 2014 returns have a prior price
 SAMPLE_START = "2014-01-01"
+PUBLISHED = "2026-10-23"  # first publication; stays fixed when data is refreshed
 
 # Yahoo ticker -> (display name, trading currency as quoted by Yahoo)
 STOCKS = {

@@ -15,6 +15,7 @@ from studies.luxury_drivers import analysis, charts, prepare, validate
 from studies.luxury_drivers.config import (
     EVENT_MARKET,
     EVENT_MARKET_DEFAULT,
+    PUBLISHED,
     RAW_DIR,
     SAMPLE_START,
     STOCKS,
@@ -119,6 +120,7 @@ def main() -> None:
 
     context = {
         "built": date.today().isoformat(),
+        "published": date.fromisoformat(PUBLISHED).strftime("%-d %B %Y"),
         "data_end": weekly.index[-1].date().isoformat(),
         "n_weeks": len(weekly),
         "plotly_version": get_plotlyjs_version(),

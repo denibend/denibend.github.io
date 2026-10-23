@@ -8,14 +8,14 @@ Each study asks one question, tests it against public data, and publishes:
 - a **research report**: question, data, method, results, limitations;
 - an **interactive dashboard** for exploring the evidence.
 
-🔗 Portfolio site: https://denibend.github.io *(not yet published)*
+🔗 Portfolio site: https://denibend.github.io
 🔗 LinkedIn: https://www.linkedin.com/in/dbendaj/
 
 ## Studies
 
 | # | Study | Published | Report | Dashboard |
 |---|-------|-----------|--------|-----------|
-| 01 | What drives European luxury stocks? *(in progress)* | — | — | — |
+| 01 | What drives European luxury stocks? Market, FX, China and creative-director effects | 2026-10-23 | [Report](https://denibend.github.io/studies/luxury-drivers/) | [Dashboard](https://denibend.github.io/studies/luxury-drivers/dashboard.html) |
 
 ## Reproducing the analysis
 

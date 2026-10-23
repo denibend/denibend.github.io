@@ -4,11 +4,14 @@
 - 2026-10-23 · Phase 0: charter agreed; tooling chosen (uv, Python 3.13, Plotly static HTML on GitHub
   Pages from `docs/`); local project and environment created and verified.
 - 2026-10-23 · Git configured (noreply email), local repo initialised; GitHub CLI authenticated as `denibend`.
+- 2026-10-23 · **Published**: repo public, GitHub Pages live at https://denibend.github.io (Study 01 report,
+  dashboard, landing page).
 - 2026-10-23 · Study 01: data pipeline + validation, factor model, out-of-sample abnormal returns,
   creative-director event study (15 sourced events); 10 tests passing.
 
 ## Current objectives
-- Phase 0 finish: create public repo `denibend/denibend.github.io` and enable Pages, **after approval**.
+- Study 01 retrospective (what worked, what to template for Study 02).
+- Phase 2: richer landing page (about, skills/methods, featured findings).
 - Phase 1, Study 01: **What drives European luxury stocks? FX, China and the market.**
   - Universe (agreed): LVMH, Hermès, Kering, Richemont, Moncler, Burberry, Prada, Brunello Cucinelli.
   - Period (agreed): Jan 2014 – latest.
@@ -19,7 +22,8 @@
   - Done: luxury-peer factor (sector vs brand split), tier split, draft report
     (docs/studies/luxury-drivers/index.html) and dashboard (…/dashboard.html), minimal landing page
     (docs/index.html); checked visually on desktop and at ~520px width.
-  - To do: Denisa reviews report + interpretation; licensing decision for publishing Yahoo-derived series; dark mode.
+  - Licensing decision (2026-10-23): publish analysis and charts with source credited; never raw data files.
+  - To do: dark mode; verify true 400px mobile layout on a real phone.
   - Licensing: Yahoo Finance prices used for analysis only; publish derived results.
 
 ## Luxury research series (from Denisa's input, 2026-10-23)
