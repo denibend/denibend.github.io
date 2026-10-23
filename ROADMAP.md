@@ -16,9 +16,10 @@
     betas, common vs idiosyncratic variance, post-2023 divergence.
   - Event study: done (preliminary); Denisa to review events.csv; Saint Laurent/Vaccarello exit
     (reportedly Oct 2026) unverified.
-  - To do: luxury-peer factor (sector vs brand-specific), tier split (Hermès+Cucinelli top tier;
-    Richemont hard luxury; LVMH diversified; Kering, Burberry, Prada, Moncler aspirational),
-    charts, dashboard, report.
+  - Done: luxury-peer factor (sector vs brand split), tier split, draft dashboard
+    (docs/studies/luxury-drivers/index.html), checked visually on desktop and at ~520px width.
+  - To do: Denisa reviews dashboard + interpretation; written research report (Deliverable A);
+    portfolio landing page; licensing decision for publishing Yahoo-derived series; dark mode.
   - Licensing: Yahoo Finance prices used for analysis only; publish derived results.
 
 ## Luxury research series (from Denisa's input, 2026-10-23)

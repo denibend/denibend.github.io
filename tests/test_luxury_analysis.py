@@ -3,11 +3,14 @@ import pandas as pd
 import pytest
 
 from studies.luxury_drivers.analysis import (
+    equal_weight,
     event_car,
     event_path,
     factor_regression,
+    leave_one_out_peers,
     out_of_sample_abnormal,
     rolling_betas,
+    sector_vs_brand_gap,
 )
 
 FACTORS = ["market", "eurusd", "china"]
@@ -93,3 +96,38 @@ def test_event_path_is_zero_the_day_before_the_event():
 
     assert path.loc[-1] == 0
     assert path.index[0] == -10 and path.index[-1] == 20
+
+
+def test_equal_weight_averages_simple_not_log_returns():
+    r = pd.DataFrame({"a": [np.log(1.5)], "b": [np.log(0.5)]})  # +50% and -50%
+
+    # Equal-weighted portfolio: (1.5 + 0.5) / 2 = 1.0, i.e. a 0% return (log 0).
+    assert equal_weight(r).iloc[0] == pytest.approx(0.0)
+
+
+def test_leave_one_out_peers_excludes_the_stock():
+    r = pd.DataFrame({"a": [0.10], "b": [0.0], "c": [0.0]})
+
+    assert leave_one_out_peers(r, ["a", "b", "c"], "a").iloc[0] == pytest.approx(0.0)
+    assert leave_one_out_peers(r, ["a", "b", "c"], "b").iloc[0] > 0
+
+
+def test_sector_vs_brand_gap_attributes_shared_shock_to_sector():
+    rng = np.random.default_rng(5)
+    idx = pd.date_range("2014-01-03", periods=520, freq="W-FRI")
+    f = pd.DataFrame(rng.normal(0, 0.02, (520, 3)), idx, FACTORS)
+    sector = pd.Series(rng.normal(0, 0.01, 520), idx)
+    sector[idx > "2020-01-01"] -= 0.005  # luxury-wide drift down after the estimation period
+    stocks = ["s1", "s2", "s3", "s4"]
+    for s in stocks:
+        f[s] = f["market"] + sector + rng.normal(0, 0.002, 520)
+    f.loc[idx > "2020-01-01", "s1"] -= 0.002  # extra brand-specific weakness for s1 only
+
+    gap = sector_vs_brand_gap(f, stocks, "2019-12-31")
+
+    n_post = (idx > "2020-01-01").sum()
+    assert gap.loc["s2", "sector"] == pytest.approx(-0.005 * n_post, rel=0.25)
+    assert gap.loc["s1", "brand"] < -0.002 * n_post * 0.5
+    # Peer comparisons are relative: s1's weakness drags s2's peer average down by 1/3 of it,
+    # so s2 looks slightly *stronger* than peers even though it has no brand effect of its own.
+    assert gap.loc["s2", "brand"] == pytest.approx(0.002 * n_post / 3, abs=0.05)

@@ -68,6 +68,46 @@ def out_of_sample_abnormal(
     return (test[stock] - test[factors] @ betas).cumsum().rename(stock)
 
 
+def equal_weight(log_returns: pd.DataFrame) -> pd.Series:
+    """Log return of an equal-weighted portfolio rebalanced every period.
+
+    Averages simple returns (exp(r) - 1) and converts back to log; averaging log returns
+    directly would understate the portfolio's return.
+    """
+    return np.log(np.exp(log_returns).mean(axis=1))
+
+
+def leave_one_out_peers(log_returns: pd.DataFrame, stocks: list[str], stock: str) -> pd.Series:
+    """Equal-weighted return of all other stocks: a sector factor that excludes the stock itself."""
+    return equal_weight(log_returns[[s for s in stocks if s != stock]]).rename("peers")
+
+
+def sector_vs_brand_gap(
+    returns: pd.DataFrame, stocks: list[str], estimation_end: str, factors: list[str] = FACTORS
+) -> pd.DataFrame:
+    """Split each stock's cumulative abnormal return after `estimation_end` into two parts.
+
+    - total: gap versus market/FX/China factors (`out_of_sample_abnormal`)
+    - brand: gap after also controlling for the leave-one-out luxury peer factor
+    - sector: total minus brand, i.e. the part shared with luxury peers
+    Values are cumulative log returns at the last date.
+    """
+    rows = []
+    for stock in stocks:
+        with_peers = returns.assign(peers=leave_one_out_peers(returns, stocks, stock))
+        total = out_of_sample_abnormal(returns, stock, estimation_end, factors).iloc[-1]
+        brand = out_of_sample_abnormal(with_peers, stock, estimation_end, [*factors, "peers"]).iloc[
+            -1
+        ]
+        rows.append({"stock": stock, "total": total, "sector": total - brand, "brand": brand})
+    return pd.DataFrame(rows).set_index("stock")
+
+
+def tier_returns(log_returns: pd.DataFrame, tiers: dict[str, list[str]]) -> pd.DataFrame:
+    """Equal-weighted log returns for each tier."""
+    return pd.DataFrame({tier: equal_weight(log_returns[names]) for tier, names in tiers.items()})
+
+
 def _event_frame(
     stock: pd.Series, market: pd.Series, event_day: str, estimation: tuple[int, int]
 ) -> tuple[pd.DataFrame, int, pd.Series, float]:
@@ -106,6 +146,7 @@ def event_car(
             "event_trading_day": data.index[pos].date(),
             "car": car,
             "t": car / (sigma * np.sqrt(len(ev))),
+            "sigma": sigma * np.sqrt(len(ev)),  # standard error of the CAR
             "days": len(ev),
         }
     )

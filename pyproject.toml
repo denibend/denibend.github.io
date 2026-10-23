@@ -30,3 +30,7 @@ testpaths = ["tests"]
 
 [tool.ruff]
 line-length = 100
+
+[tool.ruff.lint]
+# Plotly code conventionally uses dict(...) for nested figure settings.
+ignore = ["C408"]

@@ -65,8 +65,20 @@ model (estimation window −250…−21 trading days; STOXX 600 in EUR, Prada vs
   for creative events (n=16). Tiny sample and a company in turnaround, where investors may reward
   any change; Cantino's appointment (8 Oct 2024) coincides with a ~10% Hang Seng crash.
 
+### Sector vs brand split and tiers (preliminary)
+- Adding a leave-one-out luxury-peer factor splits the post-2023 gap: every name carries a sector-wide
+  drag of roughly −28 to −50 log points. The brand-specific remainder ranges from Kering −100,
+  Burberry −78 and LVMH −63 to Cucinelli +28 and Richemont +43. This is relative to peers: one peer's
+  collapse lifts the others.
+- Tiers (equal-weighted, cumulative log return): 2023–26 top tier +10, hard luxury +46,
+  diversified −50, aspirational −30. The top-tier/aspirational gap opened in 2020–22 (+81 vs +15).
+  The top-minus-aspirational spread has a negative China beta (−0.15, t −2.7): aspirational names are more
+  China-sensitive. R² is only 4%, so the spread is mostly not factor-driven.
+
 ## Reproduce
 ```bash
 uv run python -m studies.luxury_drivers.fetch   # downloads raw data to data/raw/ (git-ignored)
 uv run pytest                                    # checks calculations
+uv run python -m studies.luxury_drivers.build   # writes docs/studies/luxury-drivers/index.html
 ```
+Open the output in a browser: `open docs/studies/luxury-drivers/index.html`.

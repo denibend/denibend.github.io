@@ -20,6 +20,14 @@ STOCKS = {
     "BC.MI": ("Brunello Cucinelli", "EUR"),
 }
 
+# Positioning tiers (classification agreed with Denisa, 2026-10-23).
+TIERS = {
+    "Top tier": ["Hermès", "Brunello Cucinelli"],
+    "Hard luxury": ["Richemont"],
+    "Diversified group": ["LVMH"],
+    "Aspirational / fashion-led": ["Kering", "Burberry", "Prada", "Moncler"],
+}
+
 # Factor series. Indices are price indices in local currency.
 FACTORS = {
     "^STOXX": "STOXX Europe 600",
