@@ -2,28 +2,35 @@
 
 Run:  uv run python -m studies.luxury_wallet.fetch
 
-Sources: BEA NIPA flat files; FRED; Federal Reserve Distributional Financial Accounts;
-ECB Distributional Wealth Accounts; Eurostat statistics API; Hong Kong C&SD open API.
+Sources: BEA NIPA flat files; FRED; Federal Reserve Distributional Financial Accounts; ECB FX;
+ECB Distributional Wealth Accounts; Eurostat statistics API; Hong Kong C&SD open API;
+Yahoo Finance (Chinese equity indices, analysis only).
 """
 
 import io
 import json
+import warnings
 import zipfile
 from datetime import UTC, datetime
 
 import numpy as np
 import pandas as pd
 import requests
+import yfinance as yf
 
 from studies.luxury_wallet.config import (
     BEA_CATEGORIES,
+    CHINA_EQUITY,
     ECB_DWA_AREAS,
     ECB_DWA_ASSETS,
     ECB_DWA_GROUPS,
+    ECB_FX_MONTHLY,
     EUROSTAT_QUERIES,
     FRED_SERIES,
     HK_OUTLETS,
     HK_RETAIL_TABLE,
+    HK_VISITOR_REGIONS,
+    HK_VISITORS_TABLE,
     RAW_DIR,
 )
 
@@ -37,6 +44,7 @@ ECB_DWA_URL = (
 ECB_DWA_ASSETS_URL = (
     "https://data-api.ecb.europa.eu/service/data/DWA/Q.{areas}.S14.A.LE.{assets}._Z.EUR.S.N"
 )
+ECB_FX_MONTHLY_URL = "https://data-api.ecb.europa.eu/service/data/EXR/M.{currencies}.EUR.SP00.A"
 EUROSTAT_URL = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/{dataset}"
 HK_URL = "https://www.censtatd.gov.hk/api/get.php"
 # The HK open-data API rejects requests without a browser-like user agent.
@@ -134,19 +142,48 @@ def fetch_eurostat(dataset: str, filters: dict) -> pd.DataFrame:
     return jsonstat_to_frame(data)
 
 
-def fetch_hk_retail(table: str, outlets: list[str]) -> pd.DataFrame:
+def fetch_hk_table(table: str, dimension: str, keep: list[str], measure: str) -> pd.DataFrame:
+    """Monthly series from a Hong Kong C&SD table, long format: date, <dimension label>, value.
+
+    `dimension` is the table's breakdown column (e.g. OUTLET_TYPE, REGION); `measure` its statistic
+    code (e.g. VAL_RS = retail sales value, VIS_ARR = visitor arrivals).
+    """
     resp = _get(
         HK_URL,
         params={"id": table, "lang": "en", "full_series": "1"},
         headers={"User-Agent": BROWSER_UA},
     )
     df = pd.DataFrame(resp.json()["dataSet"])
-    df = df[(df["OUTLET_TYPEDesc"].isin(outlets)) & (df["freq"] == "M") & (df["sv"] == "VAL_RS")]
+    label = df[f"{dimension}Desc"].str.strip()
+    df = df[label.isin(keep) & (df["freq"] == "M") & (df["sv"] == measure)]
     df = df.assign(
         date=pd.to_datetime(df["period"], format="%Y%m"),
+        series=df[f"{dimension}Desc"].str.strip(),
         value=pd.to_numeric(df["figure"], errors="coerce"),
     )
-    return df[["date", "OUTLET_TYPEDesc", "value"]].rename(columns={"OUTLET_TYPEDesc": "outlet"})
+    return df[["date", "series", "value"]]
+
+
+def fetch_yahoo_monthly(tickers: dict[str, str], start: str = "2003-01-01") -> pd.DataFrame:
+    """Month-end closing levels, labelled by month start (analysis only; not redistributed).
+
+    Built from daily closes: Yahoo's own monthly bars for futures (gold) have scattered missing
+    months around contract rolls.
+    """
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")  # yfinance uses pandas APIs deprecated in pandas 3
+        daily = yf.download(
+            list(tickers), start=start, interval="1d", auto_adjust=False, progress=False
+        )["Close"]
+    monthly = daily.resample("MS").last()
+    return monthly.rename(columns=tickers).rename_axis("date").reset_index()
+
+
+def fetch_ecb_fx_monthly(currencies: list[str]) -> pd.DataFrame:
+    """ECB monthly average reference rates, foreign currency per EUR."""
+    url = ECB_FX_MONTHLY_URL.format(currencies="+".join(currencies))
+    raw = pd.read_csv(io.StringIO(_get(url, params={"format": "csvdata"}).text))
+    return raw[["CURRENCY", "TIME_PERIOD", "OBS_VALUE"]]
 
 
 def main() -> None:
@@ -167,8 +204,17 @@ def main() -> None:
     for name, (dataset, filters) in EUROSTAT_QUERIES.items():
         save(f"eurostat_{name}", fetch_eurostat(dataset, filters), f"Eurostat {dataset}")
     save(
-        "hk_retail", fetch_hk_retail(HK_RETAIL_TABLE, HK_OUTLETS), f"{HK_URL}?id={HK_RETAIL_TABLE}"
+        "hk_retail",
+        fetch_hk_table(HK_RETAIL_TABLE, "OUTLET_TYPE", HK_OUTLETS, "VAL_RS"),
+        f"{HK_URL}?id={HK_RETAIL_TABLE}",
     )
+    save(
+        "hk_visitors",
+        fetch_hk_table(HK_VISITORS_TABLE, "REGION", HK_VISITOR_REGIONS, "VIS_ARR"),
+        f"{HK_URL}?id={HK_VISITORS_TABLE}",
+    )
+    save("china_equity_monthly", fetch_yahoo_monthly(CHINA_EQUITY), "Yahoo Finance (yfinance)")
+    save("ecb_fx_monthly", fetch_ecb_fx_monthly(ECB_FX_MONTHLY), ECB_FX_MONTHLY_URL)
 
     (RAW_DIR / "provenance.json").write_text(json.dumps(provenance, indent=2))
 

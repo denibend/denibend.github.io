@@ -123,6 +123,16 @@ EUROSTAT_QUERIES = {
     ),
 }
 
-# Hong Kong Census & Statistics Department, table 620-67002: retail sales value by outlet type.
+# Hong Kong Census & Statistics Department open API.
+# 620-67002: retail sales value by outlet type; 650-80001: visitor arrivals by nationality/region
+# (by place of residence until Oct 2024, by nationality since arrival cards were abolished).
 HK_RETAIL_TABLE = "620-67002"
 HK_OUTLETS = ["Jewellery, watches and clocks, and valuable gifts", "Total"]
+HK_VISITORS_TABLE = "650-80001"
+HK_VISITOR_REGIONS = ["Chinese Mainland", "Total"]
+
+# Chinese equity wealth proxies (Yahoo Finance, monthly closes; analysis only, not redistributed).
+CHINA_EQUITY = {"000001.SS": "Shanghai Composite", "^HSI": "Hang Seng", "GC=F": "Gold"}
+# (Gold futures, USD/oz: HK "jewellery" sales include gold jewellery, so gold prices are a control.)
+# ECB monthly average reference rates, foreign currency per EUR (CNY/HKD derived from the two).
+ECB_FX_MONTHLY = ["CNY", "HKD"]

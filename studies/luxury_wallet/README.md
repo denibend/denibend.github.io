@@ -87,3 +87,25 @@ category spending, over the following year). Main specifications exclude 2020–
   (reopening + equity fall); the quarterly panel results hold with or without 2022.
 - Unreliable: US accommodation and package tours show implausible negative income elasticities (small,
   noisy categories; tax-rebate timing).
+
+### China via Hong Kong (preliminary, 2026-10-24)
+Year-on-year growth of HK jewellery, watch & valuable-gift retail sales (HK$), monthly 2005–2026,
+excluding 2020-01…2024-02 (border closure and base effects); HAC errors with 12 lags; n = 201, R² ≈ 0.62.
+
+| Driver (yoy growth) | Elasticity | t |
+|---|---|---|
+| Mainland visitor arrivals | 0.67 | 8.9 |
+| Renminbi buying power (HKD per CNY) | 2.36 | 5.2 |
+| Shanghai Composite (mainland equity wealth) | 0.10 | 2.2 |
+| Gold price, added as a control (USD) | 0.10 | 0.8 |
+
+- The tourism channel dominates: HK luxury sales move with mainland visitors and the renminbi. A
+  mainland equity-wealth effect exists but is small. This is consistent with the H3b complement idea
+  (luxury bought as part of travel).
+- Structural break after reopening. Sales per mainland visitor peaked at HK$3,205 (2011), fell to
+  ~HK$1,700 (2016–18) and reached a record low of HK$1,383 in 2025. Against a model fitted on 2005–19,
+  sales ran 20–25 points *below* prediction in Mar 2024–Feb 2025 and 1–7 points below since Mar 2025.
+  The 2026 rebound is about what returning visitors and record gold prices imply anyway.
+- Caveats: nominal HK$ values; the category includes gold jewellery; visitor data are by nationality
+  since Oct 2024 (arrival cards abolished); context events (2013 anti-corruption campaign, 2014 and 2019
+  protests) are not modelled.

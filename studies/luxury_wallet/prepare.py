@@ -187,6 +187,42 @@ def build_eu_quarterly() -> pd.DataFrame:
     return panel.sort_index()
 
 
+JEWELLERY = "Jewellery, watches and clocks, and valuable gifts"
+
+
+def hkd_per_cny(fx: pd.DataFrame) -> pd.Series:
+    """Cross rate from ECB rates (foreign currency per EUR): HKD per CNY. Higher = stronger renminbi."""
+    wide = fx.pivot(index="TIME_PERIOD", columns="CURRENCY", values="OBS_VALUE")
+    wide.index = pd.to_datetime(wide.index + "-01")
+    return (wide["HKD"] / wide["CNY"]).rename("hkd_per_cny")
+
+
+def build_hk_monthly() -> pd.DataFrame:
+    """Monthly Hong Kong / China series (nominal HK$ retail sales, visitor counts, index levels)."""
+    retail = pd.read_csv(RAW_DIR / "hk_retail.csv", parse_dates=["date"]).pivot(
+        index="date", columns="series", values="value"
+    )
+    visitors = pd.read_csv(RAW_DIR / "hk_visitors.csv", parse_dates=["date"]).pivot(
+        index="date", columns="series", values="value"
+    )
+    equity = pd.read_csv(RAW_DIR / "china_equity_monthly.csv", parse_dates=["date"]).set_index(
+        "date"
+    )
+    fx = hkd_per_cny(pd.read_csv(RAW_DIR / "ecb_fx_monthly.csv"))
+    return pd.DataFrame(
+        {
+            "jewellery_sales": retail[JEWELLERY],
+            "other_retail_sales": retail["Total"] - retail[JEWELLERY],
+            "mainland_visitors": visitors["Chinese Mainland"],
+            "total_visitors": visitors["Total"],
+            "shanghai": equity["Shanghai Composite"],
+            "hang_seng": equity["Hang Seng"],
+            "gold_usd": equity["Gold"],
+            "hkd_per_cny": fx,
+        }
+    ).sort_index()
+
+
 def log_growth(df: pd.DataFrame) -> pd.DataFrame:
     """Quarter-on-quarter log growth (approximately % change / 100)."""
     return np.log(df).diff()

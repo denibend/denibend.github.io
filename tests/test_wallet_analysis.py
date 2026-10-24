@@ -159,3 +159,15 @@ def test_panel_distributed_lag_builds_lags_within_each_country():
     assert abs(r.loc["income", "elasticity"] - 0.8) < 3 * r.loc["income", "se"]
     assert abs(r.loc["wealth", "elasticity"] - 0.2) < 3 * r.loc["wealth", "se"]
     assert r["n_obs"].iloc[0] == 5 * (60 - 4)  # 4 lags use up each country's first 4 quarters
+
+
+def test_hkd_per_cny_cross_rate():
+    from studies.luxury_wallet.prepare import hkd_per_cny
+
+    fx = pd.DataFrame(
+        {"CURRENCY": ["CNY", "HKD"], "TIME_PERIOD": ["2025-01", "2025-01"], "OBS_VALUE": [7.6, 8.1]}
+    )
+    rate = hkd_per_cny(fx)
+
+    assert rate.index[0] == pd.Timestamp("2025-01-01")
+    assert rate.iloc[0] == pytest.approx(8.1 / 7.6)  # (HKD/EUR) / (CNY/EUR) = HKD per CNY
