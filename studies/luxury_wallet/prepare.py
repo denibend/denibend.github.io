@@ -3,7 +3,7 @@
 import numpy as np
 import pandas as pd
 
-from studies.luxury_wallet.config import RAW_DIR
+from studies.luxury_wallet.config import RAW_DIR, STUDY_DIR
 
 
 def to_quarterly(monthly: pd.DataFrame) -> pd.DataFrame:
@@ -254,6 +254,39 @@ def build_hk_monthly() -> pd.DataFrame:
             "hkd_per_cny": fx,
         }
     ).sort_index()
+
+
+REGIONAL_REVENUE_CSV = STUDY_DIR / "regional_revenue.csv"
+ASIA_GROUPS = {"Japan", "Asia-Pacific excl. Japan", "Asia-Pacific incl. Japan"}
+EUROPE_GROUPS = {"Europe", "EMEA"}
+
+
+def region_shares(df: pd.DataFrame | None = None) -> pd.DataFrame:
+    """Share of each company-year's revenue in Asia (incl. Japan), Europe/EMEA, Americas, other (%).
+
+    Companies define regions differently (e.g. Moncler's Asia includes Japan; Burberry's and
+    Moncler's Europe is EMEA, so it includes the Middle East and Africa). Asia including Japan is the
+    one measure every company's reporting supports.
+    """
+    d = pd.read_csv(REGIONAL_REVENUE_CSV) if df is None else df
+    totals = d[d["region_group"] == "Total"].set_index(["company", "fiscal_year"])["value"]
+    parts = d[d["region_group"] != "Total"].copy()
+    parts["bucket"] = np.select(
+        [
+            parts["region_group"].isin(ASIA_GROUPS),
+            parts["region_group"].isin(EUROPE_GROUPS),
+            parts["region_group"] == "Americas",
+        ],
+        ["asia", "europe", "americas"],
+        default="other",
+    )
+    sums = parts.groupby(["company", "fiscal_year", "bucket"])["value"].sum().unstack("bucket")
+    return (
+        sums.fillna(0)
+        .div(totals, axis=0)
+        .mul(100)
+        .reindex(columns=["asia", "europe", "americas", "other"])
+    )
 
 
 def build_tier_monthly(start: str = "2014-01-01") -> pd.DataFrame:

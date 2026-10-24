@@ -145,3 +145,21 @@ aspirational spread.
 - Caveat: the 2022–26 regime is only 56 months; treat it as a pattern to monitor.
 - Code reuse: imports Study 01's prepare/analysis/config (move them to a shared module if a third study
   needs them).
+
+### H4 regional mix (preliminary, 2026-10-24)
+Hand-collected dataset [regional_revenue.csv](regional_revenue.csv): 8 companies, 2019 and 2022–2025 (plus
+some extra years), 245 rows, each with its source document and page. Regions sum to reported totals
+(automated test). Caveats recorded per row: fiscal years ending in March are mapped to the calendar year
+with most months; Burberry and Prada are retail(/wholesale) bases; Kering 2024–25 exclude Kering Beauté;
+Richemont 2019 includes YNAP; Moncler 2019 excludes Stone Island; Cucinelli 2019 puts Asia outside China
+in "rest of world".
+
+- **H4 rejected.** Asia exposure in 2022 does not predict the post-2023 brand-specific gap (Spearman
+  ρ = +0.26, permutation p = 0.53, n = 8; the sign is opposite to H4), nor does the change in Asia share
+  or the Europe/Americas shares (all |ρ| ≤ 0.33, p ≥ 0.43). Richemont (48% Asia) and Hermès (57%)
+  outperformed peers, while Kering (38%) and LVMH (37%) underperformed. Divergence came from *what* and
+  *to whom* companies sell, not *where*, consistent with the Study 01 tier results.
+- Company commentary in the filings supports H3b qualitatively: Kering's Western Europe decline was
+  attributed to "low numbers of tourists, particularly from Asia" and "sales to wealthier clients were more
+  resilient" (URD 2025); Cucinelli's Europe growth to "high-end tourism flows" (AFR 2025); Richemont's
+  Europe and Japan to "solid/strong local demand" (AR 2026).

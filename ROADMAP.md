@@ -31,7 +31,9 @@
   H2 tiers, H3 which wallets shift to experiences (substitution vs complement), H4 regional mix.
 - Done: data pipeline for BEA, FRED, Fed DFA, ECB DWA, Eurostat (cp18, HBS, confidence, tourism), HK retail.
 - Open: BLS Consumer Expenditure (spending by income group) blocks automated access; Denisa to decide.
-- Next: H1 US analysis; regional revenue collection (2019–2025, 8 companies).
+- Done (preliminary, see study README): H1 US + EU quarterly + China/HK; H2 tiers vs confidence; H3 goods vs
+  experiences + complement test; H4 regional revenue dataset (8 companies) and cross-section test.
+- Next: BLS income-group test (needs Denisa's downloads); dashboard + report; quality review; publication.
 
 ## Luxury research series (from Denisa's input, 2026-10-23)
 - Study 02 (in progress, see above) · The luxury wallet: wealth vs income (top-tier vs aspirational vs equity wealth,
