@@ -96,3 +96,42 @@ def test_wealth_by_asset_sums_across_groups():
     w = wealth_by_asset(dfa)
 
     assert w.iloc[0].to_dict() == {"wealth_equity": 100, "wealth_housing": 50}
+
+
+def test_panel_elasticities_with_fixed_effects():
+    from studies.luxury_wallet.analysis import panel_elasticities
+
+    rng = np.random.default_rng(3)
+    rows = []
+    for i, geo in enumerate(["A", "B", "C", "D", "E", "F"]):
+        for year in range(2011, 2026):
+            inc, wea = rng.normal(0, 0.02), rng.normal(0, 0.05)
+            # Country-specific baseline growth (fixed effect) + true elasticities 1.2 and 0.3.
+            y = 0.01 * i + 1.2 * inc + 0.3 * wea + rng.normal(0, 0.002)
+            rows.append({"geo": geo, "time": year, "y": y, "income": inc, "wealth": wea})
+    g = pd.DataFrame(rows).set_index(["geo", "time"])
+
+    res = panel_elasticities(g, "y", ["income", "wealth"], exclude_years=(2020, 2021))
+    r = res.set_index("driver")
+
+    assert abs(r.loc["income", "elasticity"] - 1.2) < 3 * r.loc["income", "se"]
+    assert abs(r.loc["wealth", "elasticity"] - 0.3) < 3 * r.loc["wealth", "se"]
+    assert res["n_obs"].iloc[0] == 6 * 13
+
+
+def test_annual_wealth_keeps_missing_and_drops_partial_years():
+    from studies.luxury_wallet.prepare import annual_wealth
+
+    rows = []
+    for q in range(1, 5):  # 2023: full year; deciles summed per quarter
+        rows += [{"geo": "AA", "group": "mid", "TIME_PERIOD": f"2023-Q{q}", "OBS_VALUE": 10.0}] * 2
+    rows += [{"geo": "AA", "group": "mid", "TIME_PERIOD": "2022-Q4", "OBS_VALUE": 20.0}] * 2
+    rows += [
+        {"geo": "BB", "group": "mid", "TIME_PERIOD": f"2023-Q{q}", "OBS_VALUE": float("nan")}
+        for q in range(1, 5)
+    ]
+    w = annual_wealth(pd.DataFrame(rows))["mid"]
+
+    assert w[("AA", 2023)] == 20.0  # two components of 10 summed, averaged over 4 quarters
+    assert np.isnan(w[("AA", 2022)])  # only Q4 available: not a full-year level
+    assert np.isnan(w[("BB", 2023)])  # missing stays missing, never 0

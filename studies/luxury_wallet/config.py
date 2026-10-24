@@ -35,6 +35,8 @@ FRED_SERIES = {
 ECB_DWA_AREAS = ["DE", "FR", "IT", "ES", "NL", "BE", "AT", "I9"]  # I9 = euro area aggregate
 # Bottom 50%, deciles 6-9 (summed later into the "middle 40%") and the top decile.
 ECB_DWA_GROUPS = ["B50", "D6", "D7", "D8", "D9", "D10"]
+# Wealth by asset type, all households: equity & fund shares (F5) and housing (NUN).
+ECB_DWA_ASSETS = ["F5", "NUN"]
 
 # Eurostat datasets (filters passed as query parameters to the statistics API).
 EUROSTAT_GEOS = ["EU27_2020", "DE", "FR", "IT", "ES", "NL", "BE", "AT"]
@@ -58,6 +60,17 @@ EUROSTAT_QUERIES = {
             ],
             "geo": EUROSTAT_GEOS,
             "sinceTimePeriod": "2015",
+        },
+    ),
+    "household_income": (
+        "nasa_10_nf_tr",
+        {
+            "unit": "CP_MEUR",
+            "sector": "S14_S15",
+            "direct": "RECV",
+            "na_item": "B6G",
+            "geo": EUROSTAT_GEOS,
+            "sinceTimePeriod": "2010",
         },
     ),
     "budget_structure_by_quintile": (

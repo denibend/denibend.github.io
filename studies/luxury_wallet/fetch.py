@@ -18,6 +18,7 @@ import requests
 from studies.luxury_wallet.config import (
     BEA_CATEGORIES,
     ECB_DWA_AREAS,
+    ECB_DWA_ASSETS,
     ECB_DWA_GROUPS,
     EUROSTAT_QUERIES,
     FRED_SERIES,
@@ -32,6 +33,9 @@ FRED_URL = "https://fred.stlouisfed.org/graph/fredgraph.csv"
 DFA_URL = "https://www.federalreserve.gov/releases/z1/dataviz/download/zips/dfa.zip"
 ECB_DWA_URL = (
     "https://data-api.ecb.europa.eu/service/data/DWA/Q.{areas}.S14.N.LE.NWA.{groups}.EUR.S.N"
+)
+ECB_DWA_ASSETS_URL = (
+    "https://data-api.ecb.europa.eu/service/data/DWA/Q.{areas}.S14.A.LE.{assets}._Z.EUR.S.N"
 )
 EUROSTAT_URL = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/{dataset}"
 HK_URL = "https://www.censtatd.gov.hk/api/get.php"
@@ -88,9 +92,17 @@ def fetch_fed_dfa() -> dict[str, pd.DataFrame]:
 
 
 def fetch_ecb_dwa(areas: list[str], groups: list[str]) -> pd.DataFrame:
+    """Net wealth (NWA) by wealth group."""
     url = ECB_DWA_URL.format(areas="+".join(areas), groups="+".join(groups))
     raw = pd.read_csv(io.StringIO(_get(url, params={"format": "csvdata"}).text))
     return raw[["REF_AREA", "DWA_GRP", "TIME_PERIOD", "OBS_VALUE", "UNIT_MULT", "TITLE"]]
+
+
+def fetch_ecb_dwa_assets(areas: list[str], assets: list[str]) -> pd.DataFrame:
+    """Asset holdings of all households (group _Z), e.g. equity (F5) and housing (NUN)."""
+    url = ECB_DWA_ASSETS_URL.format(areas="+".join(areas), assets="+".join(assets))
+    raw = pd.read_csv(io.StringIO(_get(url, params={"format": "csvdata"}).text))
+    return raw[["REF_AREA", "INSTR_ASSET", "TIME_PERIOD", "OBS_VALUE", "UNIT_MULT", "TITLE"]]
 
 
 def jsonstat_to_frame(data: dict) -> pd.DataFrame:
@@ -151,6 +163,7 @@ def main() -> None:
     for name, df in fetch_fed_dfa().items():
         save(name, df, DFA_URL)
     save("ecb_dwa", fetch_ecb_dwa(ECB_DWA_AREAS, ECB_DWA_GROUPS), ECB_DWA_URL)
+    save("ecb_dwa_assets", fetch_ecb_dwa_assets(ECB_DWA_AREAS, ECB_DWA_ASSETS), ECB_DWA_ASSETS_URL)
     for name, (dataset, filters) in EUROSTAT_QUERIES.items():
         save(f"eurostat_{name}", fetch_eurostat(dataset, filters), f"Eurostat {dataset}")
     save(

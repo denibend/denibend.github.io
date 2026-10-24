@@ -5,6 +5,39 @@ import pandas as pd
 import statsmodels.api as sm
 
 
+def panel_elasticities(
+    growth: pd.DataFrame,
+    target: str,
+    drivers: list[str],
+    entity: str = "geo",
+    exclude_years: tuple[int, ...] = (),
+) -> pd.DataFrame:
+    """Pooled regression of target growth on driver growth with entity fixed effects.
+
+    Fixed effects (one dummy per country) mean each country is compared with its own average
+    growth, so the elasticities come from year-to-year variation within countries.
+    Heteroskedasticity-robust (HC1) standard errors; with few countries, clustering is unreliable.
+    """
+    data = growth[[target, *drivers]].dropna().reset_index()
+    data = data[~data["time"].isin(exclude_years)]
+    dummies = pd.get_dummies(data[entity], prefix="fe", drop_first=True, dtype=float)
+    X = sm.add_constant(pd.concat([data[drivers], dummies], axis=1))
+    model = sm.OLS(data[target], X).fit(cov_type="HC1")
+    return pd.DataFrame(
+        {
+            "target": target,
+            "driver": drivers,
+            "elasticity": model.params[drivers].values,
+            "se": model.bse[drivers].values,
+            "t": model.tvalues[drivers].values,
+            "p": model.pvalues[drivers].values,
+            "r2": model.rsquared,
+            "n_obs": int(model.nobs),
+            "n_entities": data[entity].nunique(),
+        }
+    )
+
+
 def distributed_lag_elasticities(
     growth: pd.DataFrame,
     target: str,

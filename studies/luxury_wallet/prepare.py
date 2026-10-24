@@ -84,6 +84,58 @@ def build_us_quarterly() -> pd.DataFrame:
     return pd.concat([spending, income, networth, groups], axis=1).sort_index()
 
 
+EU_PANEL_GEOS = ["DE", "FR", "IT", "ES", "NL", "BE", "AT"]
+
+
+def annual_wealth(quarterly: pd.DataFrame) -> pd.DataFrame:
+    """Quarterly ECB wealth rows (geo, group, TIME_PERIOD 'YYYY-Qn', OBS_VALUE) -> annual averages.
+
+    Components of a group (e.g. deciles 6-9) are summed per quarter; the sum is missing if any
+    component is missing. A year's average requires all four quarters, so a partial year (e.g. a
+    series starting in Q4) does not masquerade as a full-year level. (A plain pandas sum would turn
+    missing values into 0 and create infinite growth rates.)
+    """
+    q = quarterly.assign(time=quarterly["TIME_PERIOD"].str[:4].astype(int))
+    per_quarter = q.groupby(["geo", "time", "group", "TIME_PERIOD"])["OBS_VALUE"].agg(
+        lambda s: s.sum(skipna=False)
+    )
+    yearly = per_quarter.groupby(["geo", "time", "group"]).agg(["mean", "count"])
+    return yearly["mean"].where(yearly["count"] == 4).unstack("group")
+
+
+def build_eu_annual() -> pd.DataFrame:
+    """Annual EU country panel (index: geo, year) of real spending, income and wealth.
+
+    Spending is deflated by each category's own price index; income and wealth by the household
+    consumption deflator. ECB quarterly wealth stocks are averaged within each year.
+    """
+    spend = pd.read_csv(RAW_DIR / "eurostat_spending_by_purpose.csv")
+    spend = spend[spend["geo"].isin(EU_PANEL_GEOS)]
+    wide = spend.pivot_table(index=["geo", "time"], columns=["unit", "coicop18"], values="value")
+    real = (wide["CP_MEUR"] / (wide["PD20_EUR"] / 100)).add_prefix("spend_")
+    deflator = wide[("PD20_EUR", "TOTAL")] / 100
+
+    income = pd.read_csv(RAW_DIR / "eurostat_household_income.csv")
+    income = income.set_index(["geo", "time"])["value"].rename("income")
+
+    dwa = pd.read_csv(RAW_DIR / "ecb_dwa.csv")
+    dwa["group"] = dwa["DWA_GRP"].map(
+        {
+            "B50": "wealth_bottom50",
+            "D10": "wealth_top10",
+            **dict.fromkeys(["D6", "D7", "D8", "D9"], "wealth_middle40"),
+        }
+    )
+    assets = pd.read_csv(RAW_DIR / "ecb_dwa_assets.csv")
+    assets["group"] = assets["INSTR_ASSET"].map({"F5": "wealth_equity", "NUN": "wealth_housing"})
+    wealth = annual_wealth(pd.concat([dwa, assets]).rename(columns={"REF_AREA": "geo"}))
+
+    panel = pd.concat([real, income, wealth], axis=1).loc[EU_PANEL_GEOS]
+    nominal = ["income", *wealth.columns]
+    panel[nominal] = panel[nominal].div(deflator, axis=0)
+    return panel.sort_index()
+
+
 def log_growth(df: pd.DataFrame) -> pd.DataFrame:
     """Quarter-on-quarter log growth (approximately % change / 100)."""
     return np.log(df).diff()
