@@ -1,0 +1,98 @@
+import numpy as np
+import pandas as pd
+import pytest
+
+from studies.luxury_wallet.analysis import distributed_lag_elasticities
+from studies.luxury_wallet.prepare import (
+    parse_dfa_quarter,
+    real_spending,
+    to_quarterly,
+    wealth_groups,
+)
+
+
+def test_to_quarterly_averages_months():
+    idx = pd.date_range("2024-01-01", periods=6, freq="MS")
+    q = to_quarterly(pd.DataFrame({"x": [1, 2, 3, 10, 20, 30]}, idx))
+
+    assert q["x"].tolist() == [2, 20]
+    assert q.index[1] == pd.Timestamp("2024-04-01")
+
+
+def test_real_spending_deflates_by_own_price_index():
+    nominal = pd.DataFrame({"a": [100.0, 110.0]})
+    prices = pd.DataFrame({"a": [100.0, 110.0]})  # all growth is inflation
+
+    assert real_spending(nominal, prices)["a"].tolist() == pytest.approx([100.0, 100.0])
+
+
+def test_wealth_groups_collapse_dfa_categories():
+    dfa = pd.DataFrame(
+        {
+            "Date": ["2024:Q1"] * 5,
+            "Category": ["TopPt1", "RemainingTop1", "Next9", "Next40", "Bottom50"],
+            "Net worth": [10, 20, 30, 40, 5],
+        }
+    )
+    g = wealth_groups(dfa)
+
+    assert g.index[0] == pd.Timestamp("2024-01-01")
+    assert g.iloc[0].to_dict() == {"wealth_top1": 30, "wealth_next9": 30, "wealth_bottom90": 45}
+    assert parse_dfa_quarter(pd.Series(["1989:Q3"]))[0] == pd.Timestamp("1989-07-01")
+
+
+def test_distributed_lag_recovers_cumulative_elasticities():
+    rng = np.random.default_rng(1)
+    idx = pd.date_range("1960-01-01", periods=240, freq="QS")
+    g = pd.DataFrame(rng.normal(0, 0.01, (240, 2)), idx, ["income", "wealth"])
+    # True response spread over lags: income 0.6 + 0.3 = 0.9 in total; wealth 0.05 + 0.10 = 0.15.
+    g["spend"] = (
+        0.6 * g["income"]
+        + 0.3 * g["income"].shift(1)
+        + 0.05 * g["wealth"]
+        + 0.10 * g["wealth"].shift(2)
+        + rng.normal(0, 0.001, 240)
+    )
+
+    res = distributed_lag_elasticities(g, "spend", ["income", "wealth"]).set_index("driver")
+
+    # A sum of five estimated lags carries five lags' worth of noise, so judge each estimate
+    # against its own standard error. (Over 200 seeds: unbiased, 95% CI coverage ~94%.)
+    for driver, true in [("income", 0.9), ("wealth", 0.15)]:
+        assert abs(res.loc[driver, "elasticity"] - true) < 3 * res.loc[driver, "se"]
+    assert res.loc["income", "t"] > 10
+
+
+def test_distributed_lag_exclusion_drops_quarters():
+    rng = np.random.default_rng(2)
+    idx = pd.date_range("2015-01-01", periods=40, freq="QS")
+    g = pd.DataFrame(rng.normal(0, 0.01, (40, 2)), idx, ["x", "y"])
+
+    full = distributed_lag_elasticities(g, "y", ["x"], lags=1)
+    cut = distributed_lag_elasticities(g, "y", ["x"], lags=1, exclude=("2020-01-01", "2021-12-31"))
+
+    assert full.loc[0, "n_obs"] - cut.loc[0, "n_obs"] == 8
+
+
+def test_to_quarterly_drops_incomplete_quarter():
+    idx = pd.date_range("2024-01-01", periods=5, freq="MS")  # Q1 complete, Q2 has 2 months
+    q = to_quarterly(pd.DataFrame({"x": [1.0, 2, 3, 10, 20]}, idx))
+
+    assert q["x"].iloc[0] == 2
+    assert np.isnan(q["x"].iloc[1])
+
+
+def test_wealth_by_asset_sums_across_groups():
+    from studies.luxury_wallet.prepare import wealth_by_asset
+
+    dfa = pd.DataFrame(
+        {
+            "Date": ["2024:Q1", "2024:Q1"],
+            "Category": ["TopPt1", "Bottom50"],
+            "Corporate equities and mutual fund shares": [90, 10],
+            "Real estate": [5, 45],
+        }
+    )
+    w = wealth_by_asset(dfa)
+
+    assert w.iloc[0].to_dict() == {"wealth_equity": 100, "wealth_housing": 50}
