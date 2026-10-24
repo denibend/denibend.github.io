@@ -5,6 +5,21 @@ import pandas as pd
 import statsmodels.api as sm
 
 
+def trend_deviation(series: pd.Series, fit_start: str, fit_end: str) -> pd.DataFrame:
+    """Log-linear trend fitted on [fit_start, fit_end], extrapolated over the whole series.
+
+    Returns actual, trend and the deviation in % ((actual / trend - 1) * 100). A persistent positive
+    deviation after the fit window means the series stays above its pre-period path.
+    """
+    s = series.dropna()
+    t = (s.index - s.index[0]).days / 365.25
+    t = pd.Series(t, index=s.index)
+    fit = s.loc[fit_start:fit_end]
+    model = sm.OLS(np.log(fit), sm.add_constant(t.loc[fit.index])).fit()
+    trend = np.exp(model.params["const"] + model.params.iloc[1] * t)
+    return pd.DataFrame({"actual": s, "trend": trend, "deviation_pct": (s / trend - 1) * 100})
+
+
 def panel_elasticities(
     growth: pd.DataFrame,
     target: str,

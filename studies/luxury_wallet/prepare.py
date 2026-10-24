@@ -61,6 +61,39 @@ def wealth_by_asset(dfa: pd.DataFrame) -> pd.DataFrame:
     )
 
 
+LUXURY_GOODS = ["jewelry_watches", "luggage", "clothing_footwear"]
+EXPERIENCES = [
+    "accommodations",
+    "air_transport",
+    "package_tours",
+    "food_services",
+    "recreation_services",
+]
+
+
+def us_baskets_monthly() -> pd.DataFrame:
+    """Monthly US spending baskets: nominal shares of total PCE and real (volume) levels.
+
+    Real basket volumes are sums of each category's own-price-deflated spending (in index-base
+    dollars); an approximation to chain-weighting that is adequate for a two-basket comparison.
+    """
+    bea = pd.read_csv(RAW_DIR / "bea_pce_monthly.csv", parse_dates=["date"])
+    wide = bea.pivot_table(index="date", columns=["measure", "category"], values="value")
+    nominal, prices = wide["nominal_musd_saar"], wide["price_index"]
+    real = real_spending(nominal, prices)
+    out = pd.DataFrame(
+        {
+            "share_luxury_goods": nominal[LUXURY_GOODS].sum(axis=1) / nominal["total_pce"],
+            "share_experiences": nominal[EXPERIENCES].sum(axis=1) / nominal["total_pce"],
+            "real_luxury_goods": real[LUXURY_GOODS].sum(axis=1),
+            "real_experiences": real[EXPERIENCES].sum(axis=1),
+            "real_total": real["total_pce"],
+        }
+    )
+    out["real_ratio_experiences_to_luxury"] = out["real_experiences"] / out["real_luxury_goods"]
+    return out
+
+
 def build_us_quarterly() -> pd.DataFrame:
     """Real quarterly US series: spending by category, income, aggregate and group wealth."""
     bea = pd.read_csv(RAW_DIR / "bea_pce_monthly.csv", parse_dates=["date"])

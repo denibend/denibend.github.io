@@ -109,3 +109,25 @@ excluding 2020-01…2024-02 (border closure and base effects); HAC errors with 1
 - Caveats: nominal HK$ values; the category includes gold jewellery; visitor data are by nationality
   since Oct 2024 (arrival cards abolished); context events (2013 anti-corruption campaign, 2014 and 2019
   protests) are not modelled.
+
+### H3 goods vs experiences (preliminary, 2026-10-24)
+**US: no structural shift to experiences in aggregate.** The experiences basket (hotels, air, package
+tours, restaurants, recreation) returned to its 2019 spending share (~12.0%) but sits 6–9% *below* its
+2010–19 trend in 2026. Category detail, real volumes vs trend in 2026: air travel +8% (+18% in 2024)
+while hotels −12%, package tours −19%, recreation −8%, restaurants −4%. Jewellery & watches is +28%
+(+36% in 2022), luggage +6%, clothing +10% (clothing's relative price is −14% since 2019).
+Air travel and jewellery are both above trend: a *complement* pattern, not substitution.
+Caveat: the BEA jewellery deflator rose ~2.5% relative to all prices while gold surged, so real
+jewellery volume may be overstated in 2025–26.
+
+**EU: country-specific.** Real volumes vs 2011–19 trend, 2025: France services +3% / semi-durables −8%
+and Spain +5% / −6% (shift to experiences); Germany services −6% / semi-durables +2% and Italy −3% / +11%
+(no shift).
+
+**Complement test (FR, IT, ES, DE; annual 2016–2025; country FE).** Foreign tourist nights strongly drive
+accommodation (elasticity 0.39–0.46, t 3.7–6.3) and restaurant spending (t 2.6–3.4). This confirms the
+Eurostat categories include non-residents' purchases (domestic concept), which matters for Italy's
+semi-durables. Personal effects and clothing show no robust link to foreign nights (n = 27–39), so the
+complement idea is not detectable in EU aggregates. Next test: luxury groups' European revenue (H4 data).
+
+Pending: BLS spending by income group (Denisa to download) for "which wallets shift".

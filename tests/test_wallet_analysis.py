@@ -171,3 +171,17 @@ def test_hkd_per_cny_cross_rate():
 
     assert rate.index[0] == pd.Timestamp("2025-01-01")
     assert rate.iloc[0] == pytest.approx(8.1 / 7.6)  # (HKD/EUR) / (CNY/EUR) = HKD per CNY
+
+
+def test_trend_deviation_measures_level_shift_after_fit_window():
+    from studies.luxury_wallet.analysis import trend_deviation
+
+    idx = pd.date_range("2010-01-01", "2026-12-01", freq="MS")
+    t = (idx - idx[0]).days / 365.25
+    s = pd.Series(np.exp(0.02 * t), idx)  # 2% a year trend
+    s[s.index >= "2022-01-01"] *= 1.10  # permanent 10% step up from 2022
+
+    out = trend_deviation(s, "2010-01-01", "2019-12-01")
+
+    assert out.loc["2015-06-01", "deviation_pct"] == pytest.approx(0, abs=1e-6)
+    assert out.loc["2025-06-01", "deviation_pct"] == pytest.approx(10, abs=1e-6)
