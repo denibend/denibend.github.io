@@ -26,8 +26,15 @@
   - To do: dark mode; verify true 400px mobile layout on a real phone.
   - Licensing: Yahoo Finance prices used for analysis only; publish derived results.
 
+## Current: Study 02 · The luxury wallet (started 2026-10-24)
+- Design v2 agreed (studies/luxury_wallet/README.md): H1 wealth vs income by price tier (US, EU, China),
+  H2 tiers, H3 which wallets shift to experiences (substitution vs complement), H4 regional mix.
+- Done: data pipeline for BEA, FRED, Fed DFA, ECB DWA, Eurostat (cp18, HBS, confidence, tourism), HK retail.
+- Open: BLS Consumer Expenditure (spending by income group) blocks automated access; Denisa to decide.
+- Next: H1 US analysis; regional revenue collection (2019–2025, 8 companies).
+
 ## Luxury research series (from Denisa's input, 2026-10-23)
-- Study 02 (proposed) · The luxury wallet: wealth vs income (top-tier vs aspirational vs equity wealth,
+- Study 02 (in progress, see above) · The luxury wallet: wealth vs income (top-tier vs aspirational vs equity wealth,
   real wages, confidence), goods vs experiences (BEA PCE categories, Eurostat COICOP), regional revenue
   mix from company filings.
 - Study 03 (proposed) · Attention economy: is public attention to luxury brands spikier and shorter-lived?
