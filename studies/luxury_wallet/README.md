@@ -156,8 +156,8 @@ in "rest of world".
 
 - **H4 rejected.** Asia exposure in 2022 does not predict the post-2023 brand-specific gap (Spearman
   ρ = +0.26, permutation p = 0.53, n = 8; the sign is opposite to H4), nor does the change in Asia share
-  or the Europe/Americas shares (all |ρ| ≤ 0.33, p ≥ 0.43). Richemont (48% Asia) and Hermès (57%)
-  outperformed peers, while Kering (38%) and LVMH (37%) underperformed. Divergence came from *what* and
+  or the Europe/Americas shares (all |ρ| ≤ 0.33, p ≥ 0.43). Richemont (48% Asia) outperformed peers most and
+  Hermès (57%, the most Asia-exposed) stayed close to peers, while Kering (38%) and LVMH (37%) underperformed. Divergence came from *what* and
   *to whom* companies sell, not *where*, consistent with the Study 01 tier results.
 - Company commentary in the filings supports H3b qualitatively: Kering's Western Europe decline was
   attributed to "low numbers of tourists, particularly from Asia" and "sales to wealthier clients were more

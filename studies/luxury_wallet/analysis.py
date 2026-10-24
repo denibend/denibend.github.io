@@ -5,6 +5,40 @@ import pandas as pd
 import statsmodels.api as sm
 
 
+def out_of_sample_prediction(
+    data: pd.DataFrame, target: str, drivers: list[str], fit_end: str, predict_start: str
+) -> pd.DataFrame:
+    """Fit OLS of target on drivers up to `fit_end`; predict from `predict_start` onwards.
+
+    Returns actual, predicted and gap (actual - predicted) for the prediction window, in the same
+    units as the target.
+    """
+    d = data[[target, *drivers]].dropna()
+    fit = d.loc[:fit_end]
+    model = sm.OLS(fit[target], sm.add_constant(fit[drivers])).fit()
+    later = d.loc[predict_start:]
+    predicted = model.predict(sm.add_constant(later[drivers], has_constant="add"))
+    return pd.DataFrame(
+        {"actual": later[target], "predicted": predicted, "gap": later[target] - predicted}
+    )
+
+
+def spearman_permutation(
+    x: np.ndarray, y: np.ndarray, n_perm: int = 20000, seed: int = 0
+) -> tuple[float, float]:
+    """Spearman rank correlation and a two-sided permutation p-value.
+
+    With very few observations (e.g. 8 companies), shuffling one variable many times shows how often
+    a correlation at least this strong arises by chance; this is more honest than an asymptotic p-value.
+    """
+    from scipy import stats
+
+    rng = np.random.default_rng(seed)
+    observed = stats.spearmanr(x, y).statistic
+    sims = np.array([stats.spearmanr(rng.permutation(x), y).statistic for _ in range(n_perm)])
+    return float(observed), float((np.abs(sims) >= abs(observed)).mean())
+
+
 def trend_deviation(series: pd.Series, fit_start: str, fit_end: str) -> pd.DataFrame:
     """Log-linear trend fitted on [fit_start, fit_end], extrapolated over the whole series.
 

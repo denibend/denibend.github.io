@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Luxury Wallet · Dashboard · Denisa Bendaj</title>
+<meta name="description" content="Interactive dashboard: wealth vs income, goods vs experiences and the regional mix of luxury demand.">
+<script src="https://cdn.plot.ly/plotly-{{ plotly_version }}.min.js" charset="utf-8"></script>
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+<nav class="site-nav">
+  <a class="home" href="../../">Denisa Bendaj · Research</a>
+  <a href="./">Report</a>
+  <a href="dashboard.html" aria-current="page">Dashboard</a>
+</nav>
+
+<header>
+  <div class="kicker">Study 02 · Luxury research series · Dashboard</div>
+  <h1>The luxury wallet</h1>
+  <p class="lede">Who funds luxury spending, what it competes with, and where it comes from.</p>
+  <div class="meta">Denisa Bendaj · Data retrieved {{ retrieved }} · Published {{ published }}</div>
+  <div class="draft"><strong>Draft for review — not published.</strong></div>
+</header>
+
+<div class="tiles">
+  <div class="tile">
+    <div class="label">US jewellery & watches: response to a typical equity-wealth move</div>
+    <div class="value">{{ h1.jw_equity|num("%+.1f") }}%</div>
+    <div class="note">vs {{ h1.goods_equity_us|num("%+.1f") }}% for all goods</div>
+  </div>
+  <div class="tile">
+    <div class="label">Confidence effect on top-tier minus aspirational, since 2022</div>
+    <div class="value">{{ h2.late_coef|num("%.1f") }}%</div>
+    <div class="note">per point of EU confidence (t {{ h2.late_t|num("%.1f") }})</div>
+  </div>
+  <div class="tile">
+    <div class="label">US experiences share vs 2010–19 trend, {{ h3.latest }} (Jan–Aug)</div>
+    <div class="value">{{ h3.exp_share_dev|num("%+.1f") }}%</div>
+    <div class="note">air travel {{ h3.air_dev|num("%+.0f") }}%, jewellery {{ h3.jw_dev|num("%+.0f") }}% vs trend</div>
+  </div>
+  <div class="tile">
+    <div class="label">HK jewellery sales per mainland visitor, {{ h3.pv_last_year }}</div>
+    <div class="value">HK${{ h3.pv_last|thousands }}</div>
+    <div class="note">peak HK${{ h3.pv_peak|thousands }} in {{ h3.pv_peak_year }}</div>
+  </div>
+</div>
+
+<section>
+  <h2>Wealth vs income</h2>
+  <p>Spending response over a year to a typical one-quarter move in each driver. Hover for elasticities and t-statistics;
+  click a legend entry to hide a driver.</p>
+  <div class="card">{{ charts.effects|safe }}
+    <details><summary>Table view</summary><div class="table-wrap">{{ tables.effects|safe }}</div></details></div>
+  <div class="card"><p class="hint">Who holds US household equities and real estate ({{ h1.holdings_date }})</p>{{ charts.holdings|safe }}
+    <details><summary>Table view</summary><div class="table-wrap">{{ tables.holdings|safe }}</div></details></div>
+</section>
+
+<section>
+  <h2>Confidence and the luxury tiers</h2>
+  <div class="card">{{ charts.confidence|safe }}
+    <details><summary>Table view</summary><div class="table-wrap">{{ tables.confidence|safe }}</div></details></div>
+</section>
+
+<section>
+  <h2>Goods vs experiences</h2>
+  <div class="card"><p class="hint">US real volumes vs 2010–19 trend · use the menu to show goods or experiences only</p>
+    {{ charts.deviation|safe }}
+    <details><summary>Table view</summary><div class="table-wrap">{{ tables.deviation|safe }}</div></details></div>
+  <div class="card"><p class="hint">US experiences share of spending, actual vs pre-COVID trend</p>{{ charts.share|safe }}</div>
+  <div class="card"><p class="hint">EU real volumes vs 2011–19 trend, {{ h3.eu_year }}</p>{{ charts.eu_shift|safe }}
+    <details><summary>Table view: EU shift and complement test</summary><div class="table-wrap">{{ tables.eu_shift|safe }}</div>
+    <div class="table-wrap">{{ tables.complement|safe }}</div></details></div>
+</section>
+
+<section>
+  <h2>China via Hong Kong</h2>
+  <div class="card"><p class="hint">Jewellery & watch sales per mainland visitor (HK$)</p>{{ charts.per_visitor|safe }}
+    <details><summary>Table view</summary><div class="table-wrap">{{ tables.per_visitor|safe }}</div></details></div>
+  <div class="card"><p class="hint">Year-on-year sales growth: actual vs the 2005–19 model (visitors, renminbi, Shanghai, gold)</p>
+    {{ charts.hk_oos|safe }}
+    <details><summary>Table view: model elasticities</summary><div class="table-wrap">{{ tables.hk|safe }}</div></details></div>
+</section>
+
+<section>
+  <h2>Regional mix</h2>
+  <div class="card"><p class="hint">Share of revenue by region · pick a year</p>{{ charts.mix|safe }}</div>
+  <div class="card"><p class="hint">Asia exposure vs brand-specific gap since 2023 (ρ = {{ h4.rho|num("%+.2f") }}, permutation p = {{ h4.p|num("%.2f") }})</p>
+    {{ charts.scatter|safe }}
+    <details><summary>Table view</summary><div class="table-wrap">{{ tables.h4|safe }}</div>
+    <div class="table-wrap">{{ tables.h4_tests|safe }}</div></details></div>
+</section>
+
+<footer>
+  Research by Denisa Bendaj · <a href="https://www.linkedin.com/in/dbendaj/">LinkedIn</a> ·
+  <a href="https://github.com/denibend/denibend.github.io">Source code on GitHub</a> · For information only; not investment advice.
+</footer>
+</div>
+</body>
+</html>

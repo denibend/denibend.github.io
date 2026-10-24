@@ -185,3 +185,26 @@ def test_trend_deviation_measures_level_shift_after_fit_window():
 
     assert out.loc["2015-06-01", "deviation_pct"] == pytest.approx(0, abs=1e-6)
     assert out.loc["2025-06-01", "deviation_pct"] == pytest.approx(10, abs=1e-6)
+
+
+def test_out_of_sample_prediction_gap_is_zero_when_relationship_holds():
+    from studies.luxury_wallet.analysis import out_of_sample_prediction
+
+    idx = pd.date_range("2010-01-01", periods=120, freq="MS")
+    x = pd.Series(np.linspace(-1, 1, 120), idx)
+    d = pd.DataFrame({"x": x, "y": 0.5 + 2 * x})
+    d.loc["2018-01-01":, "y"] -= 0.3  # a level break after the fit window
+
+    out = out_of_sample_prediction(d, "y", ["x"], "2016-12-01", "2018-01-01")
+
+    assert out["gap"].round(6).eq(-0.3).all()
+
+
+def test_spearman_permutation_detects_perfect_and_null_rank_order():
+    from studies.luxury_wallet.analysis import spearman_permutation
+
+    rho, p = spearman_permutation(np.arange(8), np.arange(8) * 3.0, n_perm=5000)
+    assert rho == pytest.approx(1.0)
+    assert p < 0.001  # 1/8! orderings are this extreme
+    _, p0 = spearman_permutation(np.arange(8), np.array([3, 7, 1, 5, 0, 6, 2, 4.0]), n_perm=5000)
+    assert p0 > 0.2

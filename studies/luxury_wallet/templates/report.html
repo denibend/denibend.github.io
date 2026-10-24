@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Luxury Wallet · Denisa Bendaj</title>
+<meta name="description" content="Wealth vs income, goods vs experiences and the regional mix of luxury demand in the US, Europe and China.">
+<script src="https://cdn.plot.ly/plotly-{{ plotly_version }}.min.js" charset="utf-8"></script>
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+<div class="wrap report">
+<nav class="site-nav">
+  <a class="home" href="../../">Denisa Bendaj · Research</a>
+  <a href="./" aria-current="page">Report</a>
+  <a href="dashboard.html">Dashboard</a>
+</nav>
+
+<header>
+  <div class="kicker">Study 02 · Luxury research series</div>
+  <h1>The luxury wallet</h1>
+  <p class="lede">Wealth vs income, goods vs experiences, and the regional mix of luxury demand in the United States,
+  Europe and China.</p>
+  <div class="meta">Denisa Bendaj · Published {{ published }} · Data retrieved {{ retrieved }}</div>
+  <div class="draft"><strong>Draft for review — not published.</strong> Findings are preliminary.</div>
+</header>
+
+<section>
+  <h2>Executive summary</h2>
+  <div class="summary">
+  <ul>
+    <li><strong>Luxury-type spending follows stock-market wealth.</strong> In the US, a typical quarterly move in
+      household equity wealth (88% of it held by the top 10%) goes with {{ h1.jw_equity|num("%.1f") }}% more jewellery
+      and watch spending over the following year, against {{ h1.goods_equity_us|num("%.1f") }}% for goods in general. EU
+      clothing-type goods show a similar equity effect ({{ h1.sd_equity_eu|num("%.1f") }}% against
+      {{ h1.cl_equity_us|num("%.1f") }}% in the US).</li>
+    <li><strong>But categories mix wallets.</strong> US jewellery is also the most income-sensitive category (elasticity
+      ≈ {{ h1.jw_income_el|num("%.1f") }}), and EU clothing-type goods depend on income as much as on wealth. Price tiers within
+      a category serve different buyers.</li>
+    <li><strong>Consumer confidence now separates top-tier from aspirational luxury stocks.</strong> Since 2022, a
+      typical monthly confidence move shifts the gap between the two tiers by ~{{ h2.typical_move|num("%.1f") }}%
+      (t {{ h2.late_t|num("%.1f") }}). Before 2020 there was no such link.</li>
+    <li><strong>No general shift from goods to experiences.</strong> US experiences regained their 2019 share of spending
+      but sit {{ (-h3.exp_share_dev)|num("%.0f") }}% below their pre-COVID trend. Air travel ({{ h3.air_dev|num("%+.0f") }}%) and jewellery
+      ({{ h3.jw_dev|num("%+.0f") }}%) are both above trend: a complement pattern, not substitution. France and Spain show a
+      shift to services; Germany and Italy do not.</li>
+    <li><strong>China's luxury demand travels, and spends less per trip.</strong> Hong Kong jewellery and watch sales move with
+      mainland visitor numbers and the renminbi. Sales per mainland visitor fell from HK${{ h3.pv_peak|thousands }}
+      ({{ h3.pv_peak_year }}) to HK${{ h3.pv_last|thousands }} ({{ h3.pv_last_year }}), a record low.</li>
+    <li><strong>Regional mix does not explain winners and losers.</strong> Asia exposure in 2022 does not predict the
+      post-2023 brand-specific gap (ρ = {{ h4.rho|num("%+.2f") }}, permutation p = {{ h4.p|num("%.2f") }}, 8 groups).</li>
+  </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Research questions and hypotheses</h2>
+  <div class="table-wrap">
+  <table class="data prose">
+    <thead><tr><th>Hypothesis</th><th>Verdict</th></tr></thead>
+    <tbody>
+      <tr><td>H1 · Luxury-type goods respond more to wealth than to income; within categories, high-priced items follow
+        top-of-distribution wealth and low-priced ones follow income</td>
+        <td>Partly supported: strong equity-wealth link in the US and the EU; categories blend both wallets</td></tr>
+      <tr><td>H2 · Top-tier luxury stocks track wealth, aspirational ones track income and confidence</td>
+        <td>Supported since 2022 for confidence; income result not robust</td></tr>
+      <tr><td>H3a · Income-driven wallets shift from goods to experiences</td>
+        <td>Not visible in US aggregates; visible in France and Spain; income-group test pending</td></tr>
+      <tr><td>H3b · Wealth-driven wallets add experiences and keep buying (complement)</td>
+        <td>Consistent with US trends, Hong Kong data and company commentary; not detectable in EU category data</td></tr>
+      <tr><td>H4 · More Asia exposure in 2022 → larger post-2023 brand-specific gap</td>
+        <td>Rejected</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section>
+  <h2>Background</h2>
+  <p>Luxury sales slowed after 2023, and the usual explanations point in different directions: a squeezed aspirational
+  middle class, a post-COVID preference for travel and experiences, and weaker Chinese demand. Study 01 found that
+  common market factors explain less than half of luxury stock movements. This study looks behind the stocks at the
+  consumer: whose wallet funds luxury spending, what it competes with, and where it comes from.</p>
+</section>
+
+<section>
+  <h2>Data</h2>
+  <div class="table-wrap">
+  <table class="data prose">
+    <thead><tr><th>Data</th><th>Source</th><th>Coverage</th></tr></thead>
+    <tbody>
+      <tr><td>US spending by category (jewellery & watches, clothing, luggage, hotels, air travel, package tours,
+        restaurants, recreation)</td><td>US Bureau of Economic Analysis</td><td>Monthly, 1959–2026</td></tr>
+      <tr><td>US wealth by group and by asset type; income</td><td>Federal Reserve Distributional Financial Accounts; FRED</td><td>Quarterly, 1989–2026</td></tr>
+      <tr><td>EU spending by durability and by purpose; household income; consumer confidence; tourist nights</td><td>Eurostat</td><td>Quarterly 2008–2026; annual 2015–2025</td></tr>
+      <tr><td>Euro-area wealth by group and asset type</td><td>ECB Distributional Wealth Accounts</td><td>Quarterly, 2009–2026</td></tr>
+      <tr><td>Hong Kong jewellery & watch sales; mainland visitor arrivals</td><td>Hong Kong Census & Statistics Department</td><td>Monthly, 2004–2026</td></tr>
+      <tr><td>Revenue by region, 8 luxury groups ({{ h4.n_rows }} data points)</td><td>Company annual reports and results releases, each figure with its source</td><td>2019, 2022–2025</td></tr>
+      <tr><td>Luxury stock tiers; Chinese equity indices; gold</td><td>Study 01 pipeline; Yahoo Finance (analysis only)</td><td>2014–2026</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section>
+  <h2>Methodology</h2>
+  <ul>
+    <li><strong>Wealth vs income:</strong> quarterly growth of real category spending regressed on income growth and on
+      equity and housing wealth growth, each with four lags (US 1990–2026, n = {{ h1.n_us }}; EU panel of seven countries,
+      n = {{ h1.n_eu }}, with country fixed effects), excluding 2020–21. Wealth groups (top 1% vs next 9%) move too closely
+      together to be separated, so the study splits wealth by asset type: equities (88% held by the top 10%) vs housing
+      (the middle class's main asset).</li>
+    <li><strong>Typical-quarter effect:</strong> elasticity × one standard deviation of the driver's quarterly growth, so
+      drivers that move by different amounts can be compared.</li>
+    <li><strong>Tiers:</strong> monthly top-tier minus aspirational return on market, China, EUR/USD, EU confidence and US
+      income, by sub-period.</li>
+    <li><strong>Goods vs experiences:</strong> real volumes and spending shares against log-linear 2010–19 trends;
+      EU annual panel of category spending on foreign tourist nights.</li>
+    <li><strong>China via Hong Kong:</strong> year-on-year growth of jewellery sales on mainland visitors, renminbi buying
+      power, the Shanghai Composite and gold (2005–2026, excluding the border closure; n = {{ h3.n_hk }}), plus a model fitted on
+      2005–19 to measure the post-reopening gap.</li>
+    <li><strong>Regional mix:</strong> Asia (incl. Japan) share of revenue, which every company's reporting supports,
+      against Study 01's brand-specific gap; Spearman correlation with a permutation test (n = 8).</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Results</h2>
+
+  <h3>1 · Wealth vs income</h3>
+  <div class="card">{{ charts.effects|safe }}
+    <details><summary>Table view: elasticities, t-statistics and typical-quarter effects</summary>
+      <div class="table-wrap">{{ tables.effects|safe }}</div></details></div>
+  <p>All three US luxury-type categories respond more to equity wealth than goods in general. US clothing barely responds
+  to income ({{ h1.cl_income_us|num("%.2f") }}%), while EU clothing-type goods (semi-durables) respond strongly
+  ({{ h1.sd_income_eu|num("%.2f") }}%).</p>
+  <div class="card"><p class="hint">Who holds the wealth, {{ h1.holdings_date }}</p>{{ charts.holdings|safe }}</div>
+
+  <h3>2 · Confidence and the luxury tiers</h3>
+  <div class="card">{{ charts.confidence|safe }}
+    <details><summary>Table view</summary><div class="table-wrap">{{ tables.confidence|safe }}</div></details></div>
+
+  <h3>3 · Goods vs experiences</h3>
+  <div class="card"><p class="hint">US real volumes against their 2010–19 trend ({{ h3.latest }}: January–August)</p>
+    {{ charts.deviation|safe }}
+    <details><summary>Table view</summary><div class="table-wrap">{{ tables.deviation|safe }}</div></details></div>
+  <div class="card"><p class="hint">US experiences share of spending: back to {{ h3.exp_share_now|num("%.1f") }}% (2019:
+    {{ h3.exp_share_2019|num("%.1f") }}%), below the pre-COVID path</p>{{ charts.share|safe }}</div>
+  <div class="card"><p class="hint">EU real volumes against their 2011–19 trend, {{ h3.eu_year }}</p>{{ charts.eu_shift|safe }}
+    <details><summary>Table view: EU shift and complement test</summary><div class="table-wrap">{{ tables.eu_shift|safe }}</div>
+    <p class="hint">Elasticity of category spending to foreign tourist nights (FR, IT, ES, DE; annual; country fixed effects; excl. 2020–21)</p>
+    <div class="table-wrap">{{ tables.complement|safe }}</div></details></div>
+  <div class="card"><p class="hint">Hong Kong jewellery & watch sales per mainland visitor (border-closure years omitted)</p>
+    {{ charts.per_visitor|safe }}</div>
+  <div class="card"><p class="hint">Since reopening, sales ran {{ (-h3.oos_early)|num("%.0f") }} points below the 2005–19 model in
+    Mar 2024–Feb 2025 and {{ (-h3.oos_late)|num("%.0f") }} points below since</p>{{ charts.hk_oos|safe }}
+    <details><summary>Table view: Hong Kong model</summary><div class="table-wrap">{{ tables.hk|safe }}</div></details></div>
+
+  <h3>4 · Regional mix</h3>
+  <div class="card">{{ charts.mix|safe }}</div>
+  <div class="card">{{ charts.scatter|safe }}
+    <details><summary>Table view</summary><div class="table-wrap">{{ tables.h4|safe }}</div>
+    <div class="table-wrap">{{ tables.h4_tests|safe }}</div></details></div>
+</section>
+
+<section>
+  <h2>Interpretation</h2>
+  <p><strong>The wealthy wallet sets the tone for luxury goods, but no category belongs to one wallet.</strong> Equity wealth
+  is the strongest single driver of US jewellery, watch and leather-goods spending, consistent with demand concentrated among
+  households whose wealth is in financial markets. The large income response of jewellery fits the price-tier view: the same
+  category holds pieces bought from salary and pieces bought from portfolios.</p>
+  <p><strong>Experiences complement luxury rather than replace it, at least at the top.</strong> In the US, travel and
+  jewellery both run above trend while hotels and package tours do not, so the money is not visibly leaving luxury goods for
+  experiences. Hong Kong, where luxury demand is tied to visitor flows, and company commentary (Kering: Western Europe weakened
+  on "low numbers of tourists, particularly from Asia"; Cucinelli: Europe supported by "high-end tourism flows") point the same
+  way. The substitution story fits France and Spain, and remains to be tested by income group.</p>
+  <p><strong>The aspirational consumer became a market factor after 2022.</strong> Before the pandemic, confidence did not
+  separate the tiers; since 2022 it does, and strongly. Top-tier names fall slightly when confidence rises, which suggests
+  investors treat them as a safe haven within luxury.</p>
+  <p><strong>Where a company sells matters less than what it sells.</strong> Richemont (48% of revenue in Asia) outperformed its peers by the widest margin, and Hermès, the most
+  Asia-exposed group (57%), stayed close to its peers, far ahead of Kering (38%) and LVMH (37%). Combined with the tier and confidence results, the evidence points to positioning and client mix,
+  not geography, as the source of the post-2023 divergence.</p>
+</section>
+
+<section>
+  <h2>Limitations</h2>
+  <ul>
+    <li>Associations, not causal effects. Equity wealth also captures confidence and expectations.</li>
+    <li>Official categories are broader than luxury, and EU jewellery & watches sit inside durables (dominated by cars).</li>
+    <li>EU category data record purchases where they happen, so tourist spending is included.</li>
+    <li>The US jewellery price index barely reflects the 2024–26 gold surge, so real jewellery volumes may be overstated.</li>
+    <li>Hong Kong sales are nominal and include gold jewellery; visitor data are by nationality since October 2024.</li>
+    <li>The regional dataset combines different company region definitions and fiscal years; see the data file for per-row notes.</li>
+    <li>Short samples: the post-2022 confidence regime is 56 months; the regional cross-section is 8 companies.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Next steps</h2>
+  <ul>
+    <li>Test "which wallets shift" directly with US spending by income group (BLS Consumer Expenditure Survey).</li>
+    <li>Luxury groups' European revenue against foreign tourist nights, by quarter.</li>
+    <li>A gold-adjusted deflator for jewellery spending.</li>
+  </ul>
+  <p><a class="button" href="dashboard.html">Explore the interactive dashboard →</a></p>
+</section>
+
+<footer>
+  Research by Denisa Bendaj · <a href="https://www.linkedin.com/in/dbendaj/">LinkedIn</a> ·
+  <a href="https://github.com/denibend/denibend.github.io">Source code on GitHub</a> · For information only; not investment advice.
+</footer>
+</div>
+</body>
+</html>
