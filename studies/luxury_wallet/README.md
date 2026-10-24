@@ -61,3 +61,29 @@ Not used: Case-Shiller (licensed; FHFA instead); the OECD confidence series on F
   (BLS, if accessible; HBS 2015 vs 2020); destination sales against tourist nights.
 - **H4:** regional revenue shares by company and year, validated so regions sum to group revenue;
   cross-section against Study 01 brand gaps (n = 8, illustrative).
+
+## Preliminary findings (H1, 2026-10-24)
+Typical-quarter effect = elasticity × one standard deviation of the driver's quarterly growth (% of
+category spending, over the following year). Main specifications exclude 2020–21.
+
+| | Income | Equity wealth | Housing wealth |
+|---|---|---|---|
+| **US** jewellery & watches (1990–2026) | 1.11 | **1.51** | 0.70 |
+| **US** luggage & leather goods | 0.65 | **1.46** | 0.62 |
+| **US** clothing & footwear | 0.11 | **0.86** | 0.30 |
+| **US** all goods | 0.37 | 0.52 | 0.42 |
+| **EU** semi-durables (clothing, footwear, travel goods), 7 countries, 2011–2026 | **1.00** | **0.80** | 0.09 |
+| **EU** durables (incl. jewellery & watches, dominated by cars) | 1.13 | 0.59 | −0.17 |
+| **EU** total consumption | 0.44 | 0.14 | 0.12 |
+
+- Luxury-type goods respond to equity wealth (held 88% by the top 10% in the US) more than goods in general,
+  in both regions. The clothing-type effect is of similar size: US 0.86, EU 0.80.
+- In the EU these goods are also strongly income-driven; US clothing barely responds to income. Housing
+  wealth matters in the US but not in the EU, consistent with weaker housing-wealth effects in Europe.
+- US jewellery & watches is the most income-elastic category (elasticity ≈ 1.2): the category blends
+  both wallets, as the price-tier hypothesis suggests.
+- Wealth *groups* cannot be separated in aggregate data (US top-1% and next-9% growth correlate at 0.95),
+  hence the equity-vs-housing split. EU annual data (2015–2025) proved too short and too sensitive to 2022
+  (reopening + equity fall); the quarterly panel results hold with or without 2022.
+- Unreliable: US accommodation and package tours show implausible negative income elasticities (small,
+  noisy categories; tax-rebate timing).

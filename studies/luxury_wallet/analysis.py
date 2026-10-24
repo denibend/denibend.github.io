@@ -38,6 +38,55 @@ def panel_elasticities(
     )
 
 
+def panel_distributed_lag(
+    growth: pd.DataFrame,
+    target: str,
+    drivers: list[str],
+    lags: int = 4,
+    entity: str = "geo",
+    exclude: tuple[str, str] | None = None,
+    hac_lags: int = 4,
+) -> pd.DataFrame:
+    """Panel version of `distributed_lag_elasticities`: lags built within each entity, entity
+    fixed effects, and panel Newey-West standard errors (robust to serial correlation within an
+    entity and to heteroskedasticity).
+    """
+    g = growth.sort_index()
+    by = g.groupby(level=entity)
+    cols = {f"{d}_L{k}": by[d].shift(k) for d in drivers for k in range(lags + 1)}
+    data = pd.concat([g[target].rename("y"), pd.DataFrame(cols)], axis=1).dropna()
+    dates = data.index.get_level_values(-1)
+    if exclude:
+        data = data[(dates < exclude[0]) | (dates > exclude[1])]
+    ents = data.index.get_level_values(entity)
+    dummies = pd.get_dummies(
+        pd.Series(ents, index=data.index), prefix="fe", drop_first=True, dtype=float
+    )
+    X = sm.add_constant(pd.concat([data.drop(columns="y"), dummies], axis=1))
+    groups = pd.factorize(ents)[0]
+    model = sm.OLS(data["y"], X).fit(
+        cov_type="hac-panel", cov_kwds={"groups": groups, "maxlags": hac_lags}
+    )
+    rows = []
+    for d in drivers:
+        names = {f"{d}_L{k}" for k in range(lags + 1)}
+        test = model.t_test(np.array([1.0 if p in names else 0.0 for p in model.params.index]))
+        rows.append(
+            {
+                "target": target,
+                "driver": d,
+                "elasticity": float(test.effect[0]),
+                "se": float(test.sd[0][0]),
+                "t": float(test.tvalue[0][0]),
+                "p": float(test.pvalue),
+                "r2": model.rsquared,
+                "n_obs": int(model.nobs),
+                "n_entities": len(set(ents)),
+            }
+        )
+    return pd.DataFrame(rows)
+
+
 def distributed_lag_elasticities(
     growth: pd.DataFrame,
     target: str,

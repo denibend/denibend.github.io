@@ -135,3 +135,27 @@ def test_annual_wealth_keeps_missing_and_drops_partial_years():
     assert w[("AA", 2023)] == 20.0  # two components of 10 summed, averaged over 4 quarters
     assert np.isnan(w[("AA", 2022)])  # only Q4 available: not a full-year level
     assert np.isnan(w[("BB", 2023)])  # missing stays missing, never 0
+
+
+def test_panel_distributed_lag_builds_lags_within_each_country():
+    from studies.luxury_wallet.analysis import panel_distributed_lag
+
+    rng = np.random.default_rng(4)
+    frames = []
+    for i, geo in enumerate(["A", "B", "C", "D", "E"]):
+        idx = pd.MultiIndex.from_product(
+            [[geo], pd.date_range("2010-01-01", periods=60, freq="QS")], names=["geo", "date"]
+        )
+        f = pd.DataFrame(rng.normal(0, 0.01, (60, 2)), idx, ["income", "wealth"])
+        # Lagged effect: if lags leaked across countries, the first rows of B would use A's data.
+        f["y"] = (
+            0.002 * i + 0.8 * f["income"] + 0.2 * f["wealth"].shift(1) + rng.normal(0, 0.001, 60)
+        )
+        frames.append(f)
+    g = pd.concat(frames)
+
+    r = panel_distributed_lag(g, "y", ["income", "wealth"]).set_index("driver")
+
+    assert abs(r.loc["income", "elasticity"] - 0.8) < 3 * r.loc["income", "se"]
+    assert abs(r.loc["wealth", "elasticity"] - 0.2) < 3 * r.loc["wealth", "se"]
+    assert r["n_obs"].iloc[0] == 5 * (60 - 4)  # 4 lags use up each country's first 4 quarters

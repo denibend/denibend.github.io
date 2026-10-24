@@ -73,6 +73,30 @@ EUROSTAT_QUERIES = {
             "sinceTimePeriod": "2010",
         },
     ),
+    # Quarterly, seasonally and calendar adjusted (SCA). P312 = semi-durable goods (clothing,
+    # footwear, travel goods...); jewellery & watches are classed as durable (P311), with cars.
+    "spending_by_durability_q": (
+        "namq_10_fcs",
+        {
+            "unit": ["CLV20_MEUR", "CP_MEUR"],
+            "s_adj": "SCA",
+            "na_item": ["P31_S14", "P311_S14", "P312_S14", "P313_S14", "P314_S14"],
+            "geo": EUROSTAT_GEOS,
+            "sinceTimePeriod": "2008-Q1",
+        },
+    ),
+    "household_income_q": (
+        "nasq_10_nf_tr",
+        {
+            "unit": "CP_MEUR",
+            "s_adj": "SCA",
+            "na_item": "B6G",
+            "sector": "S14_S15",
+            "direct": "RECV",
+            "geo": EUROSTAT_GEOS,
+            "sinceTimePeriod": "2008-Q1",
+        },
+    ),
     "budget_structure_by_quintile": (
         "hbs_str_t223",
         {"coicop": ["CP03", "CP09", "CP096", "CP11", "CP12"], "geo": EUROSTAT_GEOS},

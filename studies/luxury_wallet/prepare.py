@@ -87,20 +87,46 @@ def build_us_quarterly() -> pd.DataFrame:
 EU_PANEL_GEOS = ["DE", "FR", "IT", "ES", "NL", "BE", "AT"]
 
 
-def annual_wealth(quarterly: pd.DataFrame) -> pd.DataFrame:
-    """Quarterly ECB wealth rows (geo, group, TIME_PERIOD 'YYYY-Qn', OBS_VALUE) -> annual averages.
+def load_ecb_wealth() -> pd.DataFrame:
+    """ECB wealth rows (geo, group, TIME_PERIOD, OBS_VALUE) for wealth groups and asset types."""
+    dwa = pd.read_csv(RAW_DIR / "ecb_dwa.csv")
+    dwa["group"] = dwa["DWA_GRP"].map(
+        {
+            "B50": "wealth_bottom50",
+            "D10": "wealth_top10",
+            **dict.fromkeys(["D6", "D7", "D8", "D9"], "wealth_middle40"),
+        }
+    )
+    assets = pd.read_csv(RAW_DIR / "ecb_dwa_assets.csv")
+    assets["group"] = assets["INSTR_ASSET"].map({"F5": "wealth_equity", "NUN": "wealth_housing"})
+    return pd.concat([dwa, assets]).rename(columns={"REF_AREA": "geo"})
 
-    Components of a group (e.g. deciles 6-9) are summed per quarter; the sum is missing if any
-    component is missing. A year's average requires all four quarters, so a partial year (e.g. a
-    series starting in Q4) does not masquerade as a full-year level. (A plain pandas sum would turn
-    missing values into 0 and create infinite growth rates.)
+
+def quarterly_wealth(rows: pd.DataFrame) -> pd.Series:
+    """Sum group components (e.g. deciles 6-9) per quarter; missing if any component is missing.
+
+    A plain pandas sum would turn missing values into 0 and create infinite growth rates.
     """
-    q = quarterly.assign(time=quarterly["TIME_PERIOD"].str[:4].astype(int))
-    per_quarter = q.groupby(["geo", "time", "group", "TIME_PERIOD"])["OBS_VALUE"].agg(
+    return rows.groupby(["geo", "group", "TIME_PERIOD"])["OBS_VALUE"].agg(
         lambda s: s.sum(skipna=False)
     )
-    yearly = per_quarter.groupby(["geo", "time", "group"]).agg(["mean", "count"])
+
+
+def annual_wealth(rows: pd.DataFrame) -> pd.DataFrame:
+    """Quarterly ECB wealth rows -> annual averages (index geo, time; one column per group).
+
+    A year's average requires all four quarters, so a partial year (e.g. a series starting in Q4)
+    does not masquerade as a full-year level.
+    """
+    q = quarterly_wealth(rows).reset_index()
+    q["time"] = q["TIME_PERIOD"].str[:4].astype(int)
+    yearly = q.groupby(["geo", "time", "group"])["OBS_VALUE"].agg(["mean", "count"])
     return yearly["mean"].where(yearly["count"] == 4).unstack("group")
+
+
+def quarter_start(period: pd.Series) -> pd.Series:
+    """'2024-Q3' -> Timestamp 2024-07-01."""
+    return pd.PeriodIndex(period.str.replace("-", ""), freq="Q").to_timestamp(how="start")
 
 
 def build_eu_annual() -> pd.DataFrame:
@@ -118,19 +144,44 @@ def build_eu_annual() -> pd.DataFrame:
     income = pd.read_csv(RAW_DIR / "eurostat_household_income.csv")
     income = income.set_index(["geo", "time"])["value"].rename("income")
 
-    dwa = pd.read_csv(RAW_DIR / "ecb_dwa.csv")
-    dwa["group"] = dwa["DWA_GRP"].map(
-        {
-            "B50": "wealth_bottom50",
-            "D10": "wealth_top10",
-            **dict.fromkeys(["D6", "D7", "D8", "D9"], "wealth_middle40"),
-        }
-    )
-    assets = pd.read_csv(RAW_DIR / "ecb_dwa_assets.csv")
-    assets["group"] = assets["INSTR_ASSET"].map({"F5": "wealth_equity", "NUN": "wealth_housing"})
-    wealth = annual_wealth(pd.concat([dwa, assets]).rename(columns={"REF_AREA": "geo"}))
+    wealth = annual_wealth(load_ecb_wealth())
 
     panel = pd.concat([real, income, wealth], axis=1).loc[EU_PANEL_GEOS]
+    nominal = ["income", *wealth.columns]
+    panel[nominal] = panel[nominal].div(deflator, axis=0)
+    return panel.sort_index()
+
+
+def build_eu_quarterly() -> pd.DataFrame:
+    """Quarterly EU country panel (index: geo, date): real spending by durability, income, wealth.
+
+    Spending in chain-linked volumes (2020 euros); income and wealth deflated by the implicit
+    household consumption deflator (current-price total / volume total).
+    """
+    spend = pd.read_csv(RAW_DIR / "eurostat_spending_by_durability_q.csv")
+    spend = spend[spend["geo"].isin(EU_PANEL_GEOS)].assign(date=lambda d: quarter_start(d["time"]))
+    wide = spend.pivot_table(index=["geo", "date"], columns=["unit", "na_item"], values="value")
+    real = wide["CLV20_MEUR"].rename(
+        columns={
+            "P31_S14": "spend_total",
+            "P311_S14": "spend_durable",
+            "P312_S14": "spend_semidurable",
+            "P313_S14": "spend_nondurable",
+            "P314_S14": "spend_services",
+        }
+    )
+    deflator = wide[("CP_MEUR", "P31_S14")] / wide[("CLV20_MEUR", "P31_S14")]
+
+    inc = pd.read_csv(RAW_DIR / "eurostat_household_income_q.csv")
+    inc = inc[inc["geo"].isin(EU_PANEL_GEOS)].assign(date=lambda d: quarter_start(d["time"]))
+    income = inc.set_index(["geo", "date"])["value"].rename("income")
+
+    w = quarterly_wealth(load_ecb_wealth()).reset_index()
+    w["date"] = quarter_start(w["TIME_PERIOD"])
+    wealth = w.pivot_table(index=["geo", "date"], columns="group", values="OBS_VALUE", dropna=False)
+
+    panel = pd.concat([real, income, wealth], axis=1)
+    panel = panel.loc[panel.index.get_level_values("geo").isin(EU_PANEL_GEOS)]
     nominal = ["income", *wealth.columns]
     panel[nominal] = panel[nominal].div(deflator, axis=0)
     return panel.sort_index()
