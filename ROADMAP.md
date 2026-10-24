@@ -52,4 +52,6 @@
 - Report and dashboard: one page with two sections, or two linked pages.
 
 ## Technical debt / notes
+- Study 02 imports Study 01 modules (tier returns, FX conversion). Move them to a shared module if a
+  third study reuses them.
 - Portfolio landing page (Phase 2) not started; a minimal placeholder will ship with Study 01.

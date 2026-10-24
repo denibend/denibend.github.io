@@ -256,6 +256,48 @@ def build_hk_monthly() -> pd.DataFrame:
     ).sort_index()
 
 
+def build_tier_monthly(start: str = "2014-01-01") -> pd.DataFrame:
+    """Monthly tier returns (Study 01 data, EUR) plus market factors and wallet drivers.
+
+    Reuses Study 01's raw prices and tier definitions (studies.luxury_drivers), so Study 01's
+    `fetch` must have been run. Drivers:
+    - market, china, eurusd: as in Study 01, monthly log changes;
+    - confidence_change: monthly change in the EU consumer confidence balance (points);
+    - us_income_growth: monthly log growth of US real disposable income.
+    """
+    from studies.luxury_drivers import analysis as s1_analysis
+    from studies.luxury_drivers import prepare as s1
+    from studies.luxury_drivers.config import STOCKS, TIERS
+
+    prices, fx = s1.load_raw()
+    stocks = s1.convert_to_eur(
+        s1.to_wide(prices[prices["ticker"].isin(STOCKS)]),
+        fx,
+        {t: c for t, (_, c) in STOCKS.items()},
+    ).rename(columns={t: n for t, (n, _) in STOCKS.items()})
+    factors = s1.to_wide(prices[~prices["ticker"].isin(STOCKS)], column="close")
+    usd = fx[fx["currency"] == "USD"].set_index("date")["per_eur"].rename("eurusd")
+    levels = pd.concat([stocks, factors, usd], axis=1).resample("MS").last()
+    r = np.log(levels).diff().rename(columns={"^STOXX": "market", "^HSI": "china"})
+    tiers = s1_analysis.tier_returns(r[[n for n, _ in STOCKS.values()]], TIERS)
+
+    conf = pd.read_csv(RAW_DIR / "eurostat_consumer_confidence.csv")
+    conf = conf[conf["geo"] == "EU27_2020"].assign(date=lambda d: pd.to_datetime(d["time"] + "-01"))
+    confidence_change = (
+        conf.set_index("date")["value"].sort_index().diff().rename("confidence_change")
+    )
+
+    fred = pd.read_csv(RAW_DIR / "fred.csv", parse_dates=["date"])
+    income = fred[fred["series"] == "DSPIC96"].set_index("date")["value"]
+    income_growth = np.log(income).diff().rename("us_income_growth")
+
+    out = pd.concat(
+        [tiers, r[["market", "china", "eurusd"]], confidence_change, income_growth], axis=1
+    )
+    out["top_minus_aspirational"] = out["Top tier"] - out["Aspirational / fashion-led"]
+    return out.loc[start:].dropna()
+
+
 def log_growth(df: pd.DataFrame) -> pd.DataFrame:
     """Quarter-on-quarter log growth (approximately % change / 100)."""
     return np.log(df).diff()

@@ -131,3 +131,17 @@ semi-durables. Personal effects and clothing show no robust link to foreign nigh
 complement idea is not detectable in EU aggregates. Next test: luxury groups' European revenue (H4 data).
 
 Pending: BLS spending by income group (Denisa to download) for "which wallets shift".
+
+### H2 tiers vs wealth / income / confidence (preliminary, 2026-10-24)
+Monthly tier returns (Study 01 tiers, EUR, 2014–2026) on market, China, EUR/USD, the monthly change in
+EU consumer confidence and US real income growth; HAC errors. Test variable: the top-tier minus
+aspirational spread.
+- **Confidence separates the tiers, but only since 2022.** Spread coefficient −0.0113 per point (t −6.2)
+  in 2022–26 against +0.0006 (t 0.1) in 2014–19; −0.0090 (t −3.9) on the main sample excluding 2020–21.
+  A typical monthly move (1.5 points) shifts the spread by ~1.7%. The effect comes mostly from top-tier
+  stocks falling when confidence rises (a safe-haven role) rather than aspirational stocks rising.
+- The aspirational tier is more China-sensitive (spread China beta −0.26, t −4.0), as in Study 01.
+- US real income: the sign is unstable across samples, so the result is not robust.
+- Caveat: the 2022–26 regime is only 56 months; treat it as a pattern to monitor.
+- Code reuse: imports Study 01's prepare/analysis/config (move them to a shared module if a third study
+  needs them).
