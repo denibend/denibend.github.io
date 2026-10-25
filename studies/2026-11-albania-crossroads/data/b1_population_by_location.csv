@@ -1,0 +1,556 @@
+entity,year,measure,value,unit,estimated,source_id
+Foreign-born residents in Albania,1990,foreign_born_residents,66013,people,FALSE,un_ims_2024
+Foreign-born residents in Albania,1991,foreign_born_residents,67081,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,1992,foreign_born_residents,68149,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,1993,foreign_born_residents,69218,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,1994,foreign_born_residents,70286,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,1995,foreign_born_residents,71354,people,FALSE,un_ims_2024
+Foreign-born residents in Albania,1996,foreign_born_residents,72422,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,1997,foreign_born_residents,73490,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,1998,foreign_born_residents,74559,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,1999,foreign_born_residents,75627,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,2000,foreign_born_residents,76695,people,FALSE,un_ims_2024
+Foreign-born residents in Albania,2001,foreign_born_residents,74304,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,2002,foreign_born_residents,71913,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,2003,foreign_born_residents,69521,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,2004,foreign_born_residents,67130,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,2005,foreign_born_residents,64739,people,FALSE,un_ims_2024
+Foreign-born residents in Albania,2006,foreign_born_residents,62348,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,2007,foreign_born_residents,59957,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,2008,foreign_born_residents,57566,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,2009,foreign_born_residents,55175,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,2010,foreign_born_residents,52784,people,FALSE,un_ims_2024
+Foreign-born residents in Albania,2011,foreign_born_residents,52633,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,2012,foreign_born_residents,52483,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,2013,foreign_born_residents,52332,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,2014,foreign_born_residents,52182,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,2015,foreign_born_residents,52031,people,FALSE,un_ims_2024
+Foreign-born residents in Albania,2016,foreign_born_residents,51387,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,2017,foreign_born_residents,50743,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,2018,foreign_born_residents,50098,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,2019,foreign_born_residents,49454,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,2020,foreign_born_residents,48810,people,FALSE,un_ims_2024
+Foreign-born residents in Albania,2021,foreign_born_residents,48202,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,2022,foreign_born_residents,47594,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,2023,foreign_born_residents,46985,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,2024,foreign_born_residents,46377,people,FALSE,un_ims_2024
+Foreign-born residents in Albania,2025,foreign_born_residents,46377,people,TRUE,un_ims_2024
+Foreign-born residents in Albania,2026,foreign_born_residents,46377,people,TRUE,un_ims_2024
+Germany,1990,people_by_location,5211,people,FALSE,un_ims_2020
+Germany,1991,people_by_location,5829,people,TRUE,un_ims_2020
+Germany,1992,people_by_location,6448,people,TRUE,un_ims_2020
+Germany,1993,people_by_location,7066,people,TRUE,un_ims_2020
+Germany,1994,people_by_location,7685,people,TRUE,un_ims_2020
+Germany,1995,people_by_location,8303,people,FALSE,un_ims_2020
+Germany,1996,people_by_location,8921,people,TRUE,un_ims_2020
+Germany,1997,people_by_location,9539,people,TRUE,un_ims_2020
+Germany,1998,people_by_location,10158,people,TRUE,un_ims_2020
+Germany,1999,people_by_location,10776,people,TRUE,un_ims_2020
+Germany,2000,people_by_location,11394,people,FALSE,un_ims_2020
+Germany,2001,people_by_location,11748,people,TRUE,un_ims_2020
+Germany,2002,people_by_location,12101,people,TRUE,un_ims_2020
+Germany,2003,people_by_location,12455,people,TRUE,un_ims_2020
+Germany,2004,people_by_location,12808,people,TRUE,un_ims_2020
+Germany,2005,people_by_location,13162,people,FALSE,un_ims_2020
+Germany,2006,people_by_location,13436,people,TRUE,un_ims_2020
+Germany,2007,people_by_location,13710,people,TRUE,un_ims_2020
+Germany,2008,people_by_location,13984,people,TRUE,un_ims_2020
+Germany,2009,people_by_location,14258,people,TRUE,un_ims_2020
+Germany,2010,people_by_location,14532,people,FALSE,un_ims_2020
+Germany,2011,people_by_location,18179,people,TRUE,un_ims_2020
+Germany,2012,people_by_location,21826,people,TRUE,un_ims_2020
+Germany,2013,people_by_location,25473,people,TRUE,un_ims_2020
+Germany,2014,people_by_location,29120,people,TRUE,un_ims_2020
+Germany,2015,people_by_location,32767,people,FALSE,un_ims_2020
+Germany,2016,people_by_location,38426,people,TRUE,un_ims_2020
+Germany,2017,people_by_location,44085,people,TRUE,un_ims_2020
+Germany,2018,people_by_location,49745,people,TRUE,un_ims_2020
+Germany,2019,people_by_location,55404,people,TRUE,un_ims_2020
+Germany,2020,people_by_location,61063,people,FALSE,un_ims_2020
+Germany,2021,people_by_location,68925,people,TRUE,un_ims_2020;eurostat_migr_pop1ctz
+Germany,2022,people_by_location,79547,people,TRUE,un_ims_2020;eurostat_migr_pop1ctz
+Germany,2023,people_by_location,84045,people,TRUE,un_ims_2020;eurostat_migr_pop1ctz
+Germany,2024,people_by_location,98198,people,TRUE,un_ims_2020;eurostat_migr_pop1ctz
+Germany,2025,people_by_location,106829,people,TRUE,un_ims_2020;eurostat_migr_pop1ctz
+Germany,2026,people_by_location,106829,people,TRUE,un_ims_2020;eurostat_migr_pop1ctz
+Greece,1990,people_by_location,63963,people,FALSE,un_ims_2024
+Greece,1991,people_by_location,97214,people,TRUE,un_ims_2024
+Greece,1992,people_by_location,130465,people,TRUE,un_ims_2024
+Greece,1993,people_by_location,163716,people,TRUE,un_ims_2024
+Greece,1994,people_by_location,196967,people,TRUE,un_ims_2024
+Greece,1995,people_by_location,230218,people,FALSE,un_ims_2024
+Greece,1996,people_by_location,264225,people,TRUE,un_ims_2024
+Greece,1997,people_by_location,298232,people,TRUE,un_ims_2024
+Greece,1998,people_by_location,332239,people,TRUE,un_ims_2024
+Greece,1999,people_by_location,366246,people,TRUE,un_ims_2024
+Greece,2000,people_by_location,400253,people,FALSE,un_ims_2024
+Greece,2001,people_by_location,404922,people,TRUE,un_ims_2024
+Greece,2002,people_by_location,409591,people,TRUE,un_ims_2024
+Greece,2003,people_by_location,414260,people,TRUE,un_ims_2024
+Greece,2004,people_by_location,418929,people,TRUE,un_ims_2024
+Greece,2005,people_by_location,423598,people,FALSE,un_ims_2024
+Greece,2006,people_by_location,431510,people,TRUE,un_ims_2024
+Greece,2007,people_by_location,439422,people,TRUE,un_ims_2024
+Greece,2008,people_by_location,447333,people,TRUE,un_ims_2024
+Greece,2009,people_by_location,455245,people,TRUE,un_ims_2024
+Greece,2010,people_by_location,463157,people,FALSE,un_ims_2024
+Greece,2011,people_by_location,457839,people,TRUE,un_ims_2024
+Greece,2012,people_by_location,452521,people,TRUE,un_ims_2024
+Greece,2013,people_by_location,447202,people,TRUE,un_ims_2024
+Greece,2014,people_by_location,441884,people,TRUE,un_ims_2024
+Greece,2015,people_by_location,436566,people,FALSE,un_ims_2024
+Greece,2016,people_by_location,438576,people,TRUE,un_ims_2024
+Greece,2017,people_by_location,440585,people,TRUE,un_ims_2024
+Greece,2018,people_by_location,442595,people,TRUE,un_ims_2024
+Greece,2019,people_by_location,444604,people,TRUE,un_ims_2024
+Greece,2020,people_by_location,446614,people,FALSE,un_ims_2024
+Greece,2021,people_by_location,453571,people,TRUE,un_ims_2024
+Greece,2022,people_by_location,460528,people,TRUE,un_ims_2024
+Greece,2023,people_by_location,467484,people,TRUE,un_ims_2024
+Greece,2024,people_by_location,474441,people,FALSE,un_ims_2024
+Greece,2025,people_by_location,474441,people,TRUE,un_ims_2024
+Greece,2026,people_by_location,474441,people,TRUE,un_ims_2024
+Italy,1990,people_by_location,60088,people,FALSE,un_ims_2024
+Italy,1991,people_by_location,66886,people,TRUE,un_ims_2024
+Italy,1992,people_by_location,73684,people,TRUE,un_ims_2024
+Italy,1993,people_by_location,80481,people,TRUE,un_ims_2024
+Italy,1994,people_by_location,87279,people,TRUE,un_ims_2024
+Italy,1995,people_by_location,94077,people,FALSE,un_ims_2024
+Italy,1996,people_by_location,103590,people,TRUE,un_ims_2024
+Italy,1997,people_by_location,113103,people,TRUE,un_ims_2024
+Italy,1998,people_by_location,122617,people,TRUE,un_ims_2024
+Italy,1999,people_by_location,132130,people,TRUE,un_ims_2024
+Italy,2000,people_by_location,141643,people,FALSE,un_ims_2024
+Italy,2001,people_by_location,165497,people,TRUE,un_ims_2024
+Italy,2002,people_by_location,189351,people,TRUE,un_ims_2024
+Italy,2003,people_by_location,213206,people,TRUE,un_ims_2024
+Italy,2004,people_by_location,237060,people,TRUE,un_ims_2024
+Italy,2005,people_by_location,260914,people,FALSE,un_ims_2024
+Italy,2006,people_by_location,286127,people,TRUE,un_ims_2024
+Italy,2007,people_by_location,311340,people,TRUE,un_ims_2024
+Italy,2008,people_by_location,336552,people,TRUE,un_ims_2024
+Italy,2009,people_by_location,361765,people,TRUE,un_ims_2024
+Italy,2010,people_by_location,386978,people,FALSE,un_ims_2024
+Italy,2011,people_by_location,393317,people,TRUE,un_ims_2024
+Italy,2012,people_by_location,399656,people,TRUE,un_ims_2024
+Italy,2013,people_by_location,405994,people,TRUE,un_ims_2024
+Italy,2014,people_by_location,412333,people,TRUE,un_ims_2024
+Italy,2015,people_by_location,418672,people,FALSE,un_ims_2024
+Italy,2016,people_by_location,433671,people,TRUE,un_ims_2024
+Italy,2017,people_by_location,448670,people,TRUE,un_ims_2024
+Italy,2018,people_by_location,463668,people,TRUE,un_ims_2024
+Italy,2019,people_by_location,478667,people,TRUE,un_ims_2024
+Italy,2020,people_by_location,493666,people,FALSE,un_ims_2024
+Italy,2021,people_by_location,505909,people,TRUE,un_ims_2024
+Italy,2022,people_by_location,518152,people,TRUE,un_ims_2024
+Italy,2023,people_by_location,530395,people,TRUE,un_ims_2024
+Italy,2024,people_by_location,542638,people,FALSE,un_ims_2024
+Italy,2025,people_by_location,563423,people,TRUE,un_ims_2024;eurostat_migr_pop3ctb
+Italy,2026,people_by_location,563423,people,TRUE,un_ims_2024;eurostat_migr_pop3ctb
+Resident in Albania,1990,people_by_location,3254541,people,FALSE,eurostat_demo_gind
+Resident in Albania,1991,people_by_location,3279039,people,FALSE,eurostat_demo_gind
+Resident in Albania,1992,people_by_location,3215038,people,FALSE,eurostat_demo_gind
+Resident in Albania,1993,people_by_location,3239536,people,FALSE,eurostat_demo_gind
+Resident in Albania,1994,people_by_location,3175535,people,FALSE,eurostat_demo_gind
+Resident in Albania,1995,people_by_location,3200033,people,FALSE,eurostat_demo_gind
+Resident in Albania,1996,people_by_location,3136032,people,FALSE,eurostat_demo_gind
+Resident in Albania,1997,people_by_location,3160530,people,FALSE,eurostat_demo_gind
+Resident in Albania,1998,people_by_location,3096529,people,FALSE,eurostat_demo_gind
+Resident in Albania,1999,people_by_location,3121027,people,FALSE,eurostat_demo_gind
+Resident in Albania,2000,people_by_location,3057026,people,FALSE,eurostat_demo_gind
+Resident in Albania,2001,people_by_location,3063320,people,FALSE,eurostat_demo_gind
+Resident in Albania,2002,people_by_location,3057018,people,FALSE,eurostat_demo_gind
+Resident in Albania,2003,people_by_location,3044993,people,FALSE,eurostat_demo_gind
+Resident in Albania,2004,people_by_location,3034231,people,FALSE,eurostat_demo_gind
+Resident in Albania,2005,people_by_location,3019634,people,FALSE,eurostat_demo_gind
+Resident in Albania,2006,people_by_location,3003329,people,FALSE,eurostat_demo_gind
+Resident in Albania,2007,people_by_location,2981755,people,FALSE,eurostat_demo_gind
+Resident in Albania,2008,people_by_location,2958266,people,FALSE,eurostat_demo_gind
+Resident in Albania,2009,people_by_location,2936355,people,FALSE,eurostat_demo_gind
+Resident in Albania,2010,people_by_location,2918674,people,FALSE,eurostat_demo_gind
+Resident in Albania,2011,people_by_location,2907361,people,FALSE,eurostat_demo_gind
+Resident in Albania,2012,people_by_location,2903008,people,FALSE,eurostat_demo_gind
+Resident in Albania,2013,people_by_location,2897770,people,FALSE,eurostat_demo_gind
+Resident in Albania,2014,people_by_location,2892394,people,FALSE,eurostat_demo_gind
+Resident in Albania,2015,people_by_location,2885796,people,FALSE,eurostat_demo_gind
+Resident in Albania,2016,people_by_location,2875592,people,FALSE,eurostat_demo_gind
+Resident in Albania,2017,people_by_location,2876591,people,FALSE,eurostat_demo_gind
+Resident in Albania,2018,people_by_location,2870324,people,FALSE,eurostat_demo_gind
+Resident in Albania,2019,people_by_location,2862427,people,FALSE,eurostat_demo_gind
+Resident in Albania,2020,people_by_location,2845955,people,FALSE,eurostat_demo_gind
+Resident in Albania,2021,people_by_location,2829741,people,FALSE,eurostat_demo_gind
+Resident in Albania,2022,people_by_location,2793592,people,FALSE,eurostat_demo_gind
+Resident in Albania,2023,people_by_location,2761785,people,FALSE,eurostat_demo_gind
+Resident in Albania,2024,people_by_location,2390942,people,FALSE,eurostat_demo_gind
+Resident in Albania,2025,people_by_location,2363314,people,FALSE,eurostat_demo_gind
+Resident in Albania,2026,people_by_location,2335930,people,FALSE,eurostat_demo_gind
+Rest of world,1990,people_by_location,54696,people,FALSE,un_ims_2024
+Rest of world,1991,people_by_location,57715,people,TRUE,un_ims_2024
+Rest of world,1992,people_by_location,60733,people,TRUE,un_ims_2024
+Rest of world,1993,people_by_location,63752,people,TRUE,un_ims_2024
+Rest of world,1994,people_by_location,66770,people,TRUE,un_ims_2024
+Rest of world,1995,people_by_location,69789,people,FALSE,un_ims_2024
+Rest of world,1996,people_by_location,73290,people,TRUE,un_ims_2024
+Rest of world,1997,people_by_location,76792,people,TRUE,un_ims_2024
+Rest of world,1998,people_by_location,80293,people,TRUE,un_ims_2024
+Rest of world,1999,people_by_location,83795,people,TRUE,un_ims_2024
+Rest of world,2000,people_by_location,87296,people,FALSE,un_ims_2024
+Rest of world,2001,people_by_location,89808,people,TRUE,un_ims_2024
+Rest of world,2002,people_by_location,92320,people,TRUE,un_ims_2024
+Rest of world,2003,people_by_location,94833,people,TRUE,un_ims_2024
+Rest of world,2004,people_by_location,97345,people,TRUE,un_ims_2024
+Rest of world,2005,people_by_location,99857,people,FALSE,un_ims_2024
+Rest of world,2006,people_by_location,102361,people,TRUE,un_ims_2024
+Rest of world,2007,people_by_location,104866,people,TRUE,un_ims_2024
+Rest of world,2008,people_by_location,107370,people,TRUE,un_ims_2024
+Rest of world,2009,people_by_location,109875,people,TRUE,un_ims_2024
+Rest of world,2010,people_by_location,112379,people,FALSE,un_ims_2024
+Rest of world,2011,people_by_location,115968,people,TRUE,un_ims_2024
+Rest of world,2012,people_by_location,119557,people,TRUE,un_ims_2024
+Rest of world,2013,people_by_location,123145,people,TRUE,un_ims_2024
+Rest of world,2014,people_by_location,126734,people,TRUE,un_ims_2024
+Rest of world,2015,people_by_location,130323,people,FALSE,un_ims_2024
+Rest of world,2016,people_by_location,136972,people,TRUE,un_ims_2024
+Rest of world,2017,people_by_location,143621,people,TRUE,un_ims_2024
+Rest of world,2018,people_by_location,150271,people,TRUE,un_ims_2024
+Rest of world,2019,people_by_location,156920,people,TRUE,un_ims_2024
+Rest of world,2020,people_by_location,163569,people,FALSE,un_ims_2024
+Rest of world,2021,people_by_location,172564,people,TRUE,un_ims_2024
+Rest of world,2022,people_by_location,181559,people,TRUE,un_ims_2024
+Rest of world,2023,people_by_location,190554,people,TRUE,un_ims_2024
+Rest of world,2024,people_by_location,199549,people,FALSE,un_ims_2024
+Rest of world,2025,people_by_location,199549,people,TRUE,un_ims_2024
+Rest of world,2026,people_by_location,199549,people,TRUE,un_ims_2024
+United Kingdom,1990,people_by_location,156,people,FALSE,un_ims_2020
+United Kingdom,1991,people_by_location,361,people,TRUE,un_ims_2020
+United Kingdom,1992,people_by_location,566,people,TRUE,un_ims_2020
+United Kingdom,1993,people_by_location,771,people,TRUE,un_ims_2020
+United Kingdom,1994,people_by_location,976,people,TRUE,un_ims_2020
+United Kingdom,1995,people_by_location,1181,people,FALSE,un_ims_2020
+United Kingdom,1996,people_by_location,1390,people,TRUE,un_ims_2020
+United Kingdom,1997,people_by_location,1599,people,TRUE,un_ims_2020
+United Kingdom,1998,people_by_location,1809,people,TRUE,un_ims_2020
+United Kingdom,1999,people_by_location,2018,people,TRUE,un_ims_2020
+United Kingdom,2000,people_by_location,2227,people,FALSE,un_ims_2020
+United Kingdom,2001,people_by_location,3249,people,TRUE,un_ims_2020
+United Kingdom,2002,people_by_location,4270,people,TRUE,un_ims_2020
+United Kingdom,2003,people_by_location,5292,people,TRUE,un_ims_2020
+United Kingdom,2004,people_by_location,6313,people,TRUE,un_ims_2020
+United Kingdom,2005,people_by_location,7335,people,FALSE,un_ims_2020
+United Kingdom,2006,people_by_location,7417,people,TRUE,un_ims_2020
+United Kingdom,2007,people_by_location,7498,people,TRUE,un_ims_2020
+United Kingdom,2008,people_by_location,7580,people,TRUE,un_ims_2020
+United Kingdom,2009,people_by_location,7661,people,TRUE,un_ims_2020
+United Kingdom,2010,people_by_location,7743,people,FALSE,un_ims_2020
+United Kingdom,2011,people_by_location,8048,people,TRUE,un_ims_2020
+United Kingdom,2012,people_by_location,8353,people,TRUE,un_ims_2020
+United Kingdom,2013,people_by_location,8657,people,TRUE,un_ims_2020
+United Kingdom,2014,people_by_location,8962,people,TRUE,un_ims_2020
+United Kingdom,2015,people_by_location,9267,people,FALSE,un_ims_2020
+United Kingdom,2016,people_by_location,9505,people,TRUE,un_ims_2020
+United Kingdom,2017,people_by_location,9743,people,TRUE,un_ims_2020
+United Kingdom,2018,people_by_location,9982,people,TRUE,un_ims_2020
+United Kingdom,2019,people_by_location,10220,people,TRUE,un_ims_2020
+United Kingdom,2020,people_by_location,10458,people,FALSE,un_ims_2020
+United Kingdom,2021,people_by_location,10458,people,TRUE,un_ims_2020
+United Kingdom,2022,people_by_location,10458,people,TRUE,un_ims_2020
+United Kingdom,2023,people_by_location,10458,people,TRUE,un_ims_2020
+United Kingdom,2024,people_by_location,10458,people,TRUE,un_ims_2020
+United Kingdom,2025,people_by_location,10458,people,TRUE,un_ims_2020
+United Kingdom,2026,people_by_location,10458,people,TRUE,un_ims_2020
+United States,1990,people_by_location,5627,people,FALSE,un_ims_2020
+United States,1991,people_by_location,8990,people,TRUE,un_ims_2020
+United States,1992,people_by_location,12352,people,TRUE,un_ims_2020
+United States,1993,people_by_location,15715,people,TRUE,un_ims_2020
+United States,1994,people_by_location,19077,people,TRUE,un_ims_2020
+United States,1995,people_by_location,22440,people,FALSE,un_ims_2020
+United States,1996,people_by_location,25881,people,TRUE,un_ims_2020
+United States,1997,people_by_location,29322,people,TRUE,un_ims_2020
+United States,1998,people_by_location,32762,people,TRUE,un_ims_2020
+United States,1999,people_by_location,36203,people,TRUE,un_ims_2020
+United States,2000,people_by_location,39644,people,FALSE,un_ims_2020
+United States,2001,people_by_location,42680,people,TRUE,un_ims_2020
+United States,2002,people_by_location,45716,people,TRUE,un_ims_2020
+United States,2003,people_by_location,48753,people,TRUE,un_ims_2020
+United States,2004,people_by_location,51789,people,TRUE,un_ims_2020
+United States,2005,people_by_location,54825,people,FALSE,un_ims_2020
+United States,2006,people_by_location,58277,people,TRUE,un_ims_2020
+United States,2007,people_by_location,61729,people,TRUE,un_ims_2020
+United States,2008,people_by_location,65181,people,TRUE,un_ims_2020
+United States,2009,people_by_location,68633,people,TRUE,un_ims_2020
+United States,2010,people_by_location,72085,people,FALSE,un_ims_2020
+United States,2011,people_by_location,76041,people,TRUE,un_ims_2020
+United States,2012,people_by_location,79997,people,TRUE,un_ims_2020
+United States,2013,people_by_location,83953,people,TRUE,un_ims_2020
+United States,2014,people_by_location,87909,people,TRUE,un_ims_2020
+United States,2015,people_by_location,91865,people,FALSE,un_ims_2020
+United States,2016,people_by_location,92942,people,TRUE,un_ims_2020
+United States,2017,people_by_location,94020,people,TRUE,un_ims_2020
+United States,2018,people_by_location,95097,people,TRUE,un_ims_2020
+United States,2019,people_by_location,96175,people,TRUE,un_ims_2020
+United States,2020,people_by_location,97252,people,FALSE,un_ims_2020
+United States,2021,people_by_location,97252,people,TRUE,un_ims_2020
+United States,2022,people_by_location,97252,people,TRUE,un_ims_2020
+United States,2023,people_by_location,97252,people,TRUE,un_ims_2020
+United States,2024,people_by_location,97252,people,TRUE,un_ims_2020
+United States,2025,people_by_location,97252,people,TRUE,un_ims_2020
+United States,2026,people_by_location,97252,people,TRUE,un_ims_2020
+Germany,1990,people_by_location_census_adjusted,5211,people,FALSE,un_ims_2020
+Germany,1991,people_by_location_census_adjusted,5829,people,TRUE,un_ims_2020
+Germany,1992,people_by_location_census_adjusted,6448,people,TRUE,un_ims_2020
+Germany,1993,people_by_location_census_adjusted,7066,people,TRUE,un_ims_2020
+Germany,1994,people_by_location_census_adjusted,7685,people,TRUE,un_ims_2020
+Germany,1995,people_by_location_census_adjusted,8303,people,FALSE,un_ims_2020
+Germany,1996,people_by_location_census_adjusted,8921,people,TRUE,un_ims_2020
+Germany,1997,people_by_location_census_adjusted,9539,people,TRUE,un_ims_2020
+Germany,1998,people_by_location_census_adjusted,10158,people,TRUE,un_ims_2020
+Germany,1999,people_by_location_census_adjusted,10776,people,TRUE,un_ims_2020
+Germany,2000,people_by_location_census_adjusted,11394,people,FALSE,un_ims_2020
+Germany,2001,people_by_location_census_adjusted,11748,people,TRUE,un_ims_2020
+Germany,2002,people_by_location_census_adjusted,12101,people,TRUE,un_ims_2020
+Germany,2003,people_by_location_census_adjusted,12455,people,TRUE,un_ims_2020
+Germany,2004,people_by_location_census_adjusted,12808,people,TRUE,un_ims_2020
+Germany,2005,people_by_location_census_adjusted,13162,people,FALSE,un_ims_2020
+Germany,2006,people_by_location_census_adjusted,13436,people,TRUE,un_ims_2020
+Germany,2007,people_by_location_census_adjusted,13710,people,TRUE,un_ims_2020
+Germany,2008,people_by_location_census_adjusted,13984,people,TRUE,un_ims_2020
+Germany,2009,people_by_location_census_adjusted,14258,people,TRUE,un_ims_2020
+Germany,2010,people_by_location_census_adjusted,14532,people,FALSE,un_ims_2020
+Germany,2011,people_by_location_census_adjusted,18179,people,TRUE,un_ims_2020
+Germany,2012,people_by_location_census_adjusted,21826,people,TRUE,un_ims_2020
+Germany,2013,people_by_location_census_adjusted,25473,people,TRUE,un_ims_2020
+Germany,2014,people_by_location_census_adjusted,29120,people,TRUE,un_ims_2020
+Germany,2015,people_by_location_census_adjusted,32767,people,FALSE,un_ims_2020
+Germany,2016,people_by_location_census_adjusted,38426,people,TRUE,un_ims_2020
+Germany,2017,people_by_location_census_adjusted,44085,people,TRUE,un_ims_2020
+Germany,2018,people_by_location_census_adjusted,49745,people,TRUE,un_ims_2020
+Germany,2019,people_by_location_census_adjusted,55404,people,TRUE,un_ims_2020
+Germany,2020,people_by_location_census_adjusted,61063,people,FALSE,un_ims_2020
+Germany,2021,people_by_location_census_adjusted,68925,people,TRUE,un_ims_2020;eurostat_migr_pop1ctz
+Germany,2022,people_by_location_census_adjusted,79547,people,TRUE,un_ims_2020;eurostat_migr_pop1ctz
+Germany,2023,people_by_location_census_adjusted,84045,people,TRUE,un_ims_2020;eurostat_migr_pop1ctz
+Germany,2024,people_by_location_census_adjusted,98198,people,TRUE,un_ims_2020;eurostat_migr_pop1ctz
+Germany,2025,people_by_location_census_adjusted,106829,people,TRUE,un_ims_2020;eurostat_migr_pop1ctz
+Germany,2026,people_by_location_census_adjusted,106829,people,TRUE,un_ims_2020;eurostat_migr_pop1ctz
+Greece,1990,people_by_location_census_adjusted,63963,people,FALSE,un_ims_2024
+Greece,1991,people_by_location_census_adjusted,97214,people,TRUE,un_ims_2024
+Greece,1992,people_by_location_census_adjusted,130465,people,TRUE,un_ims_2024
+Greece,1993,people_by_location_census_adjusted,163716,people,TRUE,un_ims_2024
+Greece,1994,people_by_location_census_adjusted,196967,people,TRUE,un_ims_2024
+Greece,1995,people_by_location_census_adjusted,230218,people,FALSE,un_ims_2024
+Greece,1996,people_by_location_census_adjusted,264225,people,TRUE,un_ims_2024
+Greece,1997,people_by_location_census_adjusted,298232,people,TRUE,un_ims_2024
+Greece,1998,people_by_location_census_adjusted,332239,people,TRUE,un_ims_2024
+Greece,1999,people_by_location_census_adjusted,366246,people,TRUE,un_ims_2024
+Greece,2000,people_by_location_census_adjusted,400253,people,FALSE,un_ims_2024
+Greece,2001,people_by_location_census_adjusted,404922,people,TRUE,un_ims_2024
+Greece,2002,people_by_location_census_adjusted,409591,people,TRUE,un_ims_2024
+Greece,2003,people_by_location_census_adjusted,414260,people,TRUE,un_ims_2024
+Greece,2004,people_by_location_census_adjusted,418929,people,TRUE,un_ims_2024
+Greece,2005,people_by_location_census_adjusted,423598,people,FALSE,un_ims_2024
+Greece,2006,people_by_location_census_adjusted,431510,people,TRUE,un_ims_2024
+Greece,2007,people_by_location_census_adjusted,439422,people,TRUE,un_ims_2024
+Greece,2008,people_by_location_census_adjusted,447333,people,TRUE,un_ims_2024
+Greece,2009,people_by_location_census_adjusted,455245,people,TRUE,un_ims_2024
+Greece,2010,people_by_location_census_adjusted,463157,people,FALSE,un_ims_2024
+Greece,2011,people_by_location_census_adjusted,457839,people,TRUE,un_ims_2024
+Greece,2012,people_by_location_census_adjusted,452521,people,TRUE,un_ims_2024
+Greece,2013,people_by_location_census_adjusted,447202,people,TRUE,un_ims_2024
+Greece,2014,people_by_location_census_adjusted,441884,people,TRUE,un_ims_2024
+Greece,2015,people_by_location_census_adjusted,436566,people,FALSE,un_ims_2024
+Greece,2016,people_by_location_census_adjusted,438576,people,TRUE,un_ims_2024
+Greece,2017,people_by_location_census_adjusted,440585,people,TRUE,un_ims_2024
+Greece,2018,people_by_location_census_adjusted,442595,people,TRUE,un_ims_2024
+Greece,2019,people_by_location_census_adjusted,444604,people,TRUE,un_ims_2024
+Greece,2020,people_by_location_census_adjusted,446614,people,FALSE,un_ims_2024
+Greece,2021,people_by_location_census_adjusted,453571,people,TRUE,un_ims_2024
+Greece,2022,people_by_location_census_adjusted,460528,people,TRUE,un_ims_2024
+Greece,2023,people_by_location_census_adjusted,467484,people,TRUE,un_ims_2024
+Greece,2024,people_by_location_census_adjusted,474441,people,FALSE,un_ims_2024
+Greece,2025,people_by_location_census_adjusted,474441,people,TRUE,un_ims_2024
+Greece,2026,people_by_location_census_adjusted,474441,people,TRUE,un_ims_2024
+Italy,1990,people_by_location_census_adjusted,60088,people,FALSE,un_ims_2024
+Italy,1991,people_by_location_census_adjusted,66886,people,TRUE,un_ims_2024
+Italy,1992,people_by_location_census_adjusted,73684,people,TRUE,un_ims_2024
+Italy,1993,people_by_location_census_adjusted,80481,people,TRUE,un_ims_2024
+Italy,1994,people_by_location_census_adjusted,87279,people,TRUE,un_ims_2024
+Italy,1995,people_by_location_census_adjusted,94077,people,FALSE,un_ims_2024
+Italy,1996,people_by_location_census_adjusted,103590,people,TRUE,un_ims_2024
+Italy,1997,people_by_location_census_adjusted,113103,people,TRUE,un_ims_2024
+Italy,1998,people_by_location_census_adjusted,122617,people,TRUE,un_ims_2024
+Italy,1999,people_by_location_census_adjusted,132130,people,TRUE,un_ims_2024
+Italy,2000,people_by_location_census_adjusted,141643,people,FALSE,un_ims_2024
+Italy,2001,people_by_location_census_adjusted,165497,people,TRUE,un_ims_2024
+Italy,2002,people_by_location_census_adjusted,189351,people,TRUE,un_ims_2024
+Italy,2003,people_by_location_census_adjusted,213206,people,TRUE,un_ims_2024
+Italy,2004,people_by_location_census_adjusted,237060,people,TRUE,un_ims_2024
+Italy,2005,people_by_location_census_adjusted,260914,people,FALSE,un_ims_2024
+Italy,2006,people_by_location_census_adjusted,286127,people,TRUE,un_ims_2024
+Italy,2007,people_by_location_census_adjusted,311340,people,TRUE,un_ims_2024
+Italy,2008,people_by_location_census_adjusted,336552,people,TRUE,un_ims_2024
+Italy,2009,people_by_location_census_adjusted,361765,people,TRUE,un_ims_2024
+Italy,2010,people_by_location_census_adjusted,386978,people,FALSE,un_ims_2024
+Italy,2011,people_by_location_census_adjusted,393317,people,TRUE,un_ims_2024
+Italy,2012,people_by_location_census_adjusted,399656,people,TRUE,un_ims_2024
+Italy,2013,people_by_location_census_adjusted,405994,people,TRUE,un_ims_2024
+Italy,2014,people_by_location_census_adjusted,412333,people,TRUE,un_ims_2024
+Italy,2015,people_by_location_census_adjusted,418672,people,FALSE,un_ims_2024
+Italy,2016,people_by_location_census_adjusted,433671,people,TRUE,un_ims_2024
+Italy,2017,people_by_location_census_adjusted,448670,people,TRUE,un_ims_2024
+Italy,2018,people_by_location_census_adjusted,463668,people,TRUE,un_ims_2024
+Italy,2019,people_by_location_census_adjusted,478667,people,TRUE,un_ims_2024
+Italy,2020,people_by_location_census_adjusted,493666,people,FALSE,un_ims_2024
+Italy,2021,people_by_location_census_adjusted,505909,people,TRUE,un_ims_2024
+Italy,2022,people_by_location_census_adjusted,518152,people,TRUE,un_ims_2024
+Italy,2023,people_by_location_census_adjusted,530395,people,TRUE,un_ims_2024
+Italy,2024,people_by_location_census_adjusted,542638,people,FALSE,un_ims_2024
+Italy,2025,people_by_location_census_adjusted,563423,people,TRUE,un_ims_2024;eurostat_migr_pop3ctb
+Italy,2026,people_by_location_census_adjusted,563423,people,TRUE,un_ims_2024;eurostat_migr_pop3ctb
+Resident in Albania,1990,people_by_location_census_adjusted,3254541,people,FALSE,eurostat_demo_gind
+Resident in Albania,1991,people_by_location_census_adjusted,3279039,people,FALSE,eurostat_demo_gind
+Resident in Albania,1992,people_by_location_census_adjusted,3215038,people,FALSE,eurostat_demo_gind
+Resident in Albania,1993,people_by_location_census_adjusted,3239536,people,FALSE,eurostat_demo_gind
+Resident in Albania,1994,people_by_location_census_adjusted,3175535,people,FALSE,eurostat_demo_gind
+Resident in Albania,1995,people_by_location_census_adjusted,3200033,people,FALSE,eurostat_demo_gind
+Resident in Albania,1996,people_by_location_census_adjusted,3136032,people,FALSE,eurostat_demo_gind
+Resident in Albania,1997,people_by_location_census_adjusted,3160530,people,FALSE,eurostat_demo_gind
+Resident in Albania,1998,people_by_location_census_adjusted,3096529,people,FALSE,eurostat_demo_gind
+Resident in Albania,1999,people_by_location_census_adjusted,3121027,people,FALSE,eurostat_demo_gind
+Resident in Albania,2000,people_by_location_census_adjusted,3057026,people,FALSE,eurostat_demo_gind
+Resident in Albania,2001,people_by_location_census_adjusted,3063320,people,FALSE,eurostat_demo_gind
+Resident in Albania,2002,people_by_location_census_adjusted,3057018,people,FALSE,eurostat_demo_gind
+Resident in Albania,2003,people_by_location_census_adjusted,3044993,people,FALSE,eurostat_demo_gind
+Resident in Albania,2004,people_by_location_census_adjusted,3034231,people,FALSE,eurostat_demo_gind
+Resident in Albania,2005,people_by_location_census_adjusted,3019634,people,FALSE,eurostat_demo_gind
+Resident in Albania,2006,people_by_location_census_adjusted,3003329,people,FALSE,eurostat_demo_gind
+Resident in Albania,2007,people_by_location_census_adjusted,2981755,people,FALSE,eurostat_demo_gind
+Resident in Albania,2008,people_by_location_census_adjusted,2958266,people,FALSE,eurostat_demo_gind
+Resident in Albania,2009,people_by_location_census_adjusted,2936355,people,FALSE,eurostat_demo_gind
+Resident in Albania,2010,people_by_location_census_adjusted,2918674,people,FALSE,eurostat_demo_gind
+Resident in Albania,2011,people_by_location_census_adjusted,2907361,people,FALSE,eurostat_demo_gind
+Resident in Albania,2012,people_by_location_census_adjusted,2903008,people,FALSE,eurostat_demo_gind
+Resident in Albania,2013,people_by_location_census_adjusted,2869487,people,TRUE,eurostat_demo_gind
+Resident in Albania,2014,people_by_location_census_adjusted,2835828,people,TRUE,eurostat_demo_gind
+Resident in Albania,2015,people_by_location_census_adjusted,2800946,people,TRUE,eurostat_demo_gind
+Resident in Albania,2016,people_by_location_census_adjusted,2762459,people,TRUE,eurostat_demo_gind
+Resident in Albania,2017,people_by_location_census_adjusted,2735175,people,TRUE,eurostat_demo_gind
+Resident in Albania,2018,people_by_location_census_adjusted,2700625,people,TRUE,eurostat_demo_gind
+Resident in Albania,2019,people_by_location_census_adjusted,2664445,people,TRUE,eurostat_demo_gind
+Resident in Albania,2020,people_by_location_census_adjusted,2619690,people,TRUE,eurostat_demo_gind
+Resident in Albania,2021,people_by_location_census_adjusted,2575192,people,TRUE,eurostat_demo_gind
+Resident in Albania,2022,people_by_location_census_adjusted,2510760,people,TRUE,eurostat_demo_gind
+Resident in Albania,2023,people_by_location_census_adjusted,2450670,people,TRUE,eurostat_demo_gind
+Resident in Albania,2024,people_by_location_census_adjusted,2390942,people,FALSE,eurostat_demo_gind
+Resident in Albania,2025,people_by_location_census_adjusted,2363314,people,FALSE,eurostat_demo_gind
+Resident in Albania,2026,people_by_location_census_adjusted,2335930,people,FALSE,eurostat_demo_gind
+Rest of world,1990,people_by_location_census_adjusted,54696,people,FALSE,un_ims_2024
+Rest of world,1991,people_by_location_census_adjusted,57715,people,TRUE,un_ims_2024
+Rest of world,1992,people_by_location_census_adjusted,60733,people,TRUE,un_ims_2024
+Rest of world,1993,people_by_location_census_adjusted,63752,people,TRUE,un_ims_2024
+Rest of world,1994,people_by_location_census_adjusted,66770,people,TRUE,un_ims_2024
+Rest of world,1995,people_by_location_census_adjusted,69789,people,FALSE,un_ims_2024
+Rest of world,1996,people_by_location_census_adjusted,73290,people,TRUE,un_ims_2024
+Rest of world,1997,people_by_location_census_adjusted,76792,people,TRUE,un_ims_2024
+Rest of world,1998,people_by_location_census_adjusted,80293,people,TRUE,un_ims_2024
+Rest of world,1999,people_by_location_census_adjusted,83795,people,TRUE,un_ims_2024
+Rest of world,2000,people_by_location_census_adjusted,87296,people,FALSE,un_ims_2024
+Rest of world,2001,people_by_location_census_adjusted,89808,people,TRUE,un_ims_2024
+Rest of world,2002,people_by_location_census_adjusted,92320,people,TRUE,un_ims_2024
+Rest of world,2003,people_by_location_census_adjusted,94833,people,TRUE,un_ims_2024
+Rest of world,2004,people_by_location_census_adjusted,97345,people,TRUE,un_ims_2024
+Rest of world,2005,people_by_location_census_adjusted,99857,people,FALSE,un_ims_2024
+Rest of world,2006,people_by_location_census_adjusted,102361,people,TRUE,un_ims_2024
+Rest of world,2007,people_by_location_census_adjusted,104866,people,TRUE,un_ims_2024
+Rest of world,2008,people_by_location_census_adjusted,107370,people,TRUE,un_ims_2024
+Rest of world,2009,people_by_location_census_adjusted,109875,people,TRUE,un_ims_2024
+Rest of world,2010,people_by_location_census_adjusted,112379,people,FALSE,un_ims_2024
+Rest of world,2011,people_by_location_census_adjusted,115968,people,TRUE,un_ims_2024
+Rest of world,2012,people_by_location_census_adjusted,119557,people,TRUE,un_ims_2024
+Rest of world,2013,people_by_location_census_adjusted,123145,people,TRUE,un_ims_2024
+Rest of world,2014,people_by_location_census_adjusted,126734,people,TRUE,un_ims_2024
+Rest of world,2015,people_by_location_census_adjusted,130323,people,FALSE,un_ims_2024
+Rest of world,2016,people_by_location_census_adjusted,136972,people,TRUE,un_ims_2024
+Rest of world,2017,people_by_location_census_adjusted,143621,people,TRUE,un_ims_2024
+Rest of world,2018,people_by_location_census_adjusted,150271,people,TRUE,un_ims_2024
+Rest of world,2019,people_by_location_census_adjusted,156920,people,TRUE,un_ims_2024
+Rest of world,2020,people_by_location_census_adjusted,163569,people,FALSE,un_ims_2024
+Rest of world,2021,people_by_location_census_adjusted,172564,people,TRUE,un_ims_2024
+Rest of world,2022,people_by_location_census_adjusted,181559,people,TRUE,un_ims_2024
+Rest of world,2023,people_by_location_census_adjusted,190554,people,TRUE,un_ims_2024
+Rest of world,2024,people_by_location_census_adjusted,199549,people,FALSE,un_ims_2024
+Rest of world,2025,people_by_location_census_adjusted,199549,people,TRUE,un_ims_2024
+Rest of world,2026,people_by_location_census_adjusted,199549,people,TRUE,un_ims_2024
+United Kingdom,1990,people_by_location_census_adjusted,156,people,FALSE,un_ims_2020
+United Kingdom,1991,people_by_location_census_adjusted,361,people,TRUE,un_ims_2020
+United Kingdom,1992,people_by_location_census_adjusted,566,people,TRUE,un_ims_2020
+United Kingdom,1993,people_by_location_census_adjusted,771,people,TRUE,un_ims_2020
+United Kingdom,1994,people_by_location_census_adjusted,976,people,TRUE,un_ims_2020
+United Kingdom,1995,people_by_location_census_adjusted,1181,people,FALSE,un_ims_2020
+United Kingdom,1996,people_by_location_census_adjusted,1390,people,TRUE,un_ims_2020
+United Kingdom,1997,people_by_location_census_adjusted,1599,people,TRUE,un_ims_2020
+United Kingdom,1998,people_by_location_census_adjusted,1809,people,TRUE,un_ims_2020
+United Kingdom,1999,people_by_location_census_adjusted,2018,people,TRUE,un_ims_2020
+United Kingdom,2000,people_by_location_census_adjusted,2227,people,FALSE,un_ims_2020
+United Kingdom,2001,people_by_location_census_adjusted,3249,people,TRUE,un_ims_2020
+United Kingdom,2002,people_by_location_census_adjusted,4270,people,TRUE,un_ims_2020
+United Kingdom,2003,people_by_location_census_adjusted,5292,people,TRUE,un_ims_2020
+United Kingdom,2004,people_by_location_census_adjusted,6313,people,TRUE,un_ims_2020
+United Kingdom,2005,people_by_location_census_adjusted,7335,people,FALSE,un_ims_2020
+United Kingdom,2006,people_by_location_census_adjusted,7417,people,TRUE,un_ims_2020
+United Kingdom,2007,people_by_location_census_adjusted,7498,people,TRUE,un_ims_2020
+United Kingdom,2008,people_by_location_census_adjusted,7580,people,TRUE,un_ims_2020
+United Kingdom,2009,people_by_location_census_adjusted,7661,people,TRUE,un_ims_2020
+United Kingdom,2010,people_by_location_census_adjusted,7743,people,FALSE,un_ims_2020
+United Kingdom,2011,people_by_location_census_adjusted,8048,people,TRUE,un_ims_2020
+United Kingdom,2012,people_by_location_census_adjusted,8353,people,TRUE,un_ims_2020
+United Kingdom,2013,people_by_location_census_adjusted,8657,people,TRUE,un_ims_2020
+United Kingdom,2014,people_by_location_census_adjusted,8962,people,TRUE,un_ims_2020
+United Kingdom,2015,people_by_location_census_adjusted,9267,people,FALSE,un_ims_2020
+United Kingdom,2016,people_by_location_census_adjusted,9505,people,TRUE,un_ims_2020
+United Kingdom,2017,people_by_location_census_adjusted,9743,people,TRUE,un_ims_2020
+United Kingdom,2018,people_by_location_census_adjusted,9982,people,TRUE,un_ims_2020
+United Kingdom,2019,people_by_location_census_adjusted,10220,people,TRUE,un_ims_2020
+United Kingdom,2020,people_by_location_census_adjusted,10458,people,FALSE,un_ims_2020
+United Kingdom,2021,people_by_location_census_adjusted,10458,people,TRUE,un_ims_2020
+United Kingdom,2022,people_by_location_census_adjusted,10458,people,TRUE,un_ims_2020
+United Kingdom,2023,people_by_location_census_adjusted,10458,people,TRUE,un_ims_2020
+United Kingdom,2024,people_by_location_census_adjusted,10458,people,TRUE,un_ims_2020
+United Kingdom,2025,people_by_location_census_adjusted,10458,people,TRUE,un_ims_2020
+United Kingdom,2026,people_by_location_census_adjusted,10458,people,TRUE,un_ims_2020
+United States,1990,people_by_location_census_adjusted,5627,people,FALSE,un_ims_2020
+United States,1991,people_by_location_census_adjusted,8990,people,TRUE,un_ims_2020
+United States,1992,people_by_location_census_adjusted,12352,people,TRUE,un_ims_2020
+United States,1993,people_by_location_census_adjusted,15715,people,TRUE,un_ims_2020
+United States,1994,people_by_location_census_adjusted,19077,people,TRUE,un_ims_2020
+United States,1995,people_by_location_census_adjusted,22440,people,FALSE,un_ims_2020
+United States,1996,people_by_location_census_adjusted,25881,people,TRUE,un_ims_2020
+United States,1997,people_by_location_census_adjusted,29322,people,TRUE,un_ims_2020
+United States,1998,people_by_location_census_adjusted,32762,people,TRUE,un_ims_2020
+United States,1999,people_by_location_census_adjusted,36203,people,TRUE,un_ims_2020
+United States,2000,people_by_location_census_adjusted,39644,people,FALSE,un_ims_2020
+United States,2001,people_by_location_census_adjusted,42680,people,TRUE,un_ims_2020
+United States,2002,people_by_location_census_adjusted,45716,people,TRUE,un_ims_2020
+United States,2003,people_by_location_census_adjusted,48753,people,TRUE,un_ims_2020
+United States,2004,people_by_location_census_adjusted,51789,people,TRUE,un_ims_2020
+United States,2005,people_by_location_census_adjusted,54825,people,FALSE,un_ims_2020
+United States,2006,people_by_location_census_adjusted,58277,people,TRUE,un_ims_2020
+United States,2007,people_by_location_census_adjusted,61729,people,TRUE,un_ims_2020
+United States,2008,people_by_location_census_adjusted,65181,people,TRUE,un_ims_2020
+United States,2009,people_by_location_census_adjusted,68633,people,TRUE,un_ims_2020
+United States,2010,people_by_location_census_adjusted,72085,people,FALSE,un_ims_2020
+United States,2011,people_by_location_census_adjusted,76041,people,TRUE,un_ims_2020
+United States,2012,people_by_location_census_adjusted,79997,people,TRUE,un_ims_2020
+United States,2013,people_by_location_census_adjusted,83953,people,TRUE,un_ims_2020
+United States,2014,people_by_location_census_adjusted,87909,people,TRUE,un_ims_2020
+United States,2015,people_by_location_census_adjusted,91865,people,FALSE,un_ims_2020
+United States,2016,people_by_location_census_adjusted,92942,people,TRUE,un_ims_2020
+United States,2017,people_by_location_census_adjusted,94020,people,TRUE,un_ims_2020
+United States,2018,people_by_location_census_adjusted,95097,people,TRUE,un_ims_2020
+United States,2019,people_by_location_census_adjusted,96175,people,TRUE,un_ims_2020
+United States,2020,people_by_location_census_adjusted,97252,people,FALSE,un_ims_2020
+United States,2021,people_by_location_census_adjusted,97252,people,TRUE,un_ims_2020
+United States,2022,people_by_location_census_adjusted,97252,people,TRUE,un_ims_2020
+United States,2023,people_by_location_census_adjusted,97252,people,TRUE,un_ims_2020
+United States,2024,people_by_location_census_adjusted,97252,people,TRUE,un_ims_2020
+United States,2025,people_by_location_census_adjusted,97252,people,TRUE,un_ims_2020
+United States,2026,people_by_location_census_adjusted,97252,people,TRUE,un_ims_2020

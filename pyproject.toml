@@ -6,6 +6,7 @@ requires-python = ">=3.13"
 dependencies = [
     "jinja2",
     "numpy",
+    "openpyxl>=3.1.5",
     "pandas",
     "plotly",
     "requests>=2.34.2",

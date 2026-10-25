@@ -53,3 +53,32 @@ updates the live site, so ask before each push (the earlier standing approval co
 
 ## Status
 See ROADMAP.md for current objectives, backlog and decisions.
+
+## Albania study — data rules
+The briefs are in studies/2026-11-albania-crossroads/BRIEFS.md. A request like "Build B3"
+means: open that file, read brief B3 only, and follow the rules here. Do not read the
+other briefs.
+
+Currency: all money in EUR, nominal, at that year's average exchange rate
+(ECB reference rate; before 1999 use the ECU rate). Never publish USD figures.
+
+Benchmark: EU27 average whenever a brief asks for a comparison.
+
+Output per brief: one tidy CSV in the study's data/ folder, long format:
+  entity, year, measure, value, unit, estimated, source_id
+Plus data/sources.csv: source_id, name, url, licence, downloaded_utc.
+
+estimated = TRUE for any interpolated, modelled or proxied point. Never fill a gap
+silently. If a series does not exist, build the best available and say so.
+
+Code: one script per brief, src/<brief_id>.py, run with uv.
+Download -> cache in data/raw/ -> compute -> write CSV. Keep the three steps separate.
+
+Do not build charts. No Plotly, no HTML, no images. Tableau Public does the visuals.
+
+After each brief, add 5 lines to the study README: what the CSV holds, what is
+estimated, what is missing.
+
+Token discipline: never print a dataframe, CSV contents, or more than 10 rows.
+Report only: row count, year range, entities, number of estimated rows.
+Do not re-read files you have already read in the session.
