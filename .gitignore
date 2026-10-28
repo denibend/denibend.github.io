@@ -17,3 +17,5 @@ __pycache__/
 
 # Third-party design mockups: reference only, not ours to publish
 **/tableau/mockup*.png
+# B14 map: ~79 MB Tableau copy stays local; the zipped copy is committed
+studies/01-albania-beyond-the-headlines/data/b14_europe_population_hexagons.geojson

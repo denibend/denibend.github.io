@@ -124,6 +124,9 @@ Do not re-read files you have already read in the session.
   as RFC 7946 GeoJSON (WGS84, 6 decimals) in `data/bN_*.geojson`; source `.gpkg` stays in raw/.
   Measure areas in an equal-area CRS (EPSG:3035), never in Web Mercator. Kontur Population
   totals are pre-2023-census (~2.84M vs 2.39M): use for spatial pattern, not levels.
+  Map files over ~50 MB: write compact GeoJSON locally (git-ignored, Tableau reads it) and commit
+  a deterministic .zip (fixed timestamp) as the snapshot (B14: 79 MB -> 7 MB). "Europe" for
+  maps (B14) = geographic Europe minus RUS/BLR, Cyprus included; Natural Earth German-POV borders.
 - Status: B1, B2, B3 done and pushed (2026-10-25 to 2026-10-28); B2 reshaped for Tableau with
-  `tableau/B2-TABLEAU-SPEC.md` + `BUILD.md`. B13 (Kontur hexagon map data) built 2026-10-28.
+  `tableau/B2-TABLEAU-SPEC.md` + `BUILD.md`. B13 (Kontur hexagon map, Albania) and B14 (Europe, 3km) built 2026-10-28.
   B4–B8 and `viz/index.html` to do.

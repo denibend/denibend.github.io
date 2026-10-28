@@ -133,6 +133,15 @@ can read directly (.gpkg or .geojson). Add it to sources.csv. No chart.
 
 ---
 
+### B14 — Europe population density map, 3km hexagons
+
+B13 for geographic Europe instead of Albania only: Kontur Population (CC BY 4.0), the 3km
+H3 hexagon edition, because 400m is too big for Europe. Europe = geographic Europe without
+Russia and Belarus (Turkey and the Caucasus out too). Save to data/ in a format Tableau
+Public can read directly, add to sources.csv. No chart.
+
+---
+
 ## Note on Substack
 
 Tableau Public gives you an embed iframe. Substack strips most third-party iframes, and
