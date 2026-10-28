@@ -7,7 +7,7 @@ import pandas as pd
 import pytest
 
 # The study folder name has hyphens, so load the script by path rather than by import.
-_PATH = Path(__file__).resolve().parents[1] / "studies/2026-11-albania-crossroads/src/b2.py"
+_PATH = Path(__file__).resolve().parents[1] / "studies/01-albania-beyond-the-headlines/src/b2.py"
 _spec = importlib.util.spec_from_file_location("albania_b2", _PATH)
 b2 = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(b2)
@@ -80,3 +80,13 @@ def test_interpolate_shape_midpoint():
     assert shape[("M", "0-14")] == pytest.approx(0.30)
     assert shape.sum() == pytest.approx(1.0)
     assert b2.interpolate_shape(observed, "X", 2019) is None
+
+
+def test_round_to_total_always_sums_exactly():
+    # Sixteen equal shares of 6.25 each round to 6.2 or 6.3; plain rounding would give 99.2.
+    out = b2.round_to_total(pd.Series([6.25] * 16))
+    assert round(out.sum(), 6) == 100.0
+    assert set(out.round(1)) == {6.2, 6.3}
+    # Largest remainder wins the leftover tenth.
+    out = b2.round_to_total(pd.Series([33.34, 33.33, 33.33]))
+    assert out.tolist() == [33.4, 33.3, 33.3]

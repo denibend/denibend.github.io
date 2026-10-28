@@ -24,9 +24,13 @@ updates the live site, so ask before each push (the earlier standing approval co
   `fetch.py` (acquisition) → `analysis.py` (pure calculations, tested) → `charts.py` (figures)
   → `build.py` (writes `docs/studies/<slug>/index.html` = report, `dashboard.html` = dashboard).
   Each study has its own README.md. Templates live in `studies/<slug>/templates/`.
-- Exception: `studies/2026-11-albania-crossroads/` is data-only for Tableau Public (no report or
-  dashboard here). Layout `src/bN.py` (one script per brief) → `data/bN_*.csv`, raw files in
-  `data/raw/bN_*`. Run `uv run python studies/2026-11-albania-crossroads/src/bN.py [--refresh]`.
+- Exception: `studies/01-albania-beyond-the-headlines/` is data-only for Tableau Public (no report or
+  dashboard in `docs/`). Layout (decided 2026-10-28; WORKFLOW.md's `articles/` layout rejected):
+  `src/bN.py` (one script per analysis) → `data/bN_*.csv` (one CSV per analysis) in a shared
+  `data/` with `data/sources.csv` and git-ignored `data/raw/bN_*`; one `README.md` for the study;
+  `tableau/` (per dashboard: a spec + `BUILD.md` steps; mockups git-ignored); `viz/index.html`
+  (review page, the only place charts are allowed). Run
+  `uv run python studies/01-albania-beyond-the-headlines/src/bN.py [--refresh]`.
   See "Albania study" below.
 - `docs/assets/site.css` is the shared, hand-maintained stylesheet; `docs/index.html` is the hand-written
   landing page. Everything else under `docs/studies/` is generated, so edit templates, not output.
@@ -59,7 +63,7 @@ updates the live site, so ask before each push (the earlier standing approval co
 See ROADMAP.md for current objectives, backlog and decisions.
 
 ## Albania study — data rules
-The briefs are in studies/2026-11-albania-crossroads/BRIEFS.md. A request like "Build B3"
+The briefs are in studies/01-albania-beyond-the-headlines/BRIEFS.md. A request like "Build B3"
 means: open that file, read brief B3 only, and follow the rules here. Do not read the
 other briefs.
 
@@ -79,6 +83,7 @@ Code: one script per brief, src/<brief_id>.py, run with uv.
 Download -> cache in data/raw/ -> compute -> write CSV. Keep the three steps separate.
 
 Do not build charts. No Plotly, no HTML, no images. Tableau Public does the visuals.
+(Exception, decided 2026-10-28: the study's `viz/index.html` review page.)
 
 After each brief, add 5 lines to the study README: what the CSV holds, what is
 estimated, what is missing.
@@ -93,8 +98,12 @@ Do not re-read files you have already read in the session.
   `write()` upserts its rows into the shared `data/sources.csv` by `source_id`.
 - Tests: `tests/test_albania_bN.py`, loading the script by file path (the folder name has hyphens,
   so it cannot be imported). Test every fill/interpolation/conversion on synthetic data.
-- Extra columns are allowed when a brief needs another dimension; put them after `year`
-  (B2: `sex`, `age_band`). A derived point lists every input: `source_id` = `a;b`.
+- Extra columns are allowed when a brief needs another dimension; put them after `year`.
+  A derived point lists every input: `source_id` = `a;b`.
+- When a Tableau spec in `tableau/` asks for it, the brief's CSV is shaped for that view instead
+  of `measure, value, unit` (B2: `age_order`, `population`, `pct_of_total`, `pct_signed`).
+  Shares meant to add to 100 use largest-remainder rounding so they add to exactly 100.0.
+- Third-party mockups stay local (`**/tableau/mockup*.png` is git-ignored): never publish them.
 - `estimated` = TRUE for our gap-filling and for values the provider flags as estimated
   (Eurostat flag `e`). Report the README "Estimated" line split into the two kinds.
 - If a brief's named source measures a different concept, use a comparable one and say why in the
@@ -111,4 +120,5 @@ Do not re-read files you have already read in the session.
   - UN WPP Albania levels predate the 2023 census (~400k high): use WPP for shapes, not levels.
   - Eurostat `bop_rem` is withdrawn; personal remittances are in `bop_rem6` (item R1).
   - World Bank API covers ALB and the EU aggregate `EUU` to 2025 (last updated 2026-10-08).
-- Status: B1, B2, B3 done and pushed (2026-10-25 to 2026-10-28). B4–B8 to do.
+- Status: B1, B2, B3 done and pushed (2026-10-25 to 2026-10-28); B2 reshaped for Tableau with
+  `tableau/B2-TABLEAU-SPEC.md` + `BUILD.md`. B4–B8 and `viz/index.html` to do.

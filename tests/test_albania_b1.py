@@ -7,7 +7,7 @@ import pandas as pd
 import pytest
 
 # The study folder name has hyphens, so load the script by path rather than by import.
-_PATH = Path(__file__).resolve().parents[1] / "studies/2026-11-albania-crossroads/src/b1.py"
+_PATH = Path(__file__).resolve().parents[1] / "studies/01-albania-beyond-the-headlines/src/b1.py"
 _spec = importlib.util.spec_from_file_location("albania_b1", _PATH)
 b1 = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(b1)

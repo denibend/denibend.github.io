@@ -3,7 +3,7 @@
 Eight datasets for Tableau Public. Claude Code produces **data only**, no charts.
 
 How to use this file:
-1. Save this file in the repo at `studies/2026-11-albania-crossroads/BRIEFS.md`.
+1. Save this file in the repo at `studies/01-albania-beyond-the-headlines/BRIEFS.md`.
 2. Add **Section 1** to the end of `CLAUDE.md` — edit the file on disk, don't paste it
    into the chat. Claude Code reads `CLAUDE.md` by itself at the start of every session,
    so the rules arrive for free, once, instead of being retyped in eight prompts.
@@ -18,7 +18,7 @@ How to use this file:
 
 ```markdown
 ## Albania study — data rules
-The briefs are in studies/2026-11-albania-crossroads/BRIEFS.md. A request like "Build B3"
+The briefs are in studies/01-albania-beyond-the-headlines/BRIEFS.md. A request like "Build B3"
 means: open that file, read brief B3 only, and follow the rules here. Do not read the
 other briefs.
 

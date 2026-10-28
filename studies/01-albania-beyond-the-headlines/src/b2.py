@@ -1,6 +1,6 @@
 """B2 — Age and sex structure, Albania vs EU27, 1990–2025.
 
-Run:  uv run python studies/2026-11-albania-crossroads/src/b2.py [--refresh]
+Run:  uv run python studies/01-albania-beyond-the-headlines/src/b2.py [--refresh]
 
 Steps (kept separate): download() caches raw files in data/raw/ -> load() reads the cache
 -> build() computes the tidy table (pure, tested) -> write() writes the CSV and sources.csv.
@@ -38,8 +38,6 @@ YEARS = range(1990, 2026)
 ENTITIES = {"AL": "Albania", "EU27_2020": "EU27"}
 WPP_LOCATIONS = {8: "Albania", 1551: "EU27"}
 SEXES = {"M": "Male", "F": "Female"}
-MEASURE_PEOPLE, MEASURE_SHARE = "population", "share_of_total"
-UNIT_PEOPLE, UNIT_SHARE = "people", "% of total population"
 
 EUROSTAT_API = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data"
 WPP_URL = (
@@ -89,6 +87,7 @@ FIVE_YEAR = [
 ]
 CELLS = [*FIVE_YEAR, "Y_GE80"]
 BANDS = ["0-14", "15-24", "25-34", "35-44", "45-54", "55-64", "65-79", "80+"]
+AGE_ORDER = {band: i for i, band in enumerate(BANDS, start=1)}  # Tableau sorts text A-Z
 CELL_BAND = dict(
     zip(CELLS, ["0-14"] * 3 + [b for b in BANDS[1:6] for _ in (0, 1)] + ["65-79"] * 3 + ["80+"])
 )
@@ -285,7 +284,12 @@ def interpolate_shape(observed: pd.DataFrame, entity: str, year: int) -> pd.Seri
 
 
 def build(data: dict) -> pd.DataFrame:
-    """Assemble the tidy B2 table: population and share of total per entity-year-sex-band."""
+    """Assemble the B2 table, shaped for the Tableau pyramid: one row per entity-year-sex-band.
+
+    Columns population, pct_of_total (share of the entity's both-sex total, 1 dp, each
+    entity-year sums to exactly 100.0) and pct_signed (negative for Female) replace the long
+    measure/value/unit layout, so Tableau needs no pivot and no calculated field.
+    """
     cells = fill_missing_cells(data["cells"], data["totals"])
     observed = cells_to_bands(cells).assign(source_id="eurostat_demo_pjangroup")
 
@@ -312,32 +316,39 @@ def build(data: dict) -> pd.DataFrame:
             parts.append(filled.assign(entity=entity, year=year, estimated=True, source_id=source))
 
     bands = pd.concat(parts, ignore_index=True)
-    share = shares(bands).rename("share").reset_index()
-    bands = bands.merge(share, on=KEYS)
-    people = bands.assign(
-        measure=MEASURE_PEOPLE, value=bands["value"].round().astype(int), unit=UNIT_PEOPLE
+    bands = bands.merge(shares(bands).rename("share").reset_index(), on=KEYS)
+    pct = bands.groupby(["entity", "year"])["share"].transform(lambda s: round_to_total(s * 100))
+    sex = bands["sex"].map(SEXES)
+    out = pd.DataFrame(
+        {
+            "entity": bands["entity"],
+            "year": bands["year"].astype(int),
+            "sex": sex,
+            "age_band": bands["band"],
+            "age_order": bands["band"].map(AGE_ORDER),
+            "population": bands["value"].round().astype(int),
+            "pct_of_total": pct,
+            "pct_signed": pct.where(sex == "Male", -pct),
+            "estimated": bands["estimated"].astype(bool),
+            "source_id": bands["source_id"],
+        }
     )
-    pct = bands.assign(
-        measure=MEASURE_SHARE, value=(bands["share"] * 100).round(4), unit=UNIT_SHARE
-    )
-    out = pd.concat([people, pct], ignore_index=True)
-    out = out.assign(sex=out["sex"].map(SEXES)).rename(columns={"band": "age_band"})
-    cols = [
-        "entity",
-        "year",
-        "sex",
-        "age_band",
-        "measure",
-        "value",
-        "unit",
-        "estimated",
-        "source_id",
-    ]
-    return (
-        out[cols]
-        .sort_values(["measure", "entity", "year", "sex", "age_band"])
-        .reset_index(drop=True)
-    )
+    return out.sort_values(["entity", "year", "sex", "age_order"]).reset_index(drop=True)
+
+
+def round_to_total(values: pd.Series, decimals: int = 1, total: float = 100.0) -> pd.Series:
+    """Round to `decimals` so the rounded values still add up to `total` (largest remainder).
+
+    Plain rounding of 16 shares can sum to 99.9 or 100.1; this floors every value, then hands
+    the leftover units to the values with the largest remainders.
+    """
+    scale = 10**decimals
+    scaled = values.to_numpy() * scale
+    floored = np.floor(scaled)
+    leftover = round(float(total * scale - floored.sum()))
+    order = np.argsort(-(scaled - floored), kind="stable")
+    floored[order[:leftover]] += 1
+    return pd.Series(floored / scale, index=values.index)
 
 
 def merge_sources(existing: pd.DataFrame | None, new: pd.DataFrame) -> pd.DataFrame:

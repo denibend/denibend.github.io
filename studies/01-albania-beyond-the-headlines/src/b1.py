@@ -1,6 +1,6 @@
 """B1 — Albanians by where they live, 1990–2026.
 
-Run:  uv run python studies/2026-11-albania-crossroads/src/b1.py [--refresh]
+Run:  uv run python studies/01-albania-beyond-the-headlines/src/b1.py [--refresh]
 
 Steps (kept separate): download() caches raw files in data/raw/ -> load_*() reads the cache
 -> build() computes the tidy table (pure, tested) -> write() writes the CSV and sources.csv.

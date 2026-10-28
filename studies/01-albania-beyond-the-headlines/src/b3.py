@@ -1,6 +1,6 @@
 """B3 — GDP per person and remittances, Albania vs EU27, 1990–2025.
 
-Run:  uv run python studies/2026-11-albania-crossroads/src/b3.py [--refresh]
+Run:  uv run python studies/01-albania-beyond-the-headlines/src/b3.py [--refresh]
 
 Steps (kept separate): download() caches raw files in data/raw/ -> load() reads the cache
 -> build() computes the tidy table (pure, tested) -> write() writes the CSV and sources.csv.
