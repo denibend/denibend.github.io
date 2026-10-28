@@ -17,3 +17,10 @@ Briefs: [BRIEFS.md](BRIEFS.md). Raw downloads are cached in `data/raw/` (git-ign
 - Also estimated: EU27 years 2014–2018 and 2020–2025, because Eurostat flags those aggregate cells as its own estimates.
 - Break: Albania's levels for 2002–2023 rest on the 2011 census and from 2024 on the 2023 census (total −13%), while shares move under 1 pp at the break — compare shapes, not head counts. WPP's own Albanian levels run ~400k high, so they are not used.
 - Missing: 2026 (not yet in demo_pjangroup). No age detail by sex exists in Eurostat for Albania before 2002.
+
+## B3 — GDP per person and remittances, Albania vs EU27 (`data/b3_gdp_remittances.csv`)
+- Holds: Albania and EU27, 1990–2025: `gdp_per_capita_eur` (EUR per person), `remittances_received_eur` (EUR, total), `remittances_pct_gdp` (% of GDP). Nominal EUR at each year's average rate — ECB reference rate from 1999, ECU rate (Eurostat) before; no USD figure is published.
+- Sources: Albania all World Bank; EU27 GDP per person from Eurostat nama_10_pc from 1995 and the World Bank EU aggregate before (the two differ by 0.2% in 1995); remittances for both from World Bank personal remittances, ratio from World Bank remittances / GDP in the same currency.
+- Not used: Eurostat's EU27 remittance aggregate (bop_rem6) counts only extra-EU inflows, unlike Albania's figure from all countries, so the EU27 benchmark is the World Bank sum of member-state receipts instead.
+- Estimated: none — no point is interpolated or modelled by us (the World Bank's 2025 values may still be revised).
+- Missing: Albanian remittances 1990–1991 (World Bank series starts 1992); no gap is filled.

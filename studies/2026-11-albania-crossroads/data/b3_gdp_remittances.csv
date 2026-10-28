@@ -1,0 +1,213 @@
+entity,year,measure,value,unit,estimated,source_id
+Albania,1990,gdp_per_capita_eur,484.7106,EUR per person,FALSE,wb_ny_gdp_pcap_cd;eurostat_ert_bil_eur_a
+Albania,1991,gdp_per_capita_eur,271.6164,EUR per person,FALSE,wb_ny_gdp_pcap_cd;eurostat_ert_bil_eur_a
+Albania,1992,gdp_per_capita_eur,154.7278,EUR per person,FALSE,wb_ny_gdp_pcap_cd;eurostat_ert_bil_eur_a
+Albania,1993,gdp_per_capita_eur,313.6458,EUR per person,FALSE,wb_ny_gdp_pcap_cd;eurostat_ert_bil_eur_a
+Albania,1994,gdp_per_capita_eur,492.9938,EUR per person,FALSE,wb_ny_gdp_pcap_cd;eurostat_ert_bil_eur_a
+Albania,1995,gdp_per_capita_eur,696.7282,EUR per person,FALSE,wb_ny_gdp_pcap_cd;eurostat_ert_bil_eur_a
+Albania,1996,gdp_per_capita_eur,804.1082,EUR per person,FALSE,wb_ny_gdp_pcap_cd;eurostat_ert_bil_eur_a
+Albania,1997,gdp_per_capita_eur,642.4564,EUR per person,FALSE,wb_ny_gdp_pcap_cd;eurostat_ert_bil_eur_a
+Albania,1998,gdp_per_capita_eur,741.3927,EUR per person,FALSE,wb_ny_gdp_pcap_cd;eurostat_ert_bil_eur_a
+Albania,1999,gdp_per_capita_eur,991.1505,EUR per person,FALSE,wb_ny_gdp_pcap_cd;ecb_exr_usd
+Albania,2000,gdp_per_capita_eur,1256.3931,EUR per person,FALSE,wb_ny_gdp_pcap_cd;ecb_exr_usd
+Albania,2001,gdp_per_capita_eur,1480.9879,EUR per person,FALSE,wb_ny_gdp_pcap_cd;ecb_exr_usd
+Albania,2002,gdp_per_capita_eur,1565.0169,EUR per person,FALSE,wb_ny_gdp_pcap_cd;ecb_exr_usd
+Albania,2003,gdp_per_capita_eur,1687.3814,EUR per person,FALSE,wb_ny_gdp_pcap_cd;ecb_exr_usd
+Albania,2004,gdp_per_capita_eur,1967.1235,EUR per person,FALSE,wb_ny_gdp_pcap_cd;ecb_exr_usd
+Albania,2005,gdp_per_capita_eur,2203.7962,EUR per person,FALSE,wb_ny_gdp_pcap_cd;ecb_exr_usd
+Albania,2006,gdp_per_capita_eur,2435.3102,EUR per person,FALSE,wb_ny_gdp_pcap_cd;ecb_exr_usd
+Albania,2007,gdp_per_capita_eur,2731.2041,EUR per person,FALSE,wb_ny_gdp_pcap_cd;ecb_exr_usd
+Albania,2008,gdp_per_capita_eur,3058.6355,EUR per person,FALSE,wb_ny_gdp_pcap_cd;ecb_exr_usd
+Albania,2009,gdp_per_capita_eur,3021.0089,EUR per person,FALSE,wb_ny_gdp_pcap_cd;ecb_exr_usd
+Albania,2010,gdp_per_capita_eur,3129.7371,EUR per person,FALSE,wb_ny_gdp_pcap_cd;ecb_exr_usd
+Albania,2011,gdp_per_capita_eur,3208.2275,EUR per person,FALSE,wb_ny_gdp_pcap_cd;ecb_exr_usd
+Albania,2012,gdp_per_capita_eur,3332.0135,EUR per person,FALSE,wb_ny_gdp_pcap_cd;ecb_exr_usd
+Albania,2013,gdp_per_capita_eur,3420.5763,EUR per person,FALSE,wb_ny_gdp_pcap_cd;ecb_exr_usd
+Albania,2014,gdp_per_capita_eur,3608.276,EUR per person,FALSE,wb_ny_gdp_pcap_cd;ecb_exr_usd
+Albania,2015,gdp_per_capita_eur,3785.0296,EUR per person,FALSE,wb_ny_gdp_pcap_cd;ecb_exr_usd
+Albania,2016,gdp_per_capita_eur,4027.1222,EUR per person,FALSE,wb_ny_gdp_pcap_cd;ecb_exr_usd
+Albania,2017,gdp_per_capita_eur,4431.6576,EUR per person,FALSE,wb_ny_gdp_pcap_cd;ecb_exr_usd
+Albania,2018,gdp_per_capita_eur,4993.9727,EUR per person,FALSE,wb_ny_gdp_pcap_cd;ecb_exr_usd
+Albania,2019,gdp_per_capita_eur,5421.6858,EUR per person,FALSE,wb_ny_gdp_pcap_cd;ecb_exr_usd
+Albania,2020,gdp_per_capita_eur,5277.4768,EUR per person,FALSE,wb_ny_gdp_pcap_cd;ecb_exr_usd
+Albania,2021,gdp_per_capita_eur,6123.4534,EUR per person,FALSE,wb_ny_gdp_pcap_cd;ecb_exr_usd
+Albania,2022,gdp_per_capita_eur,7366.1953,EUR per person,FALSE,wb_ny_gdp_pcap_cd;ecb_exr_usd
+Albania,2023,gdp_per_capita_eur,9008.5869,EUR per person,FALSE,wb_ny_gdp_pcap_cd;ecb_exr_usd
+Albania,2024,gdp_per_capita_eur,10508.3276,EUR per person,FALSE,wb_ny_gdp_pcap_cd;ecb_exr_usd
+Albania,2025,gdp_per_capita_eur,11502.9574,EUR per person,FALSE,wb_ny_gdp_pcap_cd;ecb_exr_usd
+EU27,1990,gdp_per_capita_eur,12156.8702,EUR per person,FALSE,wb_ny_gdp_pcap_cd;eurostat_ert_bil_eur_a
+EU27,1991,gdp_per_capita_eur,12868.0602,EUR per person,FALSE,wb_ny_gdp_pcap_cd;eurostat_ert_bil_eur_a
+EU27,1992,gdp_per_capita_eur,13453.1503,EUR per person,FALSE,wb_ny_gdp_pcap_cd;eurostat_ert_bil_eur_a
+EU27,1993,gdp_per_capita_eur,13580.1176,EUR per person,FALSE,wb_ny_gdp_pcap_cd;eurostat_ert_bil_eur_a
+EU27,1994,gdp_per_capita_eur,14137.1707,EUR per person,FALSE,wb_ny_gdp_pcap_cd;eurostat_ert_bil_eur_a
+EU27,1995,gdp_per_capita_eur,14910.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,1996,gdp_per_capita_eur,15600.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,1997,gdp_per_capita_eur,16010.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,1998,gdp_per_capita_eur,16670.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,1999,gdp_per_capita_eur,17420.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,2000,gdp_per_capita_eur,18420.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,2001,gdp_per_capita_eur,19270.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,2002,gdp_per_capita_eur,19930.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,2003,gdp_per_capita_eur,20400.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,2004,gdp_per_capita_eur,21250.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,2005,gdp_per_capita_eur,22110.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,2006,gdp_per_capita_eur,23320.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,2007,gdp_per_capita_eur,24680.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,2008,gdp_per_capita_eur,25390.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,2009,gdp_per_capita_eur,24230.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,2010,gdp_per_capita_eur,25090.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,2011,gdp_per_capita_eur,25870.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,2012,gdp_per_capita_eur,25980.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,2013,gdp_per_capita_eur,26260.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,2014,gdp_per_capita_eur,26850.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,2015,gdp_per_capita_eur,27810.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,2016,gdp_per_capita_eur,28510.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,2017,gdp_per_capita_eur,29680.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,2018,gdp_per_capita_eur,30680.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,2019,gdp_per_capita_eur,31740.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,2020,gdp_per_capita_eur,30560.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,2021,gdp_per_capita_eur,33330.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,2022,gdp_per_capita_eur,36190.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,2023,gdp_per_capita_eur,38470.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,2024,gdp_per_capita_eur,40190.0,EUR per person,FALSE,eurostat_nama_10_pc
+EU27,2025,gdp_per_capita_eur,41770.0,EUR per person,FALSE,eurostat_nama_10_pc
+Albania,1992,remittances_pct_gdp,23.276,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,1993,remittances_pct_gdp,28.0094,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,1994,remittances_pct_gdp,16.3268,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,1995,remittances_pct_gdp,14.7087,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,1996,remittances_pct_gdp,17.0321,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,1997,remittances_pct_gdp,13.0926,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,1998,remittances_pct_gdp,19.3873,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,1999,remittances_pct_gdp,12.3997,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,2000,remittances_pct_gdp,16.677,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,2001,remittances_pct_gdp,17.2281,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,2002,remittances_pct_gdp,16.2474,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,2003,remittances_pct_gdp,15.3187,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,2004,remittances_pct_gdp,15.6707,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,2005,remittances_pct_gdp,15.6202,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,2006,remittances_pct_gdp,14.8567,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,2007,remittances_pct_gdp,13.2053,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,2008,remittances_pct_gdp,14.0708,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,2009,remittances_pct_gdp,13.9248,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,2010,remittances_pct_gdp,13.1268,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,2011,remittances_pct_gdp,11.9632,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,2012,remittances_pct_gdp,11.5933,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,2013,remittances_pct_gdp,10.0168,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,2014,remittances_pct_gdp,10.6872,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,2015,remittances_pct_gdp,11.2541,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,2016,remittances_pct_gdp,10.8937,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,2017,remittances_pct_gdp,9.8944,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,2018,remittances_pct_gdp,9.4815,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,2019,remittances_pct_gdp,9.4501,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,2020,remittances_pct_gdp,9.6184,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,2021,remittances_pct_gdp,9.5295,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,2022,remittances_pct_gdp,9.1772,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,2023,remittances_pct_gdp,8.6678,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,2024,remittances_pct_gdp,8.4122,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,2025,remittances_pct_gdp,8.3908,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,1990,remittances_pct_gdp,0.4306,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,1991,remittances_pct_gdp,0.4205,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,1992,remittances_pct_gdp,0.4114,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,1993,remittances_pct_gdp,0.4342,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,1994,remittances_pct_gdp,0.408,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,1995,remittances_pct_gdp,0.3827,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,1996,remittances_pct_gdp,0.3781,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,1997,remittances_pct_gdp,0.4612,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,1998,remittances_pct_gdp,0.4592,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,1999,remittances_pct_gdp,0.3775,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,2000,remittances_pct_gdp,0.4082,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,2001,remittances_pct_gdp,0.4268,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,2002,remittances_pct_gdp,0.4395,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,2003,remittances_pct_gdp,0.4515,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,2004,remittances_pct_gdp,0.4706,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,2005,remittances_pct_gdp,0.5121,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,2006,remittances_pct_gdp,0.5425,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,2007,remittances_pct_gdp,0.5671,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,2008,remittances_pct_gdp,0.5999,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,2009,remittances_pct_gdp,0.6284,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,2010,remittances_pct_gdp,0.6277,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,2011,remittances_pct_gdp,0.6462,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,2012,remittances_pct_gdp,0.6765,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,2013,remittances_pct_gdp,0.7472,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,2014,remittances_pct_gdp,0.7564,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,2015,remittances_pct_gdp,0.7886,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,2016,remittances_pct_gdp,0.7828,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,2017,remittances_pct_gdp,0.79,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,2018,remittances_pct_gdp,0.7782,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,2019,remittances_pct_gdp,0.8052,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,2020,remittances_pct_gdp,0.8156,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,2021,remittances_pct_gdp,0.7841,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,2022,remittances_pct_gdp,0.8009,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,2023,remittances_pct_gdp,0.8228,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,2024,remittances_pct_gdp,0.8368,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+EU27,2025,remittances_pct_gdp,0.8374,% of GDP,FALSE,wb_bx_trf_pwkr_cd_dt;wb_ny_gdp_mktp_cd
+Albania,1992,remittances_received_eur,116940143.2863,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;eurostat_ert_bil_eur_a
+Albania,1993,remittances_received_eur,283518360.3757,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;eurostat_ert_bil_eur_a
+Albania,1994,remittances_received_eur,258175704.0773,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;eurostat_ert_bil_eur_a
+Albania,1995,remittances_received_eur,326681957.1865,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;eurostat_ert_bil_eur_a
+Albania,1996,remittances_received_eur,433882019.3747,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;eurostat_ert_bil_eur_a
+Albania,1997,remittances_received_eur,264814814.8148,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;eurostat_ert_bil_eur_a
+Albania,1998,remittances_received_eur,449683346.713,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;eurostat_ert_bil_eur_a
+Albania,1999,remittances_received_eur,382068867.0794,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+Albania,2000,remittances_received_eur,647241097.6167,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+Albania,2001,remittances_received_eur,780791586.7913,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+Albania,2002,remittances_received_eur,775793552.8715,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+Albania,2003,remittances_received_eur,785696341.9794,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+Albania,2004,remittances_received_eur,933089431.162,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+Albania,2005,remittances_received_eur,1036664576.9729,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+Albania,2006,remittances_received_eur,1082724274.0179,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+Albania,2007,remittances_received_eur,1071173676.6246,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+Albania,2008,remittances_received_eur,1268451216.6316,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+Albania,2009,remittances_received_eur,1231516819.5596,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+Albania,2010,remittances_received_eur,1196767236.355,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+Albania,2011,remittances_received_eur,1115034776.5033,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+Albania,2012,remittances_received_eur,1105063071.0794,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+Albania,2013,remittances_received_eur,965161285.2951,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+Albania,2014,remittances_received_eur,1069632378.9527,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+Albania,2015,remittances_received_eur,1163450662.9002,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+Albania,2016,remittances_received_eur,1179876677.3486,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+Albania,2017,remittances_received_eur,1161232442.7999,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+Albania,2018,remittances_received_eur,1234772418.1986,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+Albania,2019,remittances_received_eur,1315628206.5488,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+Albania,2020,remittances_received_eur,1283481182.4384,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+Albania,2021,remittances_received_eur,1452859857.4688,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+Albania,2022,remittances_received_eur,1657326236.0055,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+Albania,2023,remittances_received_eur,1883129900.9299,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+Albania,2024,remittances_received_eur,2101331887.6929,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+Albania,2025,remittances_received_eur,2267799348.043,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+EU27,1990,remittances_received_eur,22013194942.0057,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;eurostat_ert_bil_eur_a
+EU27,1991,remittances_received_eur,22820525283.102,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;eurostat_ert_bil_eur_a
+EU27,1992,remittances_received_eur,23409742639.2651,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;eurostat_ert_bil_eur_a
+EU27,1993,remittances_received_eur,25020145062.061,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;eurostat_ert_bil_eur_a
+EU27,1994,remittances_received_eur,24537833579.929,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;eurostat_ert_bil_eur_a
+EU27,1995,remittances_received_eur,24262804717.1304,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;eurostat_ert_bil_eur_a
+EU27,1996,remittances_received_eur,25093060253.6691,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;eurostat_ert_bil_eur_a
+EU27,1997,remittances_received_eur,31436447116.3113,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;eurostat_ert_bil_eur_a
+EU27,1998,remittances_received_eur,32613302255.57,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;eurostat_ert_bil_eur_a
+EU27,1999,remittances_received_eur,28073550124.8431,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+EU27,2000,remittances_received_eur,32177347536.1496,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+EU27,2001,remittances_received_eur,35252851064.9909,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+EU27,2002,remittances_received_eur,37602997680.9997,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+EU27,2003,remittances_received_eur,39695535843.2511,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+EU27,2004,remittances_received_eur,43258297327.3607,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+EU27,2005,remittances_received_eur,49153350888.2935,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+EU27,2006,remittances_received_eur,55107387481.8356,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+EU27,2007,remittances_received_eur,61157859046.4293,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+EU27,2008,remittances_received_eur,66734538301.649,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+EU27,2009,remittances_received_eur,66884131977.5073,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+EU27,2010,remittances_received_eur,69331004035.8875,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+EU27,2011,remittances_received_eur,73701757561.7005,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+EU27,2012,remittances_received_eur,77566142372.8079,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+EU27,2013,remittances_received_eur,86636182286.1564,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+EU27,2014,remittances_received_eur,89749635078.6328,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+EU27,2015,remittances_received_eur,97060032713.468,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+EU27,2016,remittances_received_eur,98927908676.2348,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+EU27,2017,remittances_received_eur,104001262390.079,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+EU27,2018,remittances_received_eur,106036711883.1823,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+EU27,2019,remittances_received_eur,113711283814.6764,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+EU27,2020,remittances_received_eur,110714774311.7895,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+EU27,2021,remittances_received_eur,115992090068.0747,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+EU27,2022,remittances_received_eur,129467225932.0784,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+EU27,2023,remittances_received_eur,141992658348.7632,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+EU27,2024,remittances_received_eur,150763998557.8777,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
+EU27,2025,remittances_received_eur,157434562540.1337,EUR,FALSE,wb_bx_trf_pwkr_cd_dt;ecb_exr_usd
