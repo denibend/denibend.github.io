@@ -24,6 +24,10 @@ updates the live site, so ask before each push (the earlier standing approval co
   `fetch.py` (acquisition) → `analysis.py` (pure calculations, tested) → `charts.py` (figures)
   → `build.py` (writes `docs/studies/<slug>/index.html` = report, `dashboard.html` = dashboard).
   Each study has its own README.md. Templates live in `studies/<slug>/templates/`.
+- Exception: `studies/2026-11-albania-crossroads/` is data-only for Tableau Public (no report or
+  dashboard here). Layout `src/bN.py` (one script per brief) → `data/bN_*.csv`, raw files in
+  `data/raw/bN_*`. Run `uv run python studies/2026-11-albania-crossroads/src/bN.py [--refresh]`.
+  See "Albania study" below.
 - `docs/assets/site.css` is the shared, hand-maintained stylesheet; `docs/index.html` is the hand-written
   landing page. Everything else under `docs/studies/` is generated, so edit templates, not output.
 - Preview locally with `uv run python -m http.server 8765 --directory docs` (relative links need a server).
@@ -82,3 +86,29 @@ estimated, what is missing.
 Token discipline: never print a dataframe, CSV contents, or more than 10 rows.
 Report only: row count, year range, entities, number of estimated rows.
 Do not re-read files you have already read in the session.
+
+### Albania study — conventions settled while building B1–B3
+- Each `src/bN.py` is self-contained: `download()` (skips files already in `data/raw/` + its
+  `bN_manifest.json`; `--refresh` re-fetches) → `load()` → `build()` (pure, no I/O) → `write()`.
+  `write()` upserts its rows into the shared `data/sources.csv` by `source_id`.
+- Tests: `tests/test_albania_bN.py`, loading the script by file path (the folder name has hyphens,
+  so it cannot be imported). Test every fill/interpolation/conversion on synthetic data.
+- Extra columns are allowed when a brief needs another dimension; put them after `year`
+  (B2: `sex`, `age_band`). A derived point lists every input: `source_id` = `a;b`.
+- `estimated` = TRUE for our gap-filling and for values the provider flags as estimated
+  (Eurostat flag `e`). Report the README "Estimated" line split into the two kinds.
+- If a brief's named source measures a different concept, use a comparable one and say why in the
+  README (B3: Eurostat's EU27 remittances count extra-EU inflows only → World Bank EU sum used).
+- Albania 2023 census break: from 1 Jan 2024 INSTAT/Eurostat population is on the 2023-census basis,
+  2012–2023 are not back-revised (total −13% in one year). Flag it in every brief that uses Albanian
+  population levels; B1 carries a `people_by_location_census_adjusted` measure for that.
+- Source access notes:
+  - INSTAT PxWeb (databaza.instat.gov.al) does not connect from here; Eurostat republishes INSTAT
+    series (demo_gind, demo_pjangroup) — use those and name INSTAT in the source `name`.
+  - un.org pages refuse the default client: send a browser-like User-Agent. The UN WPP server is
+    very slow (30 MB took several retries): stream with a long timeout and resume with `curl -C -`.
+  - UN Migrant Stock 2024 has no Albania-origin rows for Germany, UK, USA; the 2020 edition does.
+  - UN WPP Albania levels predate the 2023 census (~400k high): use WPP for shapes, not levels.
+  - Eurostat `bop_rem` is withdrawn; personal remittances are in `bop_rem6` (item R1).
+  - World Bank API covers ALB and the EU aggregate `EUU` to 2025 (last updated 2026-10-08).
+- Status: B1, B2, B3 done and pushed (2026-10-25 to 2026-10-28). B4–B8 to do.
