@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "Market research & interactive analytics portfolio by Denisa Bendaj"
 requires-python = ">=3.13"
 dependencies = [
+    "geopandas>=1.2.0",
     "jinja2",
     "numpy",
     "openpyxl>=3.1.5",

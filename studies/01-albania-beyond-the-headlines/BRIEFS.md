@@ -124,6 +124,15 @@ start where it starts, and write the first available year in the README.
 
 ---
 
+### B13 — Population density map, 400m hexagons
+
+Where Albanians actually live, as a hexagon map for Tableau. Use the Kontur Population
+dataset for Albania (400m H3 hexagons, CC BY 4.0), from HDX / kontur.io. Download it,
+confirm the licence and the hexagon count, and save it to data/ in a format Tableau Public
+can read directly (.gpkg or .geojson). Add it to sources.csv. No chart.
+
+---
+
 ## Note on Substack
 
 Tableau Public gives you an embed iframe. Substack strips most third-party iframes, and

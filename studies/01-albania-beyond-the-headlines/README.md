@@ -24,3 +24,10 @@ Briefs: [BRIEFS.md](BRIEFS.md). Raw downloads are cached in `data/raw/` (git-ign
 - Not used: Eurostat's EU27 remittance aggregate (bop_rem6) counts only extra-EU inflows, unlike Albania's figure from all countries, so the EU27 benchmark is the World Bank sum of member-state receipts instead.
 - Estimated: none — no point is interpolated or modelled by us (the World Bank's 2025 values may still be revised).
 - Missing: Albanian remittances 1990–1991 (World Bank series starts 1992); no gap is filled.
+
+## B13 — Population density map, 400m hexagons (`data/b13_population_hexagons.geojson`)
+- Holds: 22,289 H3 hexagons (resolution 8, ~0.82 km² each) covering every populated part of Albania. Columns: `h3`, `population` (people per hexagon), `area_km2` (equal-area, EPSG:3035), `pop_per_km2`, `estimated`, `source_id`. GeoJSON in WGS84, because Tableau cannot read GeoPackage. Connect it in Tableau with Spatial file.
+- Source: Kontur Population, Albania extract, release 2023-11-01 (HDX, CC BY 4.0). Credit: "Population: Kontur Population (CC BY 4.0)". Kontur's file is the source; we only reproject it and add area and density.
+- Estimated: all 22,289 rows. Kontur models population from GHSL, Facebook, Microsoft building footprints, Copernicus land cover and OpenStreetMap, so no hexagon is a counted figure.
+- Pre-census levels: the hexagons add up to 2,835,208, close to the pre-census 2022 resident count (2,793,592, B1). That is 18.6% above the census-based figure for 1 Jan 2024 (2,390,942). Use the map for where people live, not for how many there are. No year is attached, because Kontur does not give a single reference year for its inputs.
+- Missing: hexagons with no modelled population (mountains, water) are not in the file, so they show as blank, not as 0. There is no time series: Kontur's only other Albania release (2022-06-30) is not used.
